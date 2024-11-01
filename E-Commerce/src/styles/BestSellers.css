@@ -1,0 +1,191 @@
+.best-sellers-container {
+  margin: 0;
+  padding: 0;
+}
+
+.best-sellers-container .heading-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 40px auto;
+}
+
+.best-sellers-container .heading-content h2 {
+  color: #f6a261;
+  font-size: 28px;
+}
+
+.best-sellers-container .heading-content p {
+  color: #f6a261;
+  font-size: 16px;
+}
+
+.best-sellers-container .best-seller-card {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 40px auto 40px 80px;
+}
+
+.best-sellers-container .best-seller-card::-webkit-scrollbar {
+  display: none;
+}
+
+.best-seller-card .best-seller-product-card {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.best-seller-card .best-seller-product-card img {
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  border: 1px solid #f6a261;
+}
+
+.best-seller-card .best-seller-product-card .rating {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  gap: 4px;
+  background-color: #f6a261;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.best-seller-card .best-seller-product-card p {
+  font-size: 16px;
+  color: gray;
+  padding: 6px 0;
+}
+
+.best-seller-card .best-seller-product-card h4 {
+  font-size: 18px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  text-overflow: ellipsis;
+}
+
+.prod-card-bs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prod-card-bs p {
+  font-size: 16px;
+  color: #f6a261;
+  line-height: 22px;
+  font-family: 'League Spartan';
+}
+
+.prod-card-bs button {
+  border: 1px solid #f6a261;
+  border-radius: 4px;
+  color: hsl(26, 89%, 67%);
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.prod-card-bs button:hover {
+  transform: scale(1.1);
+  background-color: #f6a261;
+  color: #fff;
+}
+
+.bottom-border {
+  border: 1px solid #f6a261;
+  max-width: 1100px;
+  margin: auto;
+  margin: 50px auto;
+}
+
+@media (max-width: 768px) {
+  .best-sellers-container .heading-content {
+    display: flex;
+    align-items: center;
+    margin: 10px;  
+  }
+
+  .best-sellers-container .heading-cont h2 {
+    font-size: 24px;
+  }
+
+  .best-sellers-container .heading-cont p {
+    font-size: 14px; 
+  }
+
+  .best-sellers-container .best-seller-card {
+    margin: 10px auto 10px 10px;
+  }
+
+  .best-seller-card .best-seller-product-card {
+    flex: 0 0 auto; 
+    width: 130px;
+    gap: 10px;
+  }
+
+  .best-seller-card .best-seller-product-card h4 {
+    font-size: 16px;
+  }
+
+  .best-seller-card img {
+    height: 200px;
+    object-fit: cover; 
+    background-size: cover;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .best-sellers-container .heading-content {
+    display: flex;
+    align-items: center;
+    margin: 10px;  
+  }
+
+  .best-sellers-container .heading-cont h2 {
+    font-size: 18px;
+  }
+
+  .best-sellers-container .heading-cont p {
+    font-size: 10px; 
+  }
+
+  .best-sellers-container .best-seller-card {
+    margin: 10px auto 10px 10px;
+  }
+
+  .best-seller-card .best-seller-product-card {
+    flex: 0 0 auto; 
+    width: 130px;
+    gap: 10px;
+  }
+
+  .best-seller-card .best-seller-product-card h4 {
+    font-size: 16px;
+  }
+
+  .best-seller-card img {
+    height: 200px;
+    object-fit: cover; 
+    background-size: cover;
+  }
+}

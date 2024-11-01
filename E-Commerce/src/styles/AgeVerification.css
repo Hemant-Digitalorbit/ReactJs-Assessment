@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+}
+
+.ageVerificationCont{
+    background-color: rgb(247, 242, 194);
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+    text-align: center;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+
+.ageVerImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ageVerImg img {
+    width: 200px;
+    height: 150px;
+}
+
+.ageVerBox h2 {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.ageVerBox button {
+    width: 20%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ageVerBox button.yesBtn {
+    background-color: #EA3D32;
+    border: none;
+    border-radius: 4px;
+    margin: 20px 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.ageVerBox button.noBtn {
+    border: 1px solid #EA3D32;
+    border-radius: 4px;
+    margin: 20px 20px;
+    color: #EA3D32;
+    transition: transform 0.3s ease;
+}
+
+.ageVerBox button:hover {
+    transform: scale(1.1);
+}

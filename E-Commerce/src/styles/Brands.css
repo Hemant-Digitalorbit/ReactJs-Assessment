@@ -1,0 +1,128 @@
+.brands {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.brands .heading-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.brands .heading-cont h2 {
+    font-size: 28px;
+    color: #f6a261;
+}
+  
+.brands .heading-cont p {
+    font-size: 16px;
+    color: #f6a261;
+    text-decoration: underline;
+}
+
+.brands .brands-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+
+}
+
+.brands .brands-card .brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+
+.brands .brands-card .brand-card:hover{
+    transform: scale(1.1);
+}
+
+
+.brands .brands-card .brand-card img{
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    border: 1px solid #f6a261;
+}
+
+.brands .brands-card .brand-card h3 {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 10px 0;
+}
+
+
+@media (max-width: 770px) {
+
+    .brands {
+        margin: 10px;
+    }
+
+    .brands .heading-cont {
+        align-items: center;
+        text-align: center;
+    }
+
+    .brands .heading-cont h2 {
+        font-size: 24px;
+    }
+
+    .brands .heading-cont p {
+        font-size: 14px;
+    }
+
+    .brands .brands-card {
+        gap: 20px;
+    }
+
+    .brands .brands-card .brand-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brands .brands-card .brand-card h3 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .brands {
+        margin: 10px;
+    }
+
+    .brands .heading-cont {
+        align-items: center;
+    }
+
+    .brands .heading-cont h2 {
+        font-size: 18px;
+    }
+
+    .brands .heading-cont p {
+        font-size: 10px;
+    }
+
+    .brands .brands-card {
+        gap: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .brands .brands-card .brand-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brands .brands-card .brand-card h3 {
+        font-size: 8px;
+        padding: 0px 0;
+    }
+}   
