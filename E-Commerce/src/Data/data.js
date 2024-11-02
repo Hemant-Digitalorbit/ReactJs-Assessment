@@ -64,8 +64,9 @@ export let brands = [
     {
       "id": 8,
       "image" : "https://cdn.icon-icons.com/icons2/2845/PNG/512/puma_logo_icon_181343.png",
-      "name": "puma"
+      "name": "Puma"
     }
+    
 ];
 
 export let categories = [
