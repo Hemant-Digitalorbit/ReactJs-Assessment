@@ -17,7 +17,7 @@ const BestSellers = ({products, orders, heading }) => {
       <div className="best-sellers-container">
         <div className='heading-content'>
           <h2>{heading}</h2>
-          <Link><p>View All</p></Link>
+          <Link to={`/products`} className='view-all'>View All</Link>
         </div>  
         <div className="best-seller-card">
             {
