@@ -19,7 +19,7 @@ const PopularProducts = ({products, reviews, heading}) => {
       <div className="popular-products">
         <div className='heading-content'>
           <h2>{heading}</h2>
-          <Link><p>View All</p></Link>
+          <Link to={`/product`} className='view-all'>View All</Link>
         </div>
         
         <div className='popular-products-card'>
