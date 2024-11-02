@@ -28,28 +28,43 @@ export let customer = [
 export let brands = [
     {
       "id": 1,
-      "image" : "https://s3-alpha-sig.figma.com/img/113d/1aef/6049b9c5bcbed5152c0490634b42e8d6?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=H6g~PhvEYW-qCpwxQxgWDaEmpTCN1FQrJAhLmEyR8o~o2acDoT1XtzFK0bUQ-kIv-YrJztpjnEc1jXyqPanD4gRscBPU8Q2l8KD3jMthJtam7S3-~fpsOrOGng-3AytFR1wWjdAoUDE5VqwU0M-ICbEnr0ILUmMCo8Kes9S1o1tTxL2uDUZTiKDW2RoHXfjgBd-X3rJOEeiq8tntIQYK7J8ygGvS~o9Lkq2Q0F9i8ySKD8FwiicQGGgTiLtgUJ0DRNI4~cttJawt4NbCGZs0VMqmIsNs~T9wOGPvQd-A-~rugyCBI3O94pKplRKF0J3yD~ch8vSA007KGI-HeViXGA__",
-      "name": "Empower"
+      "image" : "https://loodibee.com/wp-content/uploads/Nike-Logo.png",
+      "name": "Nike"
     },
     {
       "id": 2,
-      "image" : "https://s3-alpha-sig.figma.com/img/e3ac/a4f1/df38a25e3446347695e3dda9296ff13b?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DAeFtWDxpH3TVviYmkOo5Y9Sn~Nzvzzq~Oxs076u8d6fX9MiW2iBEwZ7XrYhzKZ2P421YmENdliaS134K91YkMJrF7uChvjSf1JG3YMFPr-rXezdrqimTlhmqHNv579F1Ar6Vyx8L3xszD30O8CDWOr7XZkrLwxKWZQu2q-WOC11SyPNBUVSghFtqVJRECuECRJf-T24IoAZLmdJYQRoUSM~8Xphmvk3pHRfdd8TIikDGhq2wQH3FhfxuAYP5meKyxUZ8a2ZLbwjwa7wzhIZ8kxh3TfUyFzNB2fWCAZ77k~f6Zan8ynpdV05zl~ICI1qkdAmVtFaj-27XgoPbxLyBA__ ",
-      "name": "Life Omic"
+      "image" : "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.jpg",
+      "name": "Apple"
     },
     {
       "id": 3,
-      "image" : "https://s3-alpha-sig.figma.com/img/7bfa/391a/bdca0601a163f25dfa827121ae23ec9d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cCE8RDVpR3g9TdrJfCemiKpqtgqGNlTa3WnNfMtDW~l0RzjOWxSZpezsmIiXJ6IHmitK4zZr7NxpK5DUWrwQznwIPeHAvUFtcGrUc2p-jQPPzWIhqgCM3h8~ZJF1bEEE62yyO0~Fz7yIwi7ScFAiJqOCeO0CmSK2jLxaWNYFa5xwrEacFj1uIYCMA4ir5HGqaYPBWjZNhEjZX0reqsexC8gVfHKnoFW7p8E18ekhek8e~Ix~7MyxO5jX8mC~cPPTA5fEHZORUQT32cfiipwQip2hsAEO5CHQn4IZ~XItbX0LM83Kwqy4D6Hx6aIchlMtUc-3GiX5XoQpPJRO4VMJJw__",
-      "name": "Medico"
+      "image" : "https://www.fiware.org/wp-content/directories/research-development/images/greenmov.png",
+      "name": "GreenMow"
     },
     {
       "id": 4,
-      "image" : "https://s3-alpha-sig.figma.com/img/7bb9/3df9/c3c70a690272ed7cb066e2574eef9a03?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=k~xARyQeCz6b4evfXijGRV4H4~Ycs1Rz0Z4s1dZwapZYxp2Tp81SR8Q8HH3BAosacT5SSHxP0J4jnUqnTjaC~JE34Ezpbi5dMq27FYRTVavNsAGOWhXJISbbvNw8D9ILwR1vx5I7v05Majjem1UHyUmjTGMbF-K2EOfwZUutJ3ipCQrpxJAAOH4qTNgg-Yggv~H12yYvLprkWh~vcV2uaytQXtbbOm350YkCepEoNaAw3chMymicJLlpKknHW8SL1WhvuR3awY50h1oD6PsiexcdiYj3dG0uxAdIUR69Q7UkqhUlMSQauA~LTXPFj7AWirDFVa5zPVkFgbD8bIhVbw__",
-      "name": "Medical Comp"
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpEgzxJ7QpT-A3Jz-4932zSbp6QHFSrSQNvw&s",
+      "name": "Xiaomi"
     },
     {
       "id": 5,
-      "image" : "https://s3-alpha-sig.figma.com/img/7bb9/3df9/c3c70a690272ed7cb066e2574eef9a03?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=k~xARyQeCz6b4evfXijGRV4H4~Ycs1Rz0Z4s1dZwapZYxp2Tp81SR8Q8HH3BAosacT5SSHxP0J4jnUqnTjaC~JE34Ezpbi5dMq27FYRTVavNsAGOWhXJISbbvNw8D9ILwR1vx5I7v05Majjem1UHyUmjTGMbF-K2EOfwZUutJ3ipCQrpxJAAOH4qTNgg-Yggv~H12yYvLprkWh~vcV2uaytQXtbbOm350YkCepEoNaAw3chMymicJLlpKknHW8SL1WhvuR3awY50h1oD6PsiexcdiYj3dG0uxAdIUR69Q7UkqhUlMSQauA~LTXPFj7AWirDFVa5zPVkFgbD8bIhVbw__",
-      "name": "Medical Comp"
+      "image" : "https://loodibee.com/wp-content/uploads/Reebok-Logo-black-white.png",
+      "name": "Reebok"
+    },
+    {
+      "id": 6,
+      "image" : "https://www.hatchwise.com/wp-content/uploads/2022/10/image-9.png",
+      "name": "Samsung"
+    },
+    {
+      "id": 7,
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg",
+      "name": "Adidas"
+    },
+    {
+      "id": 8,
+      "image" : "https://cdn.icon-icons.com/icons2/2845/PNG/512/puma_logo_icon_181343.png",
+      "name": "puma"
     }
 ];
 
@@ -222,7 +237,7 @@ export let products = [
   {
     id: 1,
     category_id: 1,
-    brand: "I-Phone 13",
+    brand: "Apple",
     name: "Smartphone X",
     description: "A high-end smartphone with cutting-edge features.",
     image: ["https://img.freepik.com/free-vector/realistic-display-smartphone-with-different-apps_52683-30241.jpg"],
@@ -258,7 +273,7 @@ export let products = [
   {
     id: 4,
     category_id: 1,
-    brand: "I-Phone 13",
+    brand: "Apple",
     name: "Smartphone Pro",
     description: "The ultimate smartphone for tech enthusiasts.",
     image: ["https://img.freepik.com/free-vector/realistic-display-smartphone-with-different-apps_52683-30241.jpg"],

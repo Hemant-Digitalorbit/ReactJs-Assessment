@@ -17,9 +17,10 @@
   font-size: 28px;
 }
 
-.best-sellers-container .heading-content p {
+.best-sellers-container .heading-content .view-all {
   color: #f6a261;
   font-size: 16px;
+  text-decoration: underline;
 }
 
 .best-sellers-container .best-seller-card {
