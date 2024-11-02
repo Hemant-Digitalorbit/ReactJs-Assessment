@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from "./Pages/HomePage";
 import AgeVerification from "./Pages/AgeVerificationPage";
 import { Toaster } from "react-hot-toast";
+import FilterPage from "./components/FilterPage";
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
@@ -23,7 +24,9 @@ function App() {
 
         <Route path="/" element={ <ProtectedRoute> <HomePage /> </ProtectedRoute> } />
 
-      </Routes>
+        <Route path="/products/:brandId" element={ <FilterPage /> } />
+        
+      </Routes> 
       
     </Router>
   );
