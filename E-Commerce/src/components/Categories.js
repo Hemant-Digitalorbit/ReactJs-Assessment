@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Categories.css'
+import {Link} from 'react-router-dom'
 
 const Categories = ({categories, heading}) => {
 
@@ -9,10 +10,10 @@ const Categories = ({categories, heading}) => {
         <h2>{heading}</h2>
         <div className="category-item">
           {categories.map((category) => (
-              <div className='cat-card' key={category.id}>
+              <Link to={`products/${category.title}`} className='cat-card' key={category.id}>
                 <img src={category.image} alt={category.title} />
                 <h4>{category.title}</h4>
-              </div>
+              </Link>
           ))}
         </div>
       </div>

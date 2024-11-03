@@ -1,10 +1,12 @@
 import React from 'react';
 import '../styles/BestSellers.css'
 import { FaStar,FaHeart,FaShoppingCart } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const BestSellers = ({products, orders, heading }) => {
+
+  const navigate = useNavigate()
 
   const bestSellers = products.map((product) => {
     const productOrd = orders.filter(order => order.product_id === product.id)
@@ -12,12 +14,16 @@ const BestSellers = ({products, orders, heading }) => {
     return { ...product, orderCount };
   }).sort((a, b) => b.orderCount - a.orderCount)
 
+  const handleViewAll = () => {
+    navigate(`/products/${heading}`, {state: {bestSellers}})
+  }
+
   return (
     <>  
       <div className="best-sellers-container">
         <div className='heading-content'>
           <h2>{heading}</h2>
-          <Link to={`/products`} className='view-all'>View All</Link>
+          <button onClick={handleViewAll} className='view-all'>View All</button>
         </div>  
         <div className="best-seller-card">
             {

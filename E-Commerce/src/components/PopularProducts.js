@@ -1,11 +1,12 @@
 import React from 'react';
 import '../styles/PopularProducts.css'
 import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const PopularProducts = ({products, reviews, heading}) => {
 
+  const navigate = useNavigate()
 
   const popularProducts = products.map((product) => {
     const ratings = reviews.filter((review) => review.product_id === (product.id));
@@ -13,13 +14,16 @@ const PopularProducts = ({products, reviews, heading}) => {
     return { ...product, avgRating };
   });
 
+  const handleViewAll = () => {
+    navigate(`/products/${heading}`, { state: {popularProducts}})
+  }
 
   return (
     <>
       <div className="popular-products">
         <div className='heading-content'>
           <h2>{heading}</h2>
-          <Link to={`/product`} className='view-all'>View All</Link>
+          <button onClick={handleViewAll} className='view-all'>View All</button>
         </div>
         
         <div className='popular-products-card'>

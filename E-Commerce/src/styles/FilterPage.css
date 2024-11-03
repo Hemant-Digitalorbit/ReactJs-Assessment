@@ -1,0 +1,341 @@
+
+.filter-page {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.filter-page h2 {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Quicksand';
+    padding: 40px 0;
+}
+
+.filter-page .filter-container {
+    border-bottom: 1px solid #f6a261;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Sorting Styling */
+.filter-page .sorting-section {
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+
+.filter-page .sorting-section p {
+    color: #000000B5;
+    font-family: 'Quicksand';
+    font-weight: 500;
+}
+
+
+.filter-page .sorting-section button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #3B3B3BAB;
+    background-color: #fff;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Quicksand';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+}
+
+.filter-page .sorting-section button span {
+    display: flex;
+    flex-direction: column;
+    color: #D9D9D9;
+}
+
+.filter-page .sorting-section button span > * {
+    margin: -3px 0;
+}
+
+.filter-page .sorting-section .clear-sec {
+    display: flex;
+    align-items: center;
+    color: #EA3D32;
+    background-color: #EA3D3263;
+    border: 1px solid #EA3D32;
+    cursor: pointer;
+}
+
+.filter-page .sorting-section .clear-sec .active {
+    background-color: #007bff;
+}
+
+/* while Performing Functionality */
+.filter-page .sorting-section .sort-button {
+    cursor: pointer;
+    align-items: center;
+    gap: 5px;
+    color: #3B3B3BAB;
+    transition: color 0.3s;
+}
+ 
+.sort-button span p {
+    display: flex;
+    transition: color 0.3s;
+}
+  
+
+.filter-page .sorting-section .filter-line{
+    border: 2px solid #0000002B;
+    padding: 14px 0;
+    border-radius: 8px;
+}
+
+.filter-page .filter-section p{
+    display: flex;
+    align-items: center;
+    color: #000000B5;
+    font-family: 'Quicksand';
+    font-weight: 500;
+    line-height: 25px;
+    gap: 4px;
+}
+
+/* Start bosth filter and product section */
+.filter-page .filter-main-section {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    margin-bottom: 100px;
+}
+
+/* Filter Section Styling */
+.filter-main-section .filter-aside {
+    width: 20%;
+    height: 200px;
+    height: auto;
+    border: 1px solid #f6a261;
+    border-top: none;
+    border-left: none;
+    padding-right: 20px;
+    padding-top: 20px;
+    margin-bottom: 0px;
+}
+
+
+.filter-main-section .filter-aside h3 {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-aside button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3B3B3BAB;
+    padding: 14px 0;
+}
+
+.filter-aside input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.filter-aside label {
+    cursor: pointer;
+}
+
+.filter-aside div {
+    margin-bottom: 5px;
+}
+
+.filter-aside .IoIosArrowDown {
+  width: 20px;
+  height: 20px;
+  color: #7C7C7C;
+  display: flex;
+}
+
+.DisclosurePanel .filter-button {
+    background-color: #f0f0f0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: border 0.3s;
+    padding: 6px 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.DisclosurePanel .button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+}
+
+.button-grid label {
+    margin: auto;
+}
+
+.DisclosurePanel .filter-button .selected {
+    border: 1px solid #007bff;
+    background-color: #e0f7ff;
+    color: #000;
+}
+
+.DisclosureButton[aria-expanded="true"] .IoIosArrowDown {
+    display: none;
+}
+  
+.DisclosureButton[aria-expanded="true"] .IoIosArrowDown {
+    display: inline;
+    transform: rotate(180deg);
+}
+
+/* Product section Styling */
+.filter-main-section .filter-page-card {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 40px 0px 0px 40px;
+}
+
+    
+.filter-page-card .filter-prod-card {
+    width: 200px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+  
+.filter-page-card .filter-prod-card img {
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    border: 1px solid #f6a261;
+}
+  
+.filter-page-card .filter-prod-card .rating {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: flex;
+    gap: 4px;
+    background-color: #f6a261;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+}
+  
+.filter-page-card .filter-prod-card p {
+    font-size: 16px;
+    color: gray;
+    padding: 6px 0;
+}
+  
+.filter-page-card .filter-prod-card h4 {
+    font-size: 18px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
+}
+  
+.prod-card-ft {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.prod-card-ft p {
+    font-size: 16px;
+    color: #f6a261;
+    line-height: 22px;
+    font-family: 'League Spartan';
+}
+  
+.prod-card-ft button {
+    border: 1px solid #f6a261;
+    border-radius: 4px;
+    color: hsl(26, 89%, 67%);
+    background-color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+  
+.prod-card-ft button:hover {
+    transform: scale(1.1);
+    background-color: #f6a261;
+    color: #fff;
+}
+  
+.bottom-border {
+    border: 1px solid #f6a261;
+    max-width: 1100px;
+    margin: auto;
+    margin: 50px auto;
+}
+
+  
+
+@media (max-width: 768px) {
+    .filter-main-section {
+        flex-direction: column;
+    }
+
+    .filter-main-section .filter-aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .filter-main-section .filter-page-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    .filter-page h2 {
+        font-size: 20px;
+    }
+
+    .filter-page .sorting-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-page .sorting-section button {
+        width: 100%; 
+    }
+
+    .filter-main-section .filter-aside h3 {
+        font-size: 14px; 
+    }
+
+    .filter-main-section .filter-aside button {
+        font-size: 14px; 
+    }
+}

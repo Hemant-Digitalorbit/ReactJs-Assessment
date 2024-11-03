@@ -3,6 +3,7 @@ import '../styles/Brands.css'
 import {Link} from "react-router-dom"
 
 const Brands = ({brands, heading}) => {
+  
 
   return (
     <>
