@@ -7,7 +7,7 @@ import FilterPage from "./components/FilterPage";
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
-
+  
   const ProtectedRoute = ({ children }) => {
     return isAgeVerified ? children : <Navigate to="/age-verification" />;
   };
