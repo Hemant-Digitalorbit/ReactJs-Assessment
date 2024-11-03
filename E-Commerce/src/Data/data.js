@@ -25,7 +25,7 @@ export let customer = [
     }
 ];
 
-export let brands = [
+export let brands = [ 
     {
       "id": 1,
       "image" : "https://loodibee.com/wp-content/uploads/Nike-Logo.png",
@@ -65,6 +65,16 @@ export let brands = [
       "id": 8,
       "image" : "https://cdn.icon-icons.com/icons2/2845/PNG/512/puma_logo_icon_181343.png",
       "name": "Puma"
+    },
+    {
+      "id": 9,
+      "image" : "https://marketplace.canva.com/EAGFJn_CyD4/1/0/1600w/canva-green-and-white-modern-medical-logo--HXaczhPPfU.jpg",
+      "name": "Medico"
+    },
+    {
+      "id": 10,
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDx8vy_fL2kTnISGQX94YuQlA5SZfEfgwD9g&s",
+      "name": "Empower"
     }
     
 ];
@@ -237,7 +247,7 @@ export let orders = [
 export let products = [
   {
     id: 1,
-    category_id: 1,
+    category: 'Accessories',
     brand: "Apple",
     name: "Smartphone X",
     description: "A high-end smartphone with cutting-edge features.",
@@ -245,11 +255,12 @@ export let products = [
     price: 799.99,
     publish: true,
     quantity: 150,
-    ratings: 4.5
+    ratings: 4.5,
+    dateAdded: '2023-02-20'
   },
   {
     id: 2,
-    category_id: 2,
+    category: 'Fashion',
     brand: "Nike",
     name: "Designer Jacket",
     description: "Stylish and comfortable jacket for all seasons.",
@@ -257,11 +268,12 @@ export let products = [
     price: 120.50,
     publish: true,
     quantity: 200,
-    ratings: 3.5
+    ratings: 3.5,
+    dateAdded: '2023-03-15'
   },
   {
     id: 3,
-    category_id: 3,
+    category: 'House and Garden',
     brand: "GreenMow",
     name: "Eco-Friendly Lawn Mower",
     description: "A compact and efficient lawn mower.",
@@ -269,11 +281,12 @@ export let products = [
     price: 199.99,
     publish: false,
     quantity: 50,
-    ratings: 3.8
+    ratings: 3.8,
+    dateAdded: '2023-04-10'
   },
   {
     id: 4,
-    category_id: 1,
+    category: 'Accesspries',
     brand: "Apple",
     name: "Smartphone Pro",
     description: "The ultimate smartphone for tech enthusiasts.",
@@ -281,11 +294,12 @@ export let products = [
     price: 999.99,
     publish: true,
     quantity: 100,
-    ratings: 4.7
+    ratings: 4.7,
+    dateAdded: '2023-05-15'
   },
   {
     id: 5,
-    category_id: 2,
+    category: 'Fashion',
     brand: "Nike",
     name: "Sports Jacket",
     description: "Perfect for workouts and casual outings.",
@@ -293,11 +307,12 @@ export let products = [
     price: 89.99,
     publish: true,
     quantity: 250,
-    ratings: 4.0
+    ratings: 4.0,
+    dateAdded: '2023-06-20'
   },
   {
     id: 6,
-    category_id: 3,
+    category: 'House and Garden',
     brand: "GreenMow",
     name: "Lawn Mower 3000",
     description: "Powerful and efficient lawn mower.",
@@ -305,11 +320,12 @@ export let products = [
     price: 249.99,
     publish: false,
     quantity: 30,
-    ratings: 4.5
+    ratings: 4.5,
+    dateAdded: '2023-07-25'
   },
   {
     id: 7,
-    category_id: 1,
+    category: 'Computers',
     brand: "Samsung",
     name: "Galaxy S21",
     description: "A smartphone with impressive camera features.",
@@ -317,11 +333,12 @@ export let products = [
     price: 799.99,
     publish: true,
     quantity: 120,
-    ratings: 4.6
+    ratings: 4.6,
+    dateAdded: '2023-08-15'
   },
   {
     id: 8,
-    category_id: 2,
+    category: 'Fashion',
     brand: "Adidas",
     name: "Winter Jacket",
     description: "Keep warm in style this winter.",
@@ -329,11 +346,12 @@ export let products = [
     price: 150.00,
     publish: true,
     quantity: 180,
-    ratings: 4.4
+    ratings: 4.4,
+    dateAdded: '2023-09-05'
   },
   {
     id: 9,
-    category_id: 3,
+    category: 'House and Garden',
     brand: "EcoMow",
     name: "Cordless Lawn Mower",
     description: "No cords, no limits – perfect for small yards.",
@@ -341,11 +359,12 @@ export let products = [
     price: 219.99,
     publish: true,
     quantity: 40,
-    ratings: 4.3
+    ratings: 4.3,
+    dateAdded: '2023-10-15'
   },
   {
     id: 10,
-    category_id: 1,
+    category: 'Computers',
     brand: "OnePlus",
     name: "OnePlus 9",
     description: "Flagship performance at an affordable price.",
@@ -353,11 +372,12 @@ export let products = [
     price: 699.99,
     publish: true,
     quantity: 130,
-    ratings: 4.2
+    ratings: 4.2,
+    dateAdded: '2023-11-01'
   },
   {
     id: 11,
-    category_id: 2,
+    category: 'Fashion',
     brand: "Puma",
     name: "Lightweight Jacket",
     description: "Perfect for running and outdoor activities.",
@@ -365,11 +385,12 @@ export let products = [
     price: 99.99,
     publish: true,
     quantity: 220,
-    ratings: 4.5
+    ratings: 4.5,
+    dateAdded: '2023-11-05'
   },
   {
     id: 12,
-    category_id: 3,
+    category: 'House and Garden',
     brand: "GreenMow",
     name: "Electric Lawn Mower",
     description: "An eco-friendly option for maintaining your lawn.",
@@ -377,11 +398,12 @@ export let products = [
     price: 249.99,
     publish: false,
     quantity: 25,
-    ratings: 4.0
+    ratings: 4.0,
+    dateAdded: '2023-11-10'
   },
   {
     id: 13,
-    category_id: 1,
+    category: 'Electronics',
     brand: "Google",
     name: "Pixel 6",
     description: "An incredible camera experience in a smartphone.",
@@ -389,23 +411,25 @@ export let products = [
     price: 699.99,
     publish: true,
     quantity: 110,
-    ratings: 4.6
+    ratings: 4.6,
+    dateAdded: '2023-11-15'
   },
   {
     id: 14,
-    category_id: 2,
-    brand: "North Face",
+    category: 'Fashion',
+    brand: "Nike",
     name: "Outdoor Jacket",
     description: "Durable and versatile for all your adventures.",
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 160.00,
     publish: true,
     quantity: 90,
-    ratings: 4.3
+    ratings: 4.3,
+    dateAdded: '2023-11-20'
   },
   {
     id: 15,
-    category_id: 3,
+    category: 'Electronics',
     brand: "Landscaper Pro",
     name: "Heavy Duty Lawn Mower",
     description: "For the serious gardener looking for power.",
@@ -413,11 +437,12 @@ export let products = [
     price: 349.99,
     publish: true,
     quantity: 15,
-    ratings: 4.7
+    ratings: 4.7,
+    dateAdded: '2023-11-25'
   },
   {
     id: 16,
-    category_id: 1,
+    category: 'Electronics',
     brand: "Xiaomi",
     name: "Redmi Note 10",
     description: "Affordable smartphone with great features.",
@@ -425,11 +450,12 @@ export let products = [
     price: 199.99,
     publish: true,
     quantity: 300,
-    ratings: 4.4
+    ratings: 4.4,
+    dateAdded: '2023-12-01'
   },
   {
     id: 17,
-    category_id: 2,
+    category: 'Fashion',
     brand: "Columbia",
     name: "Waterproof Jacket",
     description: "Stay dry and stylish with this waterproof jacket.",
@@ -437,11 +463,12 @@ export let products = [
     price: 140.00,
     publish: true,
     quantity: 160,
-    ratings: 4.6
+    ratings: 4.6,
+    dateAdded: '2023-12-05'
   },
   {
     id: 18,
-    category_id: 3,
+    category: 'Toys & Games',
     brand: "MowMaster",
     name: "Smart Lawn Mower",
     description: "Connect to your smartphone and control your lawn.",
@@ -449,11 +476,12 @@ export let products = [
     price: 499.99,
     publish: true,
     quantity: 10,
-    ratings: 4.8
+    ratings: 4.8,
+    dateAdded: '2023-12-10'
   },
   {
     id: 19,
-    category_id: 1,
+    category: 'Computers',
     brand: "Sony",
     name: "Xperia 5 II",
     description: "The smartphone designed for entertainment.",
@@ -461,11 +489,12 @@ export let products = [
     price: 899.99,
     publish: true,
     quantity: 80,
-    ratings: 4.5
+    ratings: 4.5,
+    dateAdded: '2023-12-15'
   },
   {
     id: 20,
-    category_id: 2,
+    category: 'Footwear',
     brand: "Reebok",
     name: "Athletic Jacket",
     description: "Lightweight and breathable for workouts.",
@@ -473,7 +502,302 @@ export let products = [
     price: 75.00,
     publish: true,
     quantity: 300,
-    ratings: 4.2
+    ratings: 4.2,
+    dateAdded: '2023-12-20'
+  },
+  {
+    id: 21,
+    name: "Medico Health Supplement",
+    brand: "Medico",
+    category: "Health",
+    price: 25.99,
+    ratings: 4.5,
+    weight: "500mg",
+    dateAdded: "2024-10-01",
+    image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
+    quantity: 100,
+    publish: true,
+    description: "A comprehensive health supplement packed with essential vitamins and minerals to support overall well-being."
+  },
+  {
+    id: 22,
+    name: "Empower Protein Shake",
+    brand: "Empower",
+    category: "Nutrition",
+    price: 15.99,
+    ratings: 4.0,
+    weight: "100ml",
+    dateAdded: "2024-09-15",
+    image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
+    quantity: 150,
+    publish: true,
+    description: "A convenient protein shake for muscle recovery and energy replenishment, perfect for active lifestyles."
+  },
+  {
+    id: 23,
+    name: "Medico Herbal Tea",
+    brand: "Medico",
+    category: "Beverages",
+    price: 10.50,
+    ratings: 4.3,
+    weight: "100gm",
+    dateAdded: "2024-08-10",
+    image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
+    quantity: 200,
+    publish: true,
+    description: "A soothing blend of herbs designed to promote relaxation and support digestive health."
+  },
+  {
+    id: 24,
+    name: "Empower Vitamin Capsules",
+    brand: "Empower",
+    category: "Supplements",
+    price: 30.00,
+    ratings: 4.7,
+    weight: "60ml",
+    dateAdded: "2024-07-20",
+    image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
+    quantity: 80,
+    publish: true,
+    description: "High-potency vitamin capsules designed to boost immunity and improve overall health."
+  },
+  {
+    id: 25,
+    name: "Medico Skin Cream",
+    brand: "Medico",
+    category: "Skincare",
+    price: 18.75,
+    ratings: 4.6,
+    weight: "50 TB",
+    dateAdded: "2024-06-18",
+    image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
+    quantity: 120,
+    publish: true,
+    description: "A hydrating skin cream enriched with natural extracts to moisturize and rejuvenate your skin."
+  },
+  {
+    id: 26,
+    name: "Empower Energy Bar",
+    brand: "Empower",
+    category: "Snacks",
+    price: 2.99,
+    ratings: 4.1,
+    weight: "45 TB",
+    dateAdded: "2024-05-12",
+    image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
+    quantity: 300,
+    publish: true,
+    description: "A nutritious energy bar packed with protein and essential nutrients for a quick energy boost."
+  },
+  {
+    id: 27,
+    name: "Medico Multivitamin Pack",
+    brand: "Medico",
+    category: "Health",
+    price: 22.50,
+    ratings: 4.4,
+    weight: "30 TB",
+    dateAdded: "2024-04-30",
+    image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
+    quantity: 90,
+    publish: true,
+    description: "A daily multivitamin pack providing a balanced dose of essential vitamins and minerals for optimal health."
+  },
+  {
+    id: 28,
+    name: "Empower Hydration Drink",
+    brand: "Empower",
+    category: "Beverages",
+    price: 3.50,
+    ratings: 4.2,
+    weight: "50ml",
+    dateAdded: "2024-04-15",
+    image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
+    quantity: 250,
+    publish: true,
+    description: "A refreshing drink designed to rehydrate and replenish electrolytes after workouts or long days."
+  },
+  {
+    id: 29,
+    name: "Medico Antioxidant Capsules",
+    brand: "Medico",
+    category: "Supplements",
+    price: 19.99,
+    ratings: 4.5,
+    weight: "60ml",
+    dateAdded: "2024-03-22",
+    image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
+    quantity: 110,
+    publish: true,
+    description: "Capsules enriched with antioxidants to help fight free radicals and support a healthy immune system."
+  },
+  {
+    id: 30,
+    name: "Empower Herbal Powder",
+    brand: "Empower",
+    category: "Herbs",
+    price: 12.99,
+    ratings: 4.3,
+    weight: "200gm",
+    dateAdded: "2024-02-19",
+    image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
+    quantity: 130,
+    publish: true,
+    description: "A natural herbal powder blend that can be added to smoothies or teas for a health boost."
+  },
+  {
+    id: 31,
+    name: "Medico Protein Powder",
+    brand: "Medico",
+    category: "Nutrition",
+    price: 35.00,
+    ratings: 4.6,
+    weight: "1kg",
+    dateAdded: "2024-01-10",
+    image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
+    quantity: 75,
+    publish: true,
+    description: "A premium protein powder formulated to support muscle growth and enhance workout recovery."
+  },
+  {
+    id: 32,
+    name: "Empower Fiber Supplement",
+    brand: "Empower",
+    category: "Supplements",
+    price: 16.50,
+    ratings: 4.0,
+    weight: "300gm",
+    dateAdded: "2023-12-25",
+    image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
+    quantity: 150,
+    publish: true,
+    description: "A dietary fiber supplement to promote healthy digestion and maintain a balanced diet."
+  },
+  {
+    id: 33,
+    name: "Medico Detox Tea",
+    brand: "Medico",
+    category: "Beverages",
+    price: 9.99,
+    ratings: 4.4,
+    weight: "50gm",
+    dateAdded: "2023-11-18",
+    image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
+    quantity: 130,
+    publish: true,
+    description: "A detoxifying tea blend that helps cleanse the body and supports natural energy."
+  },
+  {
+    id: 34,
+    name: "Empower Herbal Tea Mix",
+    brand: "Empower",
+    category: "Beverages",
+    price: 11.50,
+    ratings: 4.2,
+    weight: "100gm",
+    dateAdded: "2023-10-15",
+    image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
+    quantity: 90,
+    publish: true,
+    description: "A calming herbal tea mix crafted to promote relaxation and reduce stress."
+  },
+  {
+    id: 35,
+    name: "Medico Eye Care Capsules",
+    brand: "Medico",
+    category: "Health",
+    price: 21.99,
+    ratings: 4.5,
+    weight: "60ml",
+    dateAdded: "2023-09-10",
+    image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
+    quantity: 100,
+    publish: true,
+    description: "Capsules formulated to support eye health and help reduce the effects of eye strain."
+  },
+  {
+    id: 36,
+    name: "Empower Energy Drink Mix",
+    brand: "Empower",
+    category: "Nutrition",
+    price: 5.99,
+    ratings: 4.3,
+    weight: "100gm",
+    dateAdded: "2023-08-05",
+    image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
+    quantity: 200,
+    publish: true,
+    description: "An energy drink mix that provides a quick boost of energy and essential electrolytes."
+  },
+  {
+    id: 37,
+    name: "Medico Herbal Capsules",
+    brand: "Medico",
+    category: "Supplements",
+    price: 18.50,
+    ratings: 4.7,
+    weight: "50 TB",
+    dateAdded: "2023-07-22",
+    image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
+    quantity: 120,
+    publish: true,
+    description: "Herbal capsules with a blend of natural ingredients to enhance vitality and overall wellness."
+  },
+  {
+    id: 38,
+    name: "Empower Meal Replacement Bar",
+    brand: "Empower",
+    category: "Snacks",
+    price: 3.25,
+    ratings: 4.0,
+    weight: "50gm",
+    dateAdded: "2023-06-15",
+    image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
+    quantity: 300,
+    publish: true,
+    description: "A meal replacement bar loaded with balanced nutrients for on-the-go nourishment."
+  },
+  {
+    id: 39,
+    name: "Medico Joint Health Supplement",
+    brand: "Medico",
+    category: "Health",
+    price: 24.99,
+    ratings: 4.4,
+    weight: "30 TB",
+    dateAdded: "2023-05-10",
+    image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
+    quantity: 95,
+    publish: true,
+    description: "A supplement designed to support joint health and mobility with key nutrients."
+  },
+  {
+    id: 40,
+    name: "Empower Immune Support Pack",
+    brand: "Empower",
+    category: "Health",
+    price: 28.00,
+    ratings: 4.5,
+    weight: "60ml",
+    dateAdded: "2023-04-01",
+    image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
+    quantity: 85,
+    publish: true,
+    description: "An immune support pack that helps fortify the body’s natural defenses with essential vitamins."
+  },
+  {
+    id: 41,
+    name: "Medico Hair Growth Capsules",
+    brand: "Medico",
+    category: "Health",
+    price: 19.49,
+    ratings: 4.3,
+    weight: "30ml",
+    dateAdded: "2023-03-18",
+    image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
+    quantity: 150,
+    publish: true,
+    description: "Capsules aimed at nourishing hair follicles and promoting healthy hair growth."
   }
 ];
 

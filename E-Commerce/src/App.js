@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from "./Pages/HomePage";
 import AgeVerification from "./Pages/AgeVerificationPage";
 import { Toaster } from "react-hot-toast";
-import FilterPage from "./components/FilterPage";
+import FilterPage from "./components/FilterPage/FilterPage";
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);

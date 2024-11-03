@@ -47,6 +47,11 @@
   padding-bottom: 20px;
   transition: transform 0.3s ease;
   position: relative;
+  margin: 20px 10px;
+}
+
+.best-seller-card .best-seller-product-card:hover{
+  transform: scale(1.1);
 }
 
 .best-seller-card .best-seller-product-card img {
@@ -72,6 +77,9 @@
   font-size: 16px;
   color: gray;
   padding: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .best-seller-card .best-seller-product-card h4 {

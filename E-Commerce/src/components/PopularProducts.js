@@ -33,7 +33,7 @@ const PopularProducts = ({products, reviews, heading}) => {
                 <div key={product.id} className='popular-prod-card'>
                   <img src={product.image} />
                   <h6 className='rating'><FaStar/>{product.avgRating}</h6>
-                  <p>{product.brand}</p>
+                  <p>{product.brand}<span>{product.weight}</span></p>
                   <h4>{product.name}</h4>
                   <div className='prod-card-pr'>
                     <p>$ {product.price}</p>

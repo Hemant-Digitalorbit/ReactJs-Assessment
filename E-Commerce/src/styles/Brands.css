@@ -31,7 +31,7 @@
     padding: 10px;
 }
 
-.brand-card::-webkit-scrollbar {
+.brands .brands-card::-webkit-scrollbar {
     display: none;
 }
 

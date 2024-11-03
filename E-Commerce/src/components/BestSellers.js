@@ -31,7 +31,7 @@ const BestSellers = ({products, orders, heading }) => {
                   <div key={product.id} className='best-seller-product-card'>
                     <img src={product.image} />
                     <h6 className='rating'> <FaStar/> {product.ratings}</h6>
-                    <p>{product.brand}</p>
+                    <p>{product.brand}<span>{product.weight}</span></p>
                     <h4>{product.name}</h4>
                     <div className='prod-card-bs'>
                       <p>${product.price}</p>
