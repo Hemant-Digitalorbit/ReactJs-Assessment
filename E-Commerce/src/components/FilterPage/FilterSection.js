@@ -31,8 +31,8 @@ const FilterSection = ({props}) => {
                                 {
                                     filter.options.map((option) => (
                                     <button key={option.value} id={`filter-${filter.id}-${option.value}`} 
-                                        className={`filter-button ${selectedFilters[filter.id] === option.value ? 'active' : ''}`} 
-                                        style={{border: selectedFilters[filter.id] === option.value ? '1px solid black' : ''}}
+                                        className={`filter-button ${selectedFilters[filter.id]?.includes(option.value) ? 'active' : ''}`} 
+                                        style={{border: selectedFilters[filter.id]?.includes(option.value) ? '1px solid black' : ''}}
                                         onClick={() => handleFilterSelect(filter.id, option.value)}>
                                         <label>{option.label}</label>
                                     </button>

@@ -7,42 +7,16 @@ import BestSellers from "../components/BestSellers";
 import Categories from "../components/Categories";
 import PopularProducts from "../components/PopularProducts";
 import Brands from "../components/Brands";
-import { categories, customer, products, orders, reviews, brands } from "../Data/data.js";
+import { categories, products, orders, reviews, brands } from "../Data/data.js";
 import Footer from "../components/Footer.js";
 import { FaUser } from "react-icons/fa";
 
-function HomePage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+function HomePage({props}) {
 
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      setIsLoggedIn(true);  
-    }
-  }, []);
-
-  const handleLogin = (email, password) => {
-    const user = customer.find((u) => u.email === email && u.password === password);
-    if (user) {
-      setIsLoggedIn(true);
-      localStorage.setItem("user", JSON.stringify(user));
-      return user;  
-    } else {
-      return null;
-    }
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem("user");
-  };
-
+  let {showLogin, setShowLogin, isLoggedIn, handleLogin} = props;
 
   return (
     <>
-      {/* Header */}
-      <Header setShowLogin={() => setShowLogin(true)} isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
 
       {/* Bannner Image */}
       <div className="homeContent">

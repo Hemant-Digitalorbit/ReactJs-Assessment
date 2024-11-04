@@ -8,7 +8,7 @@ const Brands = ({brands, heading}) => {
   return (
     <>
       <div className="brands">
-        <div className='heading-cont'>
+        <div className='heading-content'>
           <h2>{heading}</h2>
           <p>View All</p>
         </div>

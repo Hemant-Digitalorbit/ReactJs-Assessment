@@ -3,19 +3,19 @@
     margin: 0 auto;
 }
 
-.brands .heading-cont{
+.brands .heading-content{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
 }
 
-.brands .heading-cont h2 {
+.brands .heading-content h2 {
     font-size: 28px;
     color: #f6a261;
 }
   
-.brands .heading-cont p {
+.brands .heading-content p {
     font-size: 16px;
     color: #f6a261;
     text-decoration: underline;
@@ -73,16 +73,16 @@
         margin: 10px;
     }
 
-    .brands .heading-cont {
+    .brands .heading-content {
+        display: flex;
         align-items: center;
-        text-align: center;
     }
 
-    .brands .heading-cont h2 {
+    .brands .heading-content h2 {
         font-size: 24px;
     }
 
-    .brands .heading-cont p {
+    .brands .heading-content p {
         font-size: 14px;
     }
 
@@ -111,15 +111,15 @@
         margin: 10px;
     }
 
-    .brands .heading-cont {
+    .brands .heading-content {
         align-items: center;
     }
 
-    .brands .heading-cont h2 {
+    .brands .heading-content h2 {
         font-size: 18px;
     }
 
-    .brands .heading-cont p {
+    .brands .heading-content p {
         font-size: 10px;
     }
 
