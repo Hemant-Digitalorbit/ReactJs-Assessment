@@ -131,11 +131,11 @@ const FilterPage = () => {
 
           {/*Pagination*/}
           <div className='pagination'>
-            <button onClick={() => setCurrentPage(prev => Math.max(prev-1, 1))} disabled={currentPage===1} >
+            <button onClick={() => setCurrentPage(prev => (prev > 1 ? prev-1 : 1))} disabled={currentPage===1} >
               Previous
             </button>
             <p>Page <span>{currentPage}</span> of <span>{totalPages}</span></p>
-            <button onClick={() => setCurrentPage(prev => Math.min(prev+1, totalPages))} disabled={currentPage === totalPages}>              Next
+            <button onClick={() => setCurrentPage(prev => ( prev < totalPages ? prev+1 : totalPages))} disabled={currentPage === totalPages}>              Next
             </button>
           </div>
 
