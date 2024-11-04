@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import '../styles/HomePage.css';
-import Header from "../components/Header.js";
 import Login from "../components/Login";
 import banner from '../assets/Frame 114.png';
 import BestSellers from "../components/BestSellers";
 import Categories from "../components/Categories";
 import PopularProducts from "../components/PopularProducts";
 import Brands from "../components/Brands";
-import { categories, products, orders, reviews, brands } from "../Data/data.js";
-import Footer from "../components/Footer.js";
+import { categories, products, orders, reviews, brands } from "../Data/data";
 import { FaUser } from "react-icons/fa";
 
 function HomePage({props}) {
@@ -49,8 +47,6 @@ function HomePage({props}) {
           />
         )
       }
-      {/* Footer */}
-      <Footer />
     </>
   );
 }
