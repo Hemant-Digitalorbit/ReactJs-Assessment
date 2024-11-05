@@ -5,12 +5,15 @@ import { MdTune } from "react-icons/md";
 import { useParams } from 'react-router';
 import toast from 'react-hot-toast';
 import { filters } from '../../Data/filterdata';
-import FilterProdCard from './FilterProdCard';
 import FilterSection from './FilterSection';
 import SortingSection from './SortingSection';
+import ProductCard from '../ProductCard';
+import Header from '../Header';
+import Footer from '../Footer';
 
 
-const FilterPage = () => {
+const FilterPage = ({props}) => {
+  let {setShowLogin, isLoggedIn} = props;
   
   const { brandId } = useParams()
   // Sorting Product
@@ -94,6 +97,8 @@ const FilterPage = () => {
 
   return (
     <>
+      <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn}/>
+
       <section>
         <div className='filter-page'>
         <h2>Products</h2>
@@ -123,7 +128,7 @@ const FilterPage = () => {
             <div className='filter-page-card'>
               {
                 currentProd.length > 0 && currentProd.map((product) => (
-                  <FilterProdCard key={product.id} product={product} />
+                  <ProductCard key={product.id} product={product} />
                 ))
               }
             </div>
@@ -139,9 +144,12 @@ const FilterPage = () => {
             </button>
           </div>
 
-        </div>        
+        </div>  
       </section>
+      
+      <Footer />      
     </>
+
   )
 }
 

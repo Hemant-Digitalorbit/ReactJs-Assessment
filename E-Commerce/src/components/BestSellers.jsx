@@ -13,23 +13,32 @@ const BestSellers = ({products, orders, heading }) => {
     const orderCount = productOrd.length
     return { ...product, orderCount };
   }).sort((a, b) => b.orderCount - a.orderCount)
+  
 
   const handleViewAll = () => {
     navigate(`/products/${heading}`, {state: {bestSellers}})
   }
 
   return (
-    <>  
+    <section>  
       <div className="product-container">
         <div className='heading-content'>
           <h2>{heading}</h2>
           <button onClick={handleViewAll} className='view-all'>View All</button>
+        </div>
+        <div className='products-card'>
+        {
+            bestSellers.length > 0 ? (
+              bestSellers.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            ) : (null)
+          }
         </div>  
-        <ProductCard products={[...bestSellers]} />
         </div>
 
       <div className='bottom-border'></div>
-    </>
+    </section>
 
   );
 };

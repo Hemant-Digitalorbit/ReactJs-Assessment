@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const Categories = ({categories, heading}) => {
 
   return (
-    <>
+    <section>
       <div className="categories"> 
         <h2>{heading}</h2>
         <div className="category-item">
@@ -19,7 +19,7 @@ const Categories = ({categories, heading}) => {
       </div>
 
       <div className='bottom-border'></div>
-    </>
+    </section>
 
   );
 };

@@ -6,7 +6,7 @@ const Brands = ({brands, heading}) => {
   
 
   return (
-    <>
+    <section>
       <div className="brands">
         <div className='heading-content'>
           <h2>{heading}</h2>
@@ -25,7 +25,7 @@ const Brands = ({brands, heading}) => {
       </div>
 
       <div className='bottom-border'></div>
-    </>
+    </section>
 
   )
 }

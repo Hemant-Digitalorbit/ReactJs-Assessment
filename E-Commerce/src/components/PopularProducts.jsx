@@ -19,17 +19,25 @@ const PopularProducts = ({products, reviews, heading}) => {
   }
 
   return (
-    <>
+    <section>
       <div className="product-container">
         <div className='heading-content'>
           <h2>{heading}</h2>
           <button onClick={handleViewAll} className='view-all'>View All</button>
         </div>
-        <ProductCard products={[...popularProducts]} />
+        <div className='products-card'>
+        {
+            popularProducts.length > 0 ? (
+              popularProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            ) : (null)
+          }
+        </div> 
         </div>
 
       <div className='bottom-border'></div>
-    </>
+    </section>
 
   );  
 };

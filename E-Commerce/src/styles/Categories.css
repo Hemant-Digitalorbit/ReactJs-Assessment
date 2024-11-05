@@ -1,6 +1,6 @@
 .categories {
     max-width: 1300px;
-    margin: 0 auto;
+    margin:  auto;
 }
 
 .categories h2 {
@@ -19,7 +19,6 @@
     cursor: pointer;
     margin-bottom: 20px;
     overflow-x: scroll;
-    padding: 10px;
 }
 
 .category-item::-webkit-scrollbar{

@@ -3,8 +3,6 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     position: sticky;
     top: 0;
-    right: 0;
-    left: 0;
     z-index: 1;
 }
 
@@ -80,6 +78,7 @@ header {
     font-size: 18px;
     border-radius: 4px;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 .headBtn .wishlist span{
@@ -101,6 +100,16 @@ header {
     font-size: 18px;
     gap: 4px;
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.headBtn .cart-btn:hover {
+    transform: scale(1.05);
+}
+
+.headBtn .wishlist:hover{
+    transform: scale(1.05);
 }
 
 .headBtn .signBtn {

@@ -29,7 +29,7 @@
 .product-container .products-card {
   display: flex;
   gap: 25px;
-  margin: 40px auto 40px 80px;
+  margin: auto;
   overflow-x: auto;
   white-space: nowrap;
 }
@@ -146,12 +146,13 @@
   }
 
   .product-container .products-card {
-    margin: 10px auto 10px 10px;
+    margin: auto;
+    gap: 10px;
   }
 
   .products-card .prod-card {
     flex: 0 0 auto; 
-    width: 130px;
+    height: auto;
     gap: 10px;
   }
 
@@ -183,12 +184,13 @@
   }
 
   .product-container .products-card {
-    margin: 10px auto 10px 10px;
+    margin: auto;
+    gap: 0px;
   }
 
   .products-card .prod-card {
     flex: 0 0 auto; 
-    width: 130px;
+    height: auto;
     gap: 10px;
   }
 

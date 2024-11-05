@@ -21,9 +21,15 @@
 /* Sorting Styling */
 .filter-page .sorting-section {
     display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 10px;   
+}
+
+.filter-page .sorting-section .sorting-buttons{
+    display: flex;
     align-items: center; 
     gap: 20px;
-    padding-bottom: 10px;
 }
 
 
@@ -34,7 +40,7 @@
 }
 
 
-.filter-page .sorting-section button {
+.filter-page .sorting-section .sorting-buttons button {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -50,17 +56,17 @@
     text-align: center;
 }
 
-.filter-page .sorting-section button span {
+.filter-page .sorting-section .sorting-buttons button span {
     display: flex;
     flex-direction: column;
     color: #D9D9D9;
 }
 
-.filter-page .sorting-section button span > * {
+.filter-page .sorting-section .sorting-buttons button span > * {
     margin: -3px 0;
 }
 
-.filter-page .sorting-section .clear-sec {
+.filter-page .sorting-section .sorting-buttons .clear-sec {
     display: flex;
     align-items: center;
     color: #EA3D32;
@@ -70,12 +76,12 @@
     transition: transform 0.3s ease;
 }
 
-.filter-page .sorting-section .clear-sec:hover {
+.filter-page .sorting-section .sorting-buttons .clear-sec:hover {
     transform: scale(1.1);
 }
 
 /* while Performing Functionality */
-.filter-page .sorting-section .sort-button {
+.filter-page .sorting-section .sorting-buttons .sort-button {
     cursor: pointer;
     align-items: center;
     gap: 5px;
@@ -83,13 +89,13 @@
     transition: color 0.3s;
 }
  
-.sort-button span p {
+.sorting-buttons .sort-button span p {
     display: flex;
     transition: color 0.3s;
 }
   
 
-.filter-page .sorting-section .filter-line{
+.filter-page .sorting-section .sorting-buttons .filter-line{
     border: 2px solid #0000002B;
     padding: 14px 0;
     border-radius: 8px;
@@ -218,7 +224,7 @@
 }
 
     
-.filter-page-card .filter-prod-card {
+.filter-page-card .prod-card {
     width: 200px;
     height: 320px;
     display: flex;
@@ -230,17 +236,17 @@
     padding: 10px;
 }
 
-.filter-page-card .filter-prod-card:hover {
+.filter-page-card .prod-card:hover {
     transform: scale(1.05);
 }
   
-.filter-page-card .filter-prod-card img {
+.filter-page-card .prod-card img {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
 }
   
-.filter-page-card .filter-prod-card .rating {
+.filter-page-card .prod-card .rating {
     position: absolute;
     top: 4px;
     right: 4px;
@@ -252,7 +258,7 @@
     color: #fff;
 }
   
-.filter-page-card .filter-prod-card p {
+.filter-page-card .prod-card p {
     font-size: 16px;
     color: gray;
     padding: 6px 0;
@@ -261,27 +267,27 @@
     justify-content: space-between;
 }
   
-.filter-page-card .filter-prod-card h4 {
+.filter-page-card .prod-card h4 {
     font-size: 18px;
     overflow: hidden;
     padding-bottom: 10px;
     text-overflow: ellipsis;    
 }
   
-.prod-card-ft {
+.prod-card-pr {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
   
-.prod-card-ft p {
+.prod-card-pr p {
     font-size: 16px;
     color: #f6a261;
     line-height: 22px;
     font-family: 'League Spartan';
 }
   
-.prod-card-ft button {
+.prod-card-pr button {
     border: 1px solid #f6a261;
     border-radius: 4px;
     color: hsl(26, 89%, 67%);
@@ -295,7 +301,7 @@
     transition: transform 0.3s ease;
 }
   
-.prod-card-ft button:hover {
+.prod-card-pr button:hover {
     transform: scale(1.1);
     background-color: #f6a261;
     color: #fff;

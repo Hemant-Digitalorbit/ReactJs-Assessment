@@ -8,14 +8,17 @@ import PopularProducts from "../components/PopularProducts";
 import Brands from "../components/Brands";
 import { categories, products, orders, reviews, brands } from "../Data/data";
 import { FaUser } from "react-icons/fa";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function HomePage({props}) {
 
-  let {showLogin, setShowLogin, isLoggedIn, handleLogin} = props;
+  let { showLogin, setShowLogin, isLoggedIn, handleLogin, handleLogout } = props;
+
 
   return (
     <>
-
+      <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
       {/* Bannner Image */}
       <div className="homeContent">
         <img src={banner} alt="banner" />
@@ -47,6 +50,9 @@ function HomePage({props}) {
           />
         )
       }
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

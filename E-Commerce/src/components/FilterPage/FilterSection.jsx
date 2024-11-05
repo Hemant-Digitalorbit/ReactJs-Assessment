@@ -6,7 +6,7 @@ import '../../styles/FilterPage.css'
 const FilterSection = ({props}) => {
     let {filters, handleFilterSelect, selectedFilters} = props;
   return (
-    <>
+    <section>
         {
             filters.map((filter) => (
                 <Disclosure key={filter.id}>
@@ -45,7 +45,7 @@ const FilterSection = ({props}) => {
                     </Disclosure>
                 ))
         }
-    </>
+    </section>
   )
 }
 

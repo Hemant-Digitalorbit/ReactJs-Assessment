@@ -1,13 +1,14 @@
 import React from 'react'
 import { IoCaretDownSharp, IoCaretUpSharp } from 'react-icons/io5';
 import { MdClear } from 'react-icons/md';
+import '../../styles/FilterPage.css'
 
 function SortingSection({props}) {
 
     let {selectOptions, sortingDirection, handleClearAll, handleSortByChanges} = props;
 
   return (
-    <>
+    <section className='sorting-buttons'>
         <button onClick={() => handleSortByChanges('price')} className= 'sort-button'
             style={{backgroundColor: selectOptions === 'price' ? '#FA910829' : '#FA910800'}}>
           Price
@@ -52,7 +53,7 @@ function SortingSection({props}) {
         <button onClick={handleClearAll} className='clear-sec'>
           Clear All <MdClear />
         </button>
-    </>
+    </section>
   )
 }
 
