@@ -84,68 +84,68 @@ export let categories = [
     id: 1,
     image: "https://www.polytechnichub.com/wp-content/uploads/2017/04/Electronic.jpg",
     publish: true,
-    title: "Electronics"
+    name: "Electronics"
   },
   {
     id: 2,
     image: "https://static.vecteezy.com/system/resources/previews/028/546/318/non_2x/collection-of-young-men-dressed-in-trendy-clothes-set-of-fashionable-casual-outfit-korean-fashion-style-vector.jpg",
     publish: true,
-    title: "Fashion"
+    name: "Fashion"
   },
   {
     id: 3,
     image: "https://dfupublications.com/images/2023/07/26/India's%20Growing%20Kids'%20Apparel%20Market_large.jpeg",
     publish: true,
-    title: "Kids Clothing"
+    name: "Kids Clothing"
   },
   {
     id: 4,
     image: "https://www.superprof.co.in/blog/wp-content/uploads/2018/07/photography-accessories.jpg",
     publish: false,
-    title: "Accessories"
+    name: "Accessories"
   },
   
   {
     id: 5,
     image: "https://img.freepik.com/free-vector/food-beverages-designs_1132-103.jpg",
     publish: true,
-    title: "Food"
+    name: "Food"
   },
   {
     id: 6,
     image: "https://5.imimg.com/data5/WW/EW/MY-15612685/used-laptops-and-desktop-500x500.png",
     publish: true,
-    title: "Computers"
+    name: "Computers"
   },
   {
     id: 7,
     image: "https://media.istockphoto.com/id/1279108197/photo/variety-of-womens-fashion-comfortable-shoes-of-all-seasons-on-a-light-background-top-view.jpg?s=612x612&w=0&k=20&c=_mdUMo2tsufgilqv8IQeW6hp8YjICTR8_tF-YP1Zgxk=",
     publish: true,
-    title: "Footwear"
+    name: "Footwear"
   },
   {
     id: 8,
     image: "https://img.grouponcdn.com/deal/ivFiFSeKSTokW6Nz849v/Hu-2048x1229/v1/c700x420.jpg",
     publish: true,
-    title: "Sports"
+    name: "Sports"
   },
   {
     id: 9,
     image: "https://media.licdn.com/dms/image/v2/D4D12AQHwzpRiQSBBuw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1660896887938?e=2147483647&v=beta&t=iVZc9OTDpCJhCLsdzoJVDR-IKZI7Z50NnkAiPbVon5E",
     publish: true,
-    title: "Toys & Games"
+    name: "Toys & Games"
   },
   {
     id: 10,
     image: "https://orchidlifesciences.com/wp-content/uploads/2024/06/01-14-01-1024x704.jpg",
     publish: true,
-    title: "Beauty"
+    name: "Beauty"
   },
   {
     id: 11,
     image: "https://img.freepik.com/premium-photo/expencive-jewelry-gold-rings-luxury-necklaces_1063985-20337.jpg?semt=ais_hybrid",
     publish: true,
-    title: "Jewelry"
+    name: "Jewelry"
   },
 ];
 

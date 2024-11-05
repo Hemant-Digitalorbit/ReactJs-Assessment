@@ -215,11 +215,12 @@
 /* Product section Styling */
 .filter-main-section .filter-page-card {
     width: 80%;
-    height: auto;
     display: flex;
-    justify-content: flex-start;
-    gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    gap: 20px;
     padding: 20px 0px 0px 40px;
 }
 

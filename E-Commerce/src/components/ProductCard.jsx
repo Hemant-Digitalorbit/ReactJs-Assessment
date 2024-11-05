@@ -8,39 +8,6 @@ const ProductCard = ({product}) => {
 
   const { addProdToCart } = useCart();
 
-  
-
-
-  // // Cart State
-  // const [cart, setCart] = useState([])
-
-  // const navigate = useNavigate()
-
-  // // CrtPage Functionality
-  // useEffect(() => {
-  //   const savedCart = localStorage.getItem('cart') || [] ;
-  //   if (savedCart) {
-  //     setCart(JSON.parse(savedCart));
-  //   }
-  // }, [product]);
-
-  // const addProdToCart = (product) => {
-  //   const prodAlready = cart.find((item) => item.id === product.id)
-  //   let newCart;
-  //   if(prodAlready){
-  //     newCart = cart.map((item) => item.id===product.id ? {...item, quantity: item.quantity +1} : item)
-  //     toast.error('Product Already in Cart')
-  //   }else {
-  //     newCart = [...cart, {...product, quantity: 1}]
-  //     toast.success('Product Added Successfully...')
-  //   }
-  //   setCart(newCart)  
-  //   localStorage.setItem('cart', JSON.stringify(newCart))
-  // }
-
-
-  // navigate('/cartpage', { state: { cart } });
-
   const addProdToWishList = (product) => {
     const savedProdWishList = JSON.parse(localStorage.getItem('wishlist')) || [];
     const prodAlready = Array.isArray(savedProdWishList) ? savedProdWishList.find((item) => item.id === product.id) : null

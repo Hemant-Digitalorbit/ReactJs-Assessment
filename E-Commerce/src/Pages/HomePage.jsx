@@ -29,8 +29,8 @@ function HomePage({props}) {
         isLoggedIn ? (
           <>
             <Categories heading="Categories" categories={categories} />
-            <BestSellers heading="Best Sellers Products" products={products} orders={orders} />
-            <PopularProducts heading="Popular Products" products={products} reviews={reviews} />
+            <BestSellers heading="Best Sellers" products={products} orders={orders} />
+            <PopularProducts heading="Popular" products={products} reviews={reviews} />
             <Brands heading="Brands" brands={brands} />
           </>
         ) : (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/Categories.css'
 import {Link} from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const Categories = ({categories, heading}) => {
         <h2>{heading}</h2>
         <div className="category-item">
           {categories.map((category) => (
-              <Link to={`products/${category.title}`} className='cat-card' key={category.id}>
+              <Link to={`products/${category.name}`} className='cat-card' key={category.id}>
                 <img src={category.image} alt={category.title} />
                 <h4>{category.title}</h4>
               </Link>
@@ -19,6 +19,7 @@ const Categories = ({categories, heading}) => {
       </div>
 
       <div className='bottom-border'></div>
+      
     </section>
 
   );
