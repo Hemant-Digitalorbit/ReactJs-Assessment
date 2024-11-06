@@ -47,7 +47,11 @@ function App() {
 
         <Route path="/" element={<HomePage props={{ showLogin, setShowLogin, isLoggedIn, isAgeVerified, handleLogin, handleLogout }} />} />
 
-        <Route path="/products/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
+        <Route path="/products/brands/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
+
+        <Route path="/products/categories/:categoryId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
+
+        <Route path="/products/products/:heading" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
 
         <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  isAgeVerified }} />} />
 

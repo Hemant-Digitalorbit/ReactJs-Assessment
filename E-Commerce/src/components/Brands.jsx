@@ -15,7 +15,7 @@ const Brands = ({brands, heading}) => {
         <div className='brands-card'>
           {
             brands.map((brand) => (
-              <Link to={`/products/${brand.name}`} className='brand-card' key={(brand.id)}>
+              <Link to={`/products/brands/${brand.name}`} className='brand-card' key={(brand.id)}>
                 <img src={brand.image} />
                 <h3>{brand.name}</h3>
               </Link>

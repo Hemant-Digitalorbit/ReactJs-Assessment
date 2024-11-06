@@ -15,7 +15,7 @@ const PopularProducts = ({products, reviews, heading}) => {
   }).sort((a, b) => b.avgRating - a.avgRating)
 
   const handleViewAll = () => {
-    navigate(`/products/${heading}`, { state: {popularProducts}})
+    navigate(`/products/products/${heading}`, { state: {popularProducts}})
   }
 
   return (

@@ -16,8 +16,10 @@ const BestSellers = ({products, orders, heading }) => {
   
 
   const handleViewAll = () => {
-    navigate(`/products/${heading}`, {state: {bestSellers}})
+    navigate(`/products/products/${heading}`, {state: {bestSellers}})
   }
+
+  console.log('first', {state: {bestSellers}})
 
   return (
     <section>  
