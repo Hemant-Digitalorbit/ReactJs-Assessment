@@ -51,7 +51,7 @@ const FilterPage = ({ props }) => {
     }
     
     setFilterProducts(prodThrghBrandCategry);
-  }, []);
+  }, [brandId, categoryId, bestSellers, popularProducts]);
 
 
   // Handle sorting
@@ -71,8 +71,8 @@ const FilterPage = ({ props }) => {
 
   // Clear all filters
   const handleClearAll = () => {
-    setFilterProducts(products);
-    setSelectedFilters({});
+    setFilterProducts('');
+    setSelectedFilters('');
     setSelectOptions('');
     toast.success("All filters cleared");
   };
@@ -96,7 +96,7 @@ const FilterPage = ({ props }) => {
   };
 
   useEffect(() => {
-    let filtered = products;
+    let filtered = filterProducts;
     Object.entries(selectedFilters).forEach(([filterType, selectOptions]) => {
       if (selectOptions.length > 0) {
         filtered = filtered.filter((product) =>
@@ -107,50 +107,55 @@ const FilterPage = ({ props }) => {
       }
     });
     setFilterProducts(filtered);
-  }, [selectedFilters]);
+  }, [selectedFilters, filterProducts]);
 
   return (
     <>
       <Header setShowLogin={() => setShowLogin(true)} isLoggedIn={isLoggedIn} />
 
       <section>
-        <div className='filter-page'>
-          <h2>{heading}</h2>
-
-          <div className='filter-container'>
-            <div className='filter-section'>
-              <p>Filter By <MdTune style={{ width: '20px', height: '20px' }} /></p>
+        {
+          isLoggedIn && 
+           (
+            <div className='filter-page'>
+              <h2>{heading}</h2>
+    
+              <div className='filter-container'>
+                <div className='filter-section'>
+                  <p>Filter By <MdTune style={{ width: '20px', height: '20px' }} /></p>
+                </div>
+                <div className='sorting-section'>
+                  <p>Sort By:</p>
+                  <SortingSection props={{ selectOptions, sortingDirection, handleSortByChanges, handleClearAll }} />
+                </div>
+              </div>
+    
+              <div className='filter-main-section'>
+                <aside className='filter-aside'>
+                  <FilterSection props={{ filters, selectedFilters, handleFilterSelect }} />
+                  <div className='border-line'></div>
+                </aside>
+                <div className='filter-page-card'>
+                  {
+                    currentProd.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                      ))
+                  }
+                </div>
+              </div>
+    
+              <div className='pagination'>
+                <button onClick={() => setCurrentPage(prev => (prev > 1 ? prev - 1 : 1))} disabled={currentPage === 1}>
+                  Previous
+                </button>
+                <p>Page <span>{currentPage}</span> of <span>{totalPages}</span></p>
+                <button onClick={() => setCurrentPage(prev => (prev < totalPages ? prev + 1 : totalPages))} disabled={currentPage === totalPages}>
+                  Next
+                </button>
+              </div>
             </div>
-            <div className='sorting-section'>
-              <p>Sort By:</p>
-              <SortingSection props={{ selectOptions, sortingDirection, handleSortByChanges, handleClearAll }} />
-            </div>
-          </div>
-
-          <div className='filter-main-section'>
-            <aside className='filter-aside'>
-              <FilterSection props={{ filters, selectedFilters, handleFilterSelect }} />
-              <div className='border-line'></div>
-            </aside>
-            <div className='filter-page-card'>
-              {
-                currentProd.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))
-              }
-            </div>
-          </div>
-
-          <div className='pagination'>
-            <button onClick={() => setCurrentPage(prev => (prev > 1 ? prev - 1 : 1))} disabled={currentPage === 1}>
-              Previous
-            </button>
-            <p>Page <span>{currentPage}</span> of <span>{totalPages}</span></p>
-            <button onClick={() => setCurrentPage(prev => (prev < totalPages ? prev + 1 : totalPages))} disabled={currentPage === totalPages}>
-              Next
-            </button>
-          </div>
-        </div>
+          )
+        }
       </section>
 
       <Footer />
