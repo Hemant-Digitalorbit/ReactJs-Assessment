@@ -2,6 +2,7 @@ import React from 'react'
 import { useCart } from '../Context/cart'
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 const CartProd = () => {
 
@@ -16,7 +17,7 @@ const CartProd = () => {
               {   
                 cart.map((item) => (
                   <div key={item.id} className='cart-product'>
-                    <img src={item.image} alt={item.name} />
+                    <Link to={`/product/${item.name}`}><img src={item.image} alt={item.name} /></Link>
                     <div className='cart-content'>
                         <div className='cart-cont-type'>
                           <span>

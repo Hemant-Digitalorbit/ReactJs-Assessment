@@ -12,7 +12,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 const FilterPage = ({ props }) => {
-  const { setShowLogin, isLoggedIn } = props;
+  const { setShowLogin, isLoggedIn,handleLogout } = props;
   const location = useLocation();
   const { brandId, categoryId } = useParams();
   const bestSellers = location.state?.bestSellers || []; 
@@ -71,7 +71,7 @@ const FilterPage = ({ props }) => {
 
   // Clear all filters
   const handleClearAll = () => {
-    setFilterProducts('');
+    setFilterProducts(filterProducts);
     setSelectedFilters('');
     setSelectOptions('');
     toast.success("All filters cleared");
@@ -111,7 +111,7 @@ const FilterPage = ({ props }) => {
 
   return (
     <>
-      <Header setShowLogin={() => setShowLogin(true)} isLoggedIn={isLoggedIn} />
+      <Header setShowLogin={() => setShowLogin(true)} isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
 
       <section>
         {

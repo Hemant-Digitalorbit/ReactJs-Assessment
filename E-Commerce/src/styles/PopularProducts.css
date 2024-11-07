@@ -59,6 +59,10 @@
 .products-card .prod-card img {
   height: 100%;
   object-fit: cover;
+  width: 100%; 
+  max-width: 100%; 
+  overflow: hidden;
+  display: block;
 }
 
 .products-card .prod-card .rating {
@@ -161,9 +165,11 @@
   }
 
   .products-card img {
-    height: 200px;
-    object-fit: cover; 
-    background-size: cover;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    display: block;
   }
 
 }
@@ -199,8 +205,10 @@
   }
 
   .products-card img {
-    height: 200px;
-    object-fit: cover; 
-    background-size: cover;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    display: block;
   }
 }

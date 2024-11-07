@@ -7,11 +7,11 @@ import CartSummry from './CartSummry';
 
 const CartPage = ({props}) => {
 
-  let {setShowLogin, isLoggedIn} = props;
+  let {setShowLogin, isLoggedIn, handleLogout} = props;
   
   return (
     <>
-      <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn} />
+      <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
 
       <section>
           <h1>Cart</h1>

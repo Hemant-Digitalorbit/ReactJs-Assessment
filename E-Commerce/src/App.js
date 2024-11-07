@@ -7,6 +7,10 @@ import { Toaster } from "react-hot-toast";
 import FilterPage from "./components/FilterPage/FilterPage";
 import CartPage from "./components/CartManagement/CartPage";
 import WishListPage from "./components/WishList/WishListPage";
+import ProductDetails from "./components/ProductDetails";
+import AccountPage from "./components/AccountManagement/AccountPage";
+import OrderHistory from "./components/AccountManagement/OrderHistory";
+import Profile from "./components/AccountManagement/Profile";
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
@@ -53,9 +57,17 @@ function App() {
 
         <Route path="/products/products/:heading" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
 
-        <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  isAgeVerified }} />} />
+        <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  setShowLogin, handleLogout }} />} />
 
-        <Route path="/wishlist" element={<WishListPage  props={{ isLoggedIn,  isAgeVerified }} />} />
+        <Route path="/wishlist" element={<WishListPage  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} />
+
+        <Route path="/account" element={<AccountPage  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} >
+          <Route path="orders-history" element={<OrderHistory />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+
+        <Route path="/product/:productId" element={<ProductDetails  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} />
+
 
       </Routes> 
     </Router>

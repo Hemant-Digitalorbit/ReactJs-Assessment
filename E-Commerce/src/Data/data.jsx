@@ -254,6 +254,9 @@ export let products = [
     image: ["https://img.freepik.com/free-vector/realistic-display-smartphone-with-different-apps_52683-30241.jpg"],
     price: 799.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 150,
     ratings: 4.5,
     dateAdded: '2023-02-20'
@@ -267,6 +270,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 120.50,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 200,
     ratings: 3.5,
     dateAdded: '2023-03-15'
@@ -277,9 +283,12 @@ export let products = [
     brand: "GreenMow",
     name: "Eco-Friendly Lawn Mower",
     description: "A compact and efficient lawn mower.",
-    image: ["https://media.istockphoto.com/id/520135246/photo/mowing-the-grass.jpg?s=612x612&w=0&k=20&c=9ZlrazlneuDiU6Rdv9nYq0k_ZNoGwJ_JXTiE8djJGVc="],
+    image: ["https://static.vecteezy.com/system/resources/previews/006/820/558/non_2x/man-cutting-grass-in-garden-gardener-mowing-lawn-with-electric-push-mower-in-backyard-vector.jpg"],
     price: 199.99,
     publish: false,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 50,
     ratings: 3.8,
     dateAdded: '2023-04-10'
@@ -293,6 +302,9 @@ export let products = [
     image: ["https://img.freepik.com/free-vector/realistic-display-smartphone-with-different-apps_52683-30241.jpg"],
     price: 999.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 100,
     ratings: 4.7,
     dateAdded: '2023-05-15'
@@ -306,6 +318,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 89.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "", 
     quantity: 250,
     ratings: 4.0,
     dateAdded: '2023-06-20'
@@ -316,7 +331,7 @@ export let products = [
     brand: "GreenMow",
     name: "Lawn Mower 3000",
     description: "Powerful and efficient lawn mower.",
-    image: ["https://media.istockphoto.com/id/520135246/photo/mowing-the-grass.jpg?s=612x612&w=0&k=20&c=9ZlrazlneuDiU6Rdv9nYq0k_ZNoGwJ_JXTiE8djJGVc="],
+    image: ["https://static.vecteezy.com/system/resources/previews/006/820/558/non_2x/man-cutting-grass-in-garden-gardener-mowing-lawn-with-electric-push-mower-in-backyard-vector.jpg"],
     price: 249.99,
     publish: false,
     quantity: 30,
@@ -332,6 +347,9 @@ export let products = [
     image: ["https://images.samsung.com/is/image/samsung/p6pim/in/sm-g991bzvdinu/gallery/in-galaxy-s21-5g-g991-371114-sm-g991bzvdinu-410189249?$624_624_PNG$"],
     price: 799.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 120,
     ratings: 4.6,
     dateAdded: '2023-08-15'
@@ -345,6 +363,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 150.00,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 180,
     ratings: 4.4,
     dateAdded: '2023-09-05'
@@ -355,9 +376,12 @@ export let products = [
     brand: "EcoMow",
     name: "Cordless Lawn Mower",
     description: "No cords, no limits – perfect for small yards.",
-    image: ["https://media.istockphoto.com/id/520135246/photo/mowing-the-grass.jpg?s=612x612&w=0&k=20&c=9ZlrazlneuDiU6Rdv9nYq0k_ZNoGwJ_JXTiE8djJGVc="],
+    image: ["https://static.vecteezy.com/system/resources/previews/006/820/558/non_2x/man-cutting-grass-in-garden-gardener-mowing-lawn-with-electric-push-mower-in-backyard-vector.jpg"],
     price: 219.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 40,
     ratings: 4.3,
     dateAdded: '2023-10-15'
@@ -371,6 +395,9 @@ export let products = [
     image: ["https://oasis.opstatics.com/content/dam/oasis/page/2022/operation/may/karen/Karen-Green-540x540-L.png"],
     price: 699.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 130,
     ratings: 4.2,
     dateAdded: '2023-11-01'
@@ -384,6 +411,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 99.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 220,
     ratings: 4.5,
     dateAdded: '2023-11-05'
@@ -394,9 +424,12 @@ export let products = [
     brand: "GreenMow",
     name: "Electric Lawn Mower",
     description: "An eco-friendly option for maintaining your lawn.",
-    image: ["https://media.istockphoto.com/id/520135246/photo/mowing-the-grass.jpg?s=612x612&w=0&k=20&c=9ZlrazlneuDiU6Rdv9nYq0k_ZNoGwJ_JXTiE8djJGVc="],
+    image: ["https://static.vecteezy.com/system/resources/previews/006/820/558/non_2x/man-cutting-grass-in-garden-gardener-mowing-lawn-with-electric-push-mower-in-backyard-vector.jpg"],
     price: 249.99,
     publish: false,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 25,
     ratings: 4.0,
     dateAdded: '2023-11-10'
@@ -410,6 +443,9 @@ export let products = [
     image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL-isKHJubNcFouE8vFtRoWKW5MvAkS4rZVw&s"],
     price: 699.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 110,
     ratings: 4.6,
     dateAdded: '2023-11-15'
@@ -423,6 +459,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 160.00,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "",
     quantity: 90,
     ratings: 4.3,
     dateAdded: '2023-11-20'
@@ -433,9 +472,12 @@ export let products = [
     brand: "Landscaper Pro",
     name: "Heavy Duty Lawn Mower",
     description: "For the serious gardener looking for power.",
-    image: ["https://media.istockphoto.com/id/520135246/photo/mowing-the-grass.jpg?s=612x612&w=0&k=20&c=9ZlrazlneuDiU6Rdv9nYq0k_ZNoGwJ_JXTiE8djJGVc="],
+    image: ["https://static.vecteezy.com/system/resources/previews/006/820/558/non_2x/man-cutting-grass-in-garden-gardener-mowing-lawn-with-electric-push-mower-in-backyard-vector.jpg"],
     price: 349.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 15,
     ratings: 4.7,
     dateAdded: '2023-11-25'
@@ -449,6 +491,9 @@ export let products = [
     image: ["https://bestonlinesupplier.com/wp-content/uploads/2024/02/Glacier-Blue-XIAOMI-Redmi-Note-10-Pro-Dual-Sim-6.6_-AMOLED-Display-8GB-RAM-128GB-ROM-4G-LTE-Network-108-MP-8-MP-5-MP-2-MP-_-16-MP-Camera-Mobile-Phone.jpg.webp"],
     price: 199.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 300,
     ratings: 4.4,
     dateAdded: '2023-12-01'
@@ -462,6 +507,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 140.00,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 160,
     ratings: 4.6,
     dateAdded: '2023-12-05'
@@ -472,9 +520,12 @@ export let products = [
     brand: "MowMaster",
     name: "Smart Lawn Mower",
     description: "Connect to your smartphone and control your lawn.",
-    image: ["https://media.istockphoto.com/id/520135246/photo/mowing-the-grass.jpg?s=612x612&w=0&k=20&c=9ZlrazlneuDiU6Rdv9nYq0k_ZNoGwJ_JXTiE8djJGVc="],
+    image: ["https://static.vecteezy.com/system/resources/previews/006/820/558/non_2x/man-cutting-grass-in-garden-gardener-mowing-lawn-with-electric-push-mower-in-backyard-vector.jpg"],
     price: 499.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 10,
     ratings: 4.8,
     dateAdded: '2023-12-10'
@@ -488,6 +539,9 @@ export let products = [
     image: ["https://www.triveniworld.com/cdn/shop/products/sony-xperia-5-ii-triveni-world-5.jpg?v=1705446040"],
     price: 899.99,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 80,
     ratings: 4.5,
     dateAdded: '2023-12-15'
@@ -501,6 +555,9 @@ export let products = [
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 75.00,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     quantity: 300,
     ratings: 4.2,
     dateAdded: '2023-12-20'
@@ -513,10 +570,13 @@ export let products = [
     price: 25.99,
     ratings: 4.5,
     weight: "1gm",
-    dateAdded: "2024-10-01",
+    dateAdded: "17 July 2024",
     image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
     quantity: 100,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A comprehensive health supplement packed with essential vitamins and minerals to support overall well-being."
   },
   {
@@ -531,6 +591,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
     quantity: 150,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A convenient protein shake for muscle recovery and energy replenishment, perfect for active lifestyles."
   },
   {
@@ -545,6 +608,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
     quantity: 200,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A soothing blend of herbs designed to promote relaxation and support digestive health."
   },
   {
@@ -559,6 +625,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
     quantity: 80,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "High-potency vitamin capsules designed to boost immunity and improve overall health."
   },
   {
@@ -573,6 +642,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
     quantity: 120,
     publish: true,
+    status: 'Delivered',
+    DeliveredDate: "17 July 2024",
+    reviews: "" ,
     description: "A hydrating skin cream enriched with natural extracts to moisturize and rejuvenate your skin."
   },
   {
@@ -587,6 +659,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
     quantity: 300,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "", 
     description: "A nutritious energy bar packed with protein and essential nutrients for a quick energy boost."
   },
   {
@@ -601,6 +676,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
     quantity: 90,
     publish: true,
+    status: 'Delivered',
+    DeliveredDate: "17 July 2024",
+    reviews: "" ,
     description: "A daily multivitamin pack providing a balanced dose of essential vitamins and minerals for optimal health."
   },
   {
@@ -615,6 +693,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
     quantity: 250,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A refreshing drink designed to rehydrate and replenish electrolytes after workouts or long days."
   },
   {
@@ -629,6 +710,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
     quantity: 110,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "Capsules enriched with antioxidants to help fight free radicals and support a healthy immune system."
   },
   {
@@ -643,6 +727,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
     quantity: 130,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A natural herbal powder blend that can be added to smoothies or teas for a health boost."
   },
   {
@@ -657,6 +744,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
     quantity: 75,
     publish: true,
+    status: 'Delivered',
+    DeliveredDate: "17 July 2024",
+    reviews: "" ,
     description: "A premium protein powder formulated to support muscle growth and enhance workout recovery."
   },
   {
@@ -671,6 +761,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/e032/d817/a0825ea72fbc7669da8edb7d2df8cb3a?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qdOAG2oI2z95LAyfMbNQmlFz5AJiJWk8gKNrFM1qOGB4IL107ay11HwGECED2UwjagZ8RPpTyGsavTiBKIMEf7SihmA1VTVTi97boMPpZ2OM6KxRi0qs0nP95iZ8TsPw~M-OPVG4yADQsxb36bBA3ClGjzI6S2-FVJ9p7vsUkne2lCKctOoay5R5AwzE2JHQDwR8WfolA9z47HoO1QcJGs02CfieleTROoitjskpHwvA6o5~wbeAJRvSeXcMx2gWKpoyVbTYTqcWa71zXoKPp1udZiUazBYPdYWRWGRnn-0Fr7WqV3Z8YXx0ok6Ryu-bRWmIZyR77lu49EqcEyBKRw__",
     quantity: 150,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A dietary fiber supplement to promote healthy digestion and maintain a balanced diet."
   },
   {
@@ -685,6 +778,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
     quantity: 130,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A detoxifying tea blend that helps cleanse the body and supports natural energy."
   },
   {
@@ -699,6 +795,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
     quantity: 90,
     publish: true,
+    status: 'Delivered',
+    DeliveredDate: "17 July 2024",
+    reviews: "" ,
     description: "A calming herbal tea mix crafted to promote relaxation and reduce stress."
   },
   {
@@ -713,6 +812,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/bb4b/d6b2/440eea27926ed61f5dccf5b2ebcc480d?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=elypXcSi-m75icQ1TRXXlEywH-HPhf-8DOkJh96RubsjHP30dSc-oM83~DywsOruvKGLJPLlvh9sdfaNKMq2Ny7xBHAX6GdEI2KKThtz37ejabeAGzZ8cm4wRK2yeJANM3tKXGzX7eVrAqwcAyhTJyQEqArjD1Dc3voVIfJWtwDYXfRArBP-npvoGe7OUKD1y3qh5A7O6iZ9KuTdEBz4Gtza3VCMTbwhAFhbkmxNl0etCGQu5-YqEFGSCeO6oxJ-2VZACeKKE1pk5hbJKHfHELhHyEOOslRuLM3z4hMxqboEBi9emeRBtlMrnYWbwBIjaYfn9jwiY-B1uNQCfAAVvw__",
     quantity: 100,
     publish: true,
+    status: 'Delivered',
+    DeliveredDate: "17 July 2024",
+    reviews: "",
     description: "Capsules formulated to support eye health and help reduce the effects of eye strain."
   },
   {
@@ -727,6 +829,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
     quantity: 200,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "An energy drink mix that provides a quick boost of energy and essential electrolytes."
   },
   {
@@ -741,6 +846,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
     quantity: 120,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "Herbal capsules with a blend of natural ingredients to enhance vitality and overall wellness."
   },
   {
@@ -755,6 +863,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
     quantity: 300,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A meal replacement bar loaded with balanced nutrients for on-the-go nourishment."
   },
   {
@@ -769,6 +880,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
     quantity: 95,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "A supplement designed to support joint health and mobility with key nutrients."
   },
   {
@@ -783,6 +897,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/6bb4/aa5c/f6ad9b14d0159afe9e7cbe06ba784d95?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4T~aQWxAOYKOv9yFbE9JO8YhREjyLGrxJ1h0eqCkaQXSScZ2ziLSfKgjmnvUEJwzq~qOv-ytFkdcukzeP34Fza-glJuamU-EGrtBKryoqUrFTcCCHsVUfsC0M~E22izJWeLEaXgHkFCc9Vf6nuvatVtoIuElAIMKBPG-nW2fS1XB9P4LRamzROrn4bw5ZC2DNgR2YwbYSdHlSbh5iAcjWsuHZU1m3cB4UwwC0FH2vdLtYgIeSBpfTOwyeksXLhyzSGcKj4bAQt7JGiCMlSJ-xFNR2npj30NtT67KUZfHxuPd2FimpKCtT6Hoxxjr~8KnQGeYzfz1wgTmlH8qdzvVg__",
     quantity: 85,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "An immune support pack that helps fortify the body’s natural defenses with essential vitamins."
   },
   {
@@ -797,6 +914,9 @@ export let products = [
     image: "https://s3-alpha-sig.figma.com/img/ba17/6093/95e04a985f7067852196458a0805694c?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-htUNY88c04plaBtGMu-C54v-23MTLAR3WlO4xx4zW9YfsgSN-~ALKldKjvpFQ7ezLfrxfO3khH9lnRPH9wRT9~tNYZIAm4Cf4V~QPzAwJY16z7KYQe~tlkSLnhEC5TQ6akhdbYo1DkWYvhRq6Rs1s5UHeb6XWsVr9wlw~gmw8TjvnbmKLg5zphM8iygByUs~mN4ekNVRGxK0AqY9SlM0BT~jiHoYh9ExOtSu7czFdxmH~jQJgx~8SFOw9-PRatdK4w1~b7lFyD35oFAnJkt9E82P8txxjy-hkZOlUL5y0ShyU03KytCTn5WJ0uiEAtxdAX~AyfDuHTxDx230xnYw__",
     quantity: 150,
     publish: true,
+    status: '',
+    DeliveredDate: "",
+    reviews: "" ,
     description: "Capsules aimed at nourishing hair follicles and promoting healthy hair growth."
   }
 ];

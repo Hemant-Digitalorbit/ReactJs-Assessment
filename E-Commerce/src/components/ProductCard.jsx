@@ -2,6 +2,7 @@ import React from 'react'
 import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa'
 import { useCart } from './Context/cart'
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({product}) => {
@@ -24,7 +25,9 @@ const ProductCard = ({product}) => {
   return (
     <section>
         <div key={product.id} className='prod-card'>
-            <img src={product.image} />
+            <Link to={`/product/${product.name}`}>
+                <img src={product.image} />
+            </Link>
             <h6 className='rating'> <FaStar/> {product.ratings}</h6>
             <p>{product.brand}<span>{product.weight}</span></p>
             <h4>{product.name}</h4>

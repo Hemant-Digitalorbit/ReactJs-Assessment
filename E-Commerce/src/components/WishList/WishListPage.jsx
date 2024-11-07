@@ -6,7 +6,7 @@ import '../../styles/WishList.css'
 
 const WishListPage = ({props}) => {
 
-    let {setShowLogin, isLoggedIn} = props;
+    let {setShowLogin, isLoggedIn, handleLogout} = props;
 
     const [wishlist, setWishlist] = useState([])
 
@@ -23,7 +23,7 @@ const WishListPage = ({props}) => {
 
     return (
         <>
-            <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn}/>
+            <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
             <section>
                 <h2>WishList</h2>
                 <div className='card-section'>

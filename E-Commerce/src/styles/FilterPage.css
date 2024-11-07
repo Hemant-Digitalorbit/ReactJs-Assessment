@@ -223,6 +223,7 @@
     height: auto;
     gap: 20px;
     padding: 20px 0px 0px 40px;
+
 }
 
     
@@ -246,6 +247,9 @@
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+    max-width: 100%; 
+    overflow: hidden;
+    display: block;
 }
   
 .filter-page-card .prod-card .rating {

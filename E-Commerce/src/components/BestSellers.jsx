@@ -19,7 +19,6 @@ const BestSellers = ({products, orders, heading }) => {
     navigate(`/products/products/${heading}`, {state: {bestSellers}})
   }
 
-  console.log('first', {state: {bestSellers}})
 
   return (
     <section>  

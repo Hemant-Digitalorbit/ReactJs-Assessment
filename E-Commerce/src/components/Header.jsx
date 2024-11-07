@@ -35,6 +35,7 @@ function Header({ setShowLogin, isLoggedIn, handleLogout }) {
 
                 <Link to={'/wishlist'} className='wishlist'><FaHeart /></Link>
                 <Link to={'/cartpage'}><button className='cart-btn'><FaShoppingCart width={40}/></button></Link>
+                <Link to={'/account'} className='wishlist'><FaUser /></Link>
                 {
                   !isLoggedIn ? (
                     <button onClick={() => setShowLogin(true)} className='signBtn'><FaUser />Login</button>
