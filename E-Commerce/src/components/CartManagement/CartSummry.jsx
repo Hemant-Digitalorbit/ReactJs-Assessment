@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCart } from '../Context/cart';
+import { useNavigate } from 'react-router';
 
 const CartSummry = () => {
 
+    const navigate = useNavigate()
     const { cart } = useCart();
+
+    // const [checkoutOrder, setCheckoutOrder] = useState([])
+    // const handleCheckout = () => {
+    //     setCheckoutOrder(cart)
+    //     localStorage.removeItem('cart')
+    //     navigate('/account/orders-history', {state: {checkoutOrder: cart}})
+    // }
+    // console.log(checkoutOrder)
 
     const subtotal = Array.isArray(cart) ? cart.reduce((total, item) => total + item.price * item.quantity, 0) : 0;
     const deliveryFee = 50;

@@ -216,6 +216,9 @@ section {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
 }
 
 .review-container img {
@@ -227,7 +230,12 @@ section {
 .review-container .review-cnt {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4px;
+}
+
+.review-cnt p {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 1024px) {

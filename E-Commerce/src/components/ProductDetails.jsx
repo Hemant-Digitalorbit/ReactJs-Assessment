@@ -19,20 +19,22 @@ function ProductDetails({props}) {
 
     let {setShowLogin, isLoggedIn, handleLogout} = props;
     const [user, setUser] = useState(null)
-    const { productId } = useParams();
+    const {productId} = useParams();
     const [submitReview, setSumitReview] = useState([])
 
     const product = Array.isArray(products) ? products.find((prod) =>
         prod.name.toLocaleLowerCase() === productId.toLocaleLowerCase()) : '';
     // for user
-    useEffect(() => {
+    useEffect(() => {   
         const usr = JSON.parse(localStorage.getItem('user'))
         setUser(usr)
     }, [])
+
     // for product review
     useEffect(() => {
         const prodRev = JSON.parse(localStorage.getItem('productreviews')) || []
         setSumitReview(prodRev.filter(rev => rev.productId === product.id))
+        
     }, [])
 
 
@@ -95,10 +97,13 @@ function ProductDetails({props}) {
                                                     <h4>{user?.name}</h4>
                                                     <p>
                                                         {[...Array(5)].map((a, ind) => (
-                                                            <CiStar 
-                                                                key={ind} 
-                                                                className={`stars ${ind < rev.rating ? "filled-stars" : ''}`} 
-                                                            />
+                                                            <span key={ind}>
+                                                                {
+                                                                    ind < rev.rating 
+                                                                    ? <FaStar size={20} className='star' color='#f6a261' /> 
+                                                                    : <CiStar size={25} className='star' color='#f6a261' />
+                                                                }  
+                                                            </span>
                                                         ))}
                                                     </p>
                                                     <p>{rev.review}</p>

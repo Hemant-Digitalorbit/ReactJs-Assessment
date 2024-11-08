@@ -16,6 +16,7 @@ function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+
   
   // Check for logged in user
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("user");
+    localStorage.removeItem("cart")
   };
 
   return (

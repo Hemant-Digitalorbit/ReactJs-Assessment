@@ -15,12 +15,17 @@
     padding-bottom: 10px;
 }
 
-.main-account-container .profile-container {
-    padding-right: 50px;
-    font-size: 16px;
-    color: #3B3B3B; 
-    text-align: Center;
+.main-account-container .track-order-container,
+.order-history-container, .contact-container,
+.fq-container, .profile-container {
     text-decoration: none;
+    color: black;
+}
+
+.main-account-container .vert-line {
+    border: 1px solid #0000002B;
+    height: 20px;
+    margin: 0px 50px;
 }
 
 .main-account-container .active {
@@ -28,16 +33,6 @@
     border-radius: 6px;
     background-color: #FA91082B;
     padding: 8px;
-}
-
-.main-account-container .track-order-container,
-.order-history-container, .contact-container, .fq-container {
-    border-left: 2px solid #0000002B;
-    padding: 0px 50px;
-    font-size: 16px;
-    color: #3B3B3B; 
-    text-align: Center;
-    text-decoration: none;
 }
 
 .order-history {
@@ -142,20 +137,23 @@
 .rates-star {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
 }
 
-.rates-star .stars {
-    color: #f6a261;
-    font-size: 20px;
+.rates-star input[type=radio] {
+    display: none;
+}
+
+.rates-star .star {
+    cursor: pointer;
     width: 28px;
     height: 28px;
-    cursor: pointer;
 }
 
-.filled-stars {
-    background-color: #00ff44;
+.rates-star .filled-star {
     cursor: pointer;
+    width: 28px;
+    height: 28px;
 }
 
 .rating-model textarea {
@@ -165,6 +163,8 @@
     height: 100px;
     font-style: italic;
     resize: vertical;
+    padding: 10px;
+    font-size: 16px;
 }
 
 .rating-model input[type='text'] {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RiCloseLargeFill } from "react-icons/ri";
+import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import {products} from '../../Data/data';
 import { Link } from 'react-router-dom';
@@ -7,12 +8,17 @@ import {toast} from 'react-hot-toast'
 
 const OrderHistory = () => {
 
+  // const location = useLocation();
+  // const checkoutOrder = location.state?.checkoutOrder || []
+
   const [showModel, setShowModel] = useState(false);
-  const [modelProduct, setModelProduct] = useState(null)
+  const [modelProduct, setModelProduct] = useState('')
 
   const deliverdProd = products.filter(product =>  product.status === 'Delivered')
 
-  const [rating, setRating] = useState(0)
+
+  const [rating, setRating] = useState('')
+  const [hover, setHover] = useState('')
   const [review, setReview]= useState('')
   const [submitReview, setSumitReview] = useState([])
 
@@ -22,7 +28,7 @@ const OrderHistory = () => {
   }, [])
 
   const handleSubmitReview = () => {
-    const addReview = {productId: modelProduct.id, rating, review}
+    const addReview = { productId: modelProduct.id, rating, review}
     const updtReviews = [...submitReview, addReview];
     setSumitReview(updtReviews)
     localStorage.setItem('productreviews', JSON.stringify(updtReviews))
@@ -66,10 +72,18 @@ const OrderHistory = () => {
           <div className='rating-model'>  
             <h4>{modelProduct.name}</h4>
             <div className='rates-star'>
-              {[...Array(5)].map((a, ind)=> (
-                <CiStar className={`stars ${ind < rating ? "filled-stars" : ''}`} key={ind} 
-                onClick={() => setRating(ind + 1)} />
-              ))}
+              {[...Array(5)].map((a, ind)=> {
+                return (
+                  <label key={ind}>
+                      <input type='radio' value={rating} onClick={() => setRating(ind + 1)}  />
+                      {
+                        ind + 1 <= (hover || rating) 
+                          ? <FaStar className='star' color='#f6a261' onMouseEnter={() => setHover(ind+1)} onMouseLeave={() => setHover(null)}/> 
+                          : <CiStar className='filled-star' color='#f6a261' onMouseEnter={() => setHover(ind+1)} onMouseLeave={() => setHover(null)} /> 
+                      }
+                  </label>
+                )
+              })}
             </div>
             <textarea type='text' placeholder='Please write the product review here' 
             value={review} 
