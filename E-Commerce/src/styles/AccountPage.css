@@ -200,3 +200,137 @@
     right: -40px;
     font-size: 24px;
 }
+
+
+@media (max-width: 1024px) {
+    .main-order-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-account-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-history {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .order-hist-img,
+    .order-hist-content {
+        width: 100%;
+        height: auto;
+    }
+
+    .order-hist-content h4,
+    .order-headcnt p,
+    .order-hist-content .order-price,
+    .order-hist-content span {
+        font-size: 16px;
+    }
+
+    .rating-model {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-order-container,
+    .main-account-container {
+        padding: 0 20px;
+    }
+
+    .order-hist-img {
+        width: 180px;
+        height: 220px;
+    }
+
+    .order-hist-content {
+        width: 100%;
+        height: auto;
+    }
+
+    .order-hist-content h4,
+    .order-headcnt p,
+    .order-hist-content .order-price,
+    .order-hist-content span {
+        font-size: 15px;
+    }
+
+    .order-hst-btns .order-rate,
+    .order-record {
+        font-size: 16px;
+    }
+
+    .rating-model {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-order-container {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .main-account-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 40px 0;
+    }
+
+    .order-history {
+        gap: 10px;
+    }
+
+    .order-hist-img {
+        width: 150px;
+        height: 180px;
+    }
+
+    .order-hist-content h4,
+    .order-headcnt p,
+    .order-hist-content .order-price,
+    .order-hist-content span {
+        font-size: 14px;
+    }
+
+    .order-hst-btns {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-hst-btns .order-rate,
+    .order-record {
+        width: 100%;
+    }
+
+    .rating-model {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .rating-model h4 {
+        font-size: 20px;
+    }
+
+    .rates-star .star,
+    .rates-star .filled-star {
+        width: 24px;
+        height: 24px;
+    }
+
+    .rating-model button {
+        width: 120px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .rating-model .close-model {
+        top: 5px;
+        right: -30px;
+        font-size: 20px;
+    }
+}

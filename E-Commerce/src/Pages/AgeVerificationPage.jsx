@@ -12,7 +12,7 @@ function AgeVerification({ setIsAgeVerified }) {
     if (age) {
       setIsAgeVerified(true);
       navigate('/')
-    } else {  
+    } else {
       toast.error("Access restricted to users 21 and over.");
     }
   };

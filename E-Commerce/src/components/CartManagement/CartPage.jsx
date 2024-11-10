@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../../styles/CartPage.css'
 import Header from '../Header';
 import Footer from '../Footer';
@@ -7,8 +7,9 @@ import CartSummry from './CartSummry';
 
 const CartPage = ({props}) => {
 
-  let {setShowLogin, isLoggedIn, handleLogout} = props;
-  
+  let {setShowLogin, isLoggedIn, handleLogout, ordersHistory, setOrdersHistory, user } = props;
+
+
   return (
     <>
       <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
@@ -21,7 +22,7 @@ const CartPage = ({props}) => {
                 {/* Cart Product */}
                 <CartProd />
                 {/* Cart Summary */}
-                <CartSummry />  
+                <CartSummry props={{ordersHistory, setOrdersHistory, user }} />  
               </div>
             )
           }

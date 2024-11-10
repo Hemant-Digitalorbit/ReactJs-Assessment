@@ -11,18 +11,29 @@ import ProductDetails from "./components/ProductDetails";
 import AccountPage from "./components/AccountManagement/AccountPage";
 import OrderHistory from "./components/AccountManagement/OrderHistory";
 import Profile from "./components/AccountManagement/Profile";
+import { CartProvider } from './components/Context/cart';
+
+
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+  const [ordersHistory, setOrdersHistory] =  useState([])
+  const [submitReview, setSumitReview] = useState([])
 
-  
-  // Check for logged in user
+
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      setIsLoggedIn(true);
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+      setIsLoggedIn(true)
+      const savedOrders = JSON.parse(localStorage.getItem(`orderHistory_${user?.id}`)) || []
+      setOrdersHistory(savedOrders)
     }
   }, []);
 
@@ -41,10 +52,10 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("user");
-    localStorage.removeItem("cart")
   };
 
   return (
+    <CartProvider user={user}>
     <Router>
       <Toaster />
       <Routes>
@@ -53,26 +64,27 @@ function App() {
 
         <Route path="/" element={<HomePage props={{ showLogin, setShowLogin, isLoggedIn, isAgeVerified, handleLogin, handleLogout }} />} />
 
-        <Route path="/products/brands/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
+        <Route path="/products/brands/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user }}  />} />
 
-        <Route path="/products/categories/:categoryId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
+        <Route path="/products/categories/:categoryId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user }}  />} />
 
-        <Route path="/products/products/:heading" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout }}  />} />
+        <Route path="/products/products/:heading" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user }}  />} />
 
-        <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  setShowLogin, handleLogout }} />} />
+        <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  setShowLogin, handleLogout, user, ordersHistory, setOrdersHistory }} />} />
 
-        <Route path="/wishlist" element={<WishListPage  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} />
+        <Route path="/wishlist" element={<WishListPage  props={{ isLoggedIn,  setShowLogin, handleLogout, user }} />} />
 
         <Route path="/account" element={<AccountPage  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} >
-          <Route path="orders-history" element={<OrderHistory />} />
+          <Route path="orders-history" element={<OrderHistory user={user} props={{ordersHistory, setOrdersHistory, submitReview, setSumitReview}} />} />
           <Route path="profile" element={<Profile />} />
         </Route>
 
-        <Route path="/product/:productId" element={<ProductDetails  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} />
+        <Route path="/product/:productId" element={<ProductDetails  props={{ isLoggedIn,  setShowLogin, handleLogout, user,submitReview, setSumitReview }} />} />
 
 
       </Routes> 
     </Router>
+    </CartProvider>
   );
 }
 

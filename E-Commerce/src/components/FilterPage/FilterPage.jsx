@@ -12,7 +12,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 const FilterPage = ({ props }) => {
-  const { setShowLogin, isLoggedIn,handleLogout } = props;
+  const { setShowLogin, isLoggedIn,handleLogout, user } = props;
   const location = useLocation();
   const { brandId, categoryId } = useParams();
   const bestSellers = location.state?.bestSellers || []; 
@@ -138,7 +138,7 @@ const FilterPage = ({ props }) => {
                 <div className='filter-page-card'>
                   {
                     currentProd.map((product) => (
-                        <ProductCard key={product.id} product={product} />
+                        <ProductCard key={product.id} product={product} user={user} />
                       ))
                   }
                 </div>

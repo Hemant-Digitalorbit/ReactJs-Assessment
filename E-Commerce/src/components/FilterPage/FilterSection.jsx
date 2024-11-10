@@ -12,7 +12,7 @@ const FilterSection = ({props}) => {
                 <Disclosure key={filter.id}>
                     <h3>
                         <DisclosureButton className='DisclosureButton'>
-                            <span>{filter.name}</span>
+                            <span className='label-name'>{filter.name}</span>
                             {
                             filter.options &&
                             <>
@@ -31,8 +31,8 @@ const FilterSection = ({props}) => {
                                 {
                                     filter.options.map((option) => (
                                     <button key={option.value} id={`filter-${filter.id}-${option.value}`} 
-                                        className={`filter-button ${selectedFilters[filter.id]?.includes(option.value) ? 'active' : ''}`} 
-                                        style={{border: selectedFilters[filter.id]?.includes(option.value) ? '1px solid black' : ''}}
+                                        className={`filter-button ${selectedFilters[filter.id]?.includes(option.value) ? 'selected' : ''}`} 
+                                        style={{border: selectedFilters[filter.id]?.includes(option.value) ? '1px solid coral' : ''}}
                                         onClick={() => handleFilterSelect(filter.id, option.value)}>
                                         <label>{option.label}</label>
                                     </button>

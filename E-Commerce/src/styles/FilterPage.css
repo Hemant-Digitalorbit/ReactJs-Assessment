@@ -121,22 +121,6 @@
     margin-bottom: 100px;
 }
 
-
-
-/* Filter Section Styling */
-.filter-main-section .filter-aside {
-    width: 20%;
-    height: 200px;
-    height: auto;
-    border: 1px solid #f6a261;
-    border-top: none;
-    border-left: none;
-    padding-right: 20px;
-    padding-top: 20px;
-    margin-bottom: 0px;
-}
-
-
 .filter-main-section .filter-aside h3 {
     margin: 10px 0;
     font-size: 16px;
@@ -144,7 +128,7 @@
     cursor: pointer;
 }
 
-.filter-aside button {
+.filter-aside .filter-button {
     background: none;
     border: none;
     display: flex;
@@ -154,7 +138,6 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 16px;
-    line-height: 22px;
     color: #3B3B3BAB;
     padding: 14px 0;
 }
@@ -163,15 +146,15 @@
     margin-right: 10px;
 }
 
-.filter-aside label {
+label {
     cursor: pointer;
 }
 
-.filter-aside div {
+.button-grid {
     margin-bottom: 5px;
 }
 
-.filter-aside .IoIosArrowDown {
+.IoIosArrowDown {
   width: 20px;
   height: 20px;
   color: #7C7C7C;
@@ -198,32 +181,56 @@
     margin: auto;
 }
 
-.DisclosurePanel .filter-button .selected {
+.DisclosurePanel .selected {
     border: 1px solid #007bff;
-    background-color: #e0f7ff;
-    color: #000;
+    background-color: #f8ad5d;
+    color: #ffffff;
 }
 
-.DisclosureButton[aria-expanded="true"] .IoIosArrowDown {
-    display: none;
+/* Filter Section Styling */
+.filter-main-section .filter-aside {
+    width: 20%;
+    height: 200px;
+    height: auto;
+    border: 1px solid #f6a261;
+    border-top: none;
+    border-left: none;
+    padding-right: 20px;
+    padding-top: 20px;
+    margin-bottom: 0px;
 }
-  
-.DisclosureButton[aria-expanded="true"] .IoIosArrowDown {
-    display: inline;
-    transform: rotate(180deg);
+
+.filter-main-section .filter-aside h3 {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
+
+.filter-aside button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3B3B3BAB;
+    padding: 14px 0;
+}
+
 
 /* Product section Styling */
 .filter-main-section .filter-page-card {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
     height: auto;
     gap: 20px;
     padding: 20px 0px 0px 40px;
-
 }
 
     

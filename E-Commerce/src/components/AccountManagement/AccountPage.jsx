@@ -9,7 +9,7 @@ const AccountPage = ({props}) => {
 
     let {setShowLogin, isLoggedIn, handleLogout} = props;
     const [active, setActive] = useState('orders-history');
-    
+
     const handleClick =(click) => {
         setActive(click)
     }

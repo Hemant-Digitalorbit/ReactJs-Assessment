@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa'
 import { useCart } from './Context/cart'
 import toast from 'react-hot-toast';
@@ -9,16 +9,31 @@ const ProductCard = ({product}) => {
 
   const { addProdToCart } = useCart();
 
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
+
   const addProdToWishList = (product) => {
-    const savedProdWishList = JSON.parse(localStorage.getItem('wishlist')) || [];
-    const prodAlready = Array.isArray(savedProdWishList) ? savedProdWishList.find((item) => item.id === product.id) : null
-    if(prodAlready){
-      toast.error("Product Already in WishList")
-      return;
-    } 
-    const newWishList = [...savedProdWishList, product];
-    localStorage.setItem('wishlist', JSON.stringify(newWishList));
-    toast.success('Product Added To WishList...')
+    if (user) {
+      const savedProdWishList = JSON.parse(localStorage.getItem(`wishlist${user.id}`)) || [];
+      const prodAlready = Array.isArray(savedProdWishList) ? savedProdWishList.find((item) => item.id === product.id) : null
+      if(prodAlready){
+        toast.error("Product Already in WishList")
+        return;
+      } 
+      const newWishList = [...savedProdWishList, product];
+      localStorage.setItem(`wishlist${user.id}`, JSON.stringify(newWishList));
+      toast.success('Product Added To WishList...')
+    }
   }
 
 

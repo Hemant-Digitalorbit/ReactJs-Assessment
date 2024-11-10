@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useCart } from '../Context/cart';
 import { useNavigate } from 'react-router';
 
-const CartSummry = () => {
+const CartSummry = ({props}) => {
+
+    let {ordersHistory, setOrdersHistory, user} = props;
 
     const navigate = useNavigate()
     const { cart } = useCart();
 
-    // const [checkoutOrder, setCheckoutOrder] = useState([])
-    // const handleCheckout = () => {
-    //     setCheckoutOrder(cart)
-    //     localStorage.removeItem('cart')
-    //     navigate('/account/orders-history', {state: {checkoutOrder: cart}})
-    // }
-    // console.log(checkoutOrder)
-
+    const checkoutCart = () => {
+        let newOrd = [...cart].map(item=>{item.Date = new Date().toLocaleDateString();
+          return item;
+        });
+        setOrdersHistory([...ordersHistory, ...newOrd])
+        localStorage.setItem(`orderHistory_${user.id}`, JSON.stringify([...ordersHistory, ...newOrd]));
+        navigate('/account/orders-history')
+    }
     const subtotal = Array.isArray(cart) ? cart.reduce((total, item) => total + item.price * item.quantity, 0) : 0;
     const deliveryFee = 50;
     const discount = subtotal * 0.1;
@@ -46,7 +48,7 @@ const CartSummry = () => {
                             <p>Total</p>
                             <p>{total.toFixed(2)}</p>
                         </div>
-                        <button>Checkout</button>
+                        <button onClick={checkoutCart}>Checkout</button>
                     </div>
                 )
             }

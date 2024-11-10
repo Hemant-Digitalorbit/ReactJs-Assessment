@@ -4,22 +4,29 @@ import Header from '../Header'
 import Footer from '../Footer'
 import '../../styles/WishList.css'
 
+
 const WishListPage = ({props}) => {
 
-    let {setShowLogin, isLoggedIn, handleLogout} = props;
-
+    let {setShowLogin, isLoggedIn, handleLogout, user} = props;
     const [wishlist, setWishlist] = useState([])
 
     useEffect(()=> {
-        const savedProdWishList = JSON.parse(localStorage.getItem('wishlist')) || [];
-        setWishlist(savedProdWishList)
-    }, [])
+        if (user) {
+            const savedProdWishList = JSON.parse(localStorage.getItem(`wishlist${user.id}`))
+            setWishlist(savedProdWishList)
+        } else {
+            setWishlist([])
+            localStorage.removeItem(`wishlist${user?.id}`);
+        }
+    }, [user])
 
     const deleteWishItem = (itemId) => {
-        const deleteProd =  wishlist.filter(item =>  item.id !== itemId) 
-        setWishlist(deleteProd)
-        localStorage.setItem('wishlist', JSON.stringify(deleteProd))
-      }
+        if (user) {
+            const deleteProd =  wishlist.filter(item =>  item.id !== itemId) 
+            setWishlist(deleteProd)
+            localStorage.setItem(`wishlist${user.id}`, JSON.stringify(deleteProd))
+        }
+    }
 
     return (
         <>
@@ -29,7 +36,7 @@ const WishListPage = ({props}) => {
                 <div className='card-section'>
                     <div className='wishlist-card'>
                         {
-                            isLoggedIn && wishlist.map((product, index) => (
+                            isLoggedIn && wishlist?.map((product, index) => (
                                 <WishListProdCard key={index} props={{product, deleteWishItem}}  />
                             ))
                         }

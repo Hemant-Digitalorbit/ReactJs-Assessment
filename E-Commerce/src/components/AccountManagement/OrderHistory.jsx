@@ -2,39 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { RiCloseLargeFill } from "react-icons/ri";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
-import {products} from '../../Data/data';
 import { Link } from 'react-router-dom';
 import {toast} from 'react-hot-toast'
 
-const OrderHistory = () => {
-
-  // const location = useLocation();
-  // const checkoutOrder = location.state?.checkoutOrder || []
-
+const OrderHistory = ({props, user}) => {
+  
+  let {ordersHistory, submitReview, setSumitReview} = props;
   const [showModel, setShowModel] = useState(false);
   const [modelProduct, setModelProduct] = useState('')
-
-  const deliverdProd = products.filter(product =>  product.status === 'Delivered')
 
 
   const [rating, setRating] = useState('')
   const [hover, setHover] = useState('')
   const [review, setReview]= useState('')
-  const [submitReview, setSumitReview] = useState([])
 
   useEffect(() => {
     const prodRev = JSON.parse(localStorage.getItem('productreviews')) || []
     setSumitReview(prodRev)
   }, [])
 
-  const handleSubmitReview = () => {
-    const addReview = { productId: modelProduct.id, rating, review}
+
+  const handleSubmitReview = (e) => {
+    e.preventDefault();
+    const addReview = {productId: modelProduct.id, reviewerName: user.name, rating, review}
     const updtReviews = [...submitReview, addReview];
     setSumitReview(updtReviews)
     localStorage.setItem('productreviews', JSON.stringify(updtReviews))
     setReview('')
     setRating(0)
-    setShowModel(false)
+    setShowModel(false) 
     toast.success("Review submitted successfully!")
   }
 
@@ -42,7 +38,7 @@ const OrderHistory = () => {
     <section>
       <div className='main-order-container'>
       {
-        deliverdProd.map((product) => (
+        ordersHistory.map((product) => (
           <div key={product.id} className='order-history'>
             <div className='order-hist-img'>
                 <Link to={`/product/${product.name}`}>
@@ -51,8 +47,8 @@ const OrderHistory = () => {
             </div>
             <div className='order-hist-content'>
               <div className='order-headcnt'>
-                <p>{product.status}</p>
-                <p>{product.DeliveredDate}</p>
+                <p>Delivered</p>
+                <p>{product.Date}</p>
               </div>
               <span><p>{product.brand}</p><p>{product.weight}</p></span>
               <h4>{product.name}</h4>
@@ -73,13 +69,14 @@ const OrderHistory = () => {
             <h4>{modelProduct.name}</h4>
             <div className='rates-star'>
               {[...Array(5)].map((a, ind)=> {
+                const curretntRating = ind + 1;
                 return (
                   <label key={ind}>
-                      <input type='radio' value={rating} onClick={() => setRating(ind + 1)}  />
+                      <input type='radio' value={curretntRating} onClick={() => setRating(curretntRating)}  />
                       {
-                        ind + 1 <= (hover || rating) 
-                          ? <FaStar className='star' color='#f6a261' onMouseEnter={() => setHover(ind+1)} onMouseLeave={() => setHover(null)}/> 
-                          : <CiStar className='filled-star' color='#f6a261' onMouseEnter={() => setHover(ind+1)} onMouseLeave={() => setHover(null)} /> 
+                        curretntRating <= (hover || rating) 
+                          ? <FaStar className='star' color='#f6a261' onMouseEnter={() => setHover(curretntRating)} onMouseLeave={() => setHover(null)}/> 
+                          : <CiStar className='filled-star' color='#f6a261' onMouseEnter={() => setHover(curretntRating)} onMouseLeave={() => setHover(null)} /> 
                       }
                   </label>
                 )
