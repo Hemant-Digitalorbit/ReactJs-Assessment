@@ -140,6 +140,22 @@ section {
     cursor: pointer;
 }
 
+.quantity-btns .change-quantity {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 20px;
+  width: 40px; 
+  color: #EA3D32; 
+  outline: none;
+  pointer-events: none; 
+}
+
+.quantity-btns .change-quantity:focus {
+  outline: none;
+}
+
+
 .main-product-content .product-btns {
     width: 240px;
     height: 48px;

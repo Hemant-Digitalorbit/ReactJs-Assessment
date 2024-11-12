@@ -8,15 +8,15 @@ import { FaStar, FaRegTrashAlt, FaRegHeart} from 'react-icons/fa';
 import { FiPlus } from "react-icons/fi";
 import { IoIosArrowDown } from 'react-icons/io'
 import { CiStar } from 'react-icons/ci';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useCart } from '../components/features/services/cartService';
 import toast from 'react-hot-toast';
 
 
 function ProductDetailPage({props}) {
 
-    const {cart, increseQnt, decreaseQnt} = useCart()
 
+    const [storeQnty, setStoreQnty] = useState(1)
     const {addProdToCart} = useCart();
     let {setShowLogin, isLoggedIn, handleLogout, user, submitReview, setSumitReview, wishlist, setWishlist} = props;
     const {productId} = useParams();
@@ -28,9 +28,20 @@ function ProductDetailPage({props}) {
         if(user){
             const existingReviews = JSON.parse(localStorage.getItem('productreviews')) || [];
             setSumitReview(existingReviews.filter(rev => (rev.productId === product.id)));
-        }
+        }   
     }, [user, product.id])  
 
+    function incrementQuantity(e) {
+        const step = Number(e.target.getAttribute("data-qnt")) || 1;
+        setStoreQnty(storeQnty + step);
+    }
+      
+    function decrementQuantity(e) {
+        const step = Number(e.target.getAttribute("data-qnt")) || 1;
+        const newQuantity = Math.max(1, storeQnty - step);
+        setStoreQnty(newQuantity);
+    }
+      
     return (
         <>  
             <Header setShowLogin={() => setShowLogin(true)} user={user} wishlist={wishlist} setWishlist={setWishlist} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
@@ -65,13 +76,13 @@ function ProductDetailPage({props}) {
                                     )
                                 }
                                 <div className='quantity-btns'>
-                                    <button onClick={() => increseQnt(product.id)}><FaRegTrashAlt/></button>
-                                    <span>{product.quantity}</span>
-                                    <button onClick={() => decreaseQnt(product.id)}><FiPlus /></button>
+                                    <button onClick={decrementQuantity} data-qnt="-1"><FaRegTrashAlt/></button>
+                                    <input className="change-quantity"  type="number" value={storeQnty} readOnly />
+                                    <button onClick={incrementQuantity} data-qnt="1"><FiPlus /></button>
                                 </div>
                                 <div className='product-btns'>
                                     <button onClick={() => addProdToWishList(product)} className='wishlist-btn'><FaRegHeart /></button>
-                                    <button onClick={() => addProdToCart(product)} className='add-btn'>Add to Cart</button>
+                                    <button onClick={() => addProdToCart(product, storeQnty)} className='add-btn'>Add to Cart</button>
                                 </div>
                                 <div className='prod-desc'>
                                     <Disclosure>  
