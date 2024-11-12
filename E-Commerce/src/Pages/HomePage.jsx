@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
-import '../styles/HomePage.css';
-import Login from "../components/Login";
-import banner from '../assets/Frame 114.png';
-import BestSellers from "../components/BestSellers";
-import Categories from "../components/Categories";
-import PopularProducts from "../components/PopularProducts";
-import Brands from "../components/Brands";
+import React from "react";
+import banner from '../assets/images/Frame 114.png';
 import { categories, products, orders, reviews, brands } from "../Data/data";
 import { FaUser } from "react-icons/fa";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import '../assets/styles/HomePage.css';
+import LoginModal from "../components/features/auth/LoginModal";
+import BestsellersSection from "../components/sections/BestsellersSection";
+import CategoriesSection from "../components/sections/CategoriesSection";
+import PopularProductsSection from "../components/sections/PopularProductsSection";
+import BrandsSection from "../components/sections/BrandsSection";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+
 
 function HomePage({props}) {
 
-  let { showLogin, setShowLogin, isLoggedIn, handleLogin, handleLogout } = props;
+  let { showLogin, setShowLogin, isLoggedIn, handleLogin, handleLogout, user,  wishlist, setWishlist } = props;
 
 
   return (
     <>
-      <Header setShowLogin={() => setShowLogin(true)}  isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+      <Header setShowLogin={() => setShowLogin(true)} user={user} wishlist={wishlist} setWishlist={setWishlist} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
       {/* Bannner Image */}
       <div className="homeContent">
         <img src={banner} alt="banner" />
@@ -28,10 +29,10 @@ function HomePage({props}) {
       {
         isLoggedIn ? (
           <>
-            <Categories heading="Categories" categories={categories} />
-            <BestSellers heading="Best Sellers" products={products} orders={orders} />
-            <PopularProducts heading="Popular" products={products} reviews={reviews} />
-            <Brands heading="Brands" brands={brands} />
+            <CategoriesSection heading="Categories" categories={categories} />
+            <BestsellersSection heading="Best Sellers" products={products} orders={orders} />
+            <PopularProductsSection heading="Popular" products={products} reviews={reviews} />
+            <BrandsSection heading="Brands" brands={brands} />
           </>
         ) : (
           <div className="login-prompt">
@@ -44,7 +45,7 @@ function HomePage({props}) {
       {/* to Show Login or Register form */}
       {
         showLogin && (
-          <Login 
+          <LoginModal 
             closeModel={() => setShowLogin(false)} 
             handleLogin={handleLogin}
           />

@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from "./Pages/HomePage";
+import { CartProvider } from './components/features/services/cartService';
+import HomePage from "./pages/HomePage";
 import { customer } from './Data/data';
-import AgeVerification from "./Pages/AgeVerificationPage";
 import { Toaster } from "react-hot-toast";
-import FilterPage from "./components/FilterPage/FilterPage";
-import CartPage from "./components/CartManagement/CartPage";
-import WishListPage from "./components/WishList/WishListPage";
-import ProductDetails from "./components/ProductDetails";
-import AccountPage from "./components/AccountManagement/AccountPage";
-import OrderHistory from "./components/AccountManagement/OrderHistory";
-import Profile from "./components/AccountManagement/Profile";
-import { CartProvider } from './components/Context/cart';
+import AgeConfirmation from "./components/features/auth/AgeConfirmation";
+import FilterPage from "./pages/FilterPage"; 
+import CartPage from "./pages/CartPage";
+import WishListPage from "./pages/WishListPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import AccountPage from "./components/features/profile/AccountPage";
+import OrderHistory from "./components/features/profile/OrderHistory";
+import TrackOrder from "./components/features/profile/TrackOrder";
+import ProfilePage from "./components/features/profile/ProfilePage";
 
-
+ 
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
@@ -25,7 +26,7 @@ function App() {
   });
   const [ordersHistory, setOrdersHistory] =  useState([])
   const [submitReview, setSumitReview] = useState([])
-
+  const [wishlist, setWishlist] = useState([])
 
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
@@ -60,27 +61,27 @@ function App() {
       <Toaster />
       <Routes>
 
-        <Route path="/age-verify" element={<AgeVerification setIsAgeVerified={setIsAgeVerified} />} />
+        <Route path="/age-verify" element={<AgeConfirmation setIsAgeVerified={setIsAgeVerified} />} />
 
-        <Route path="/" element={<HomePage props={{ showLogin, setShowLogin, isLoggedIn, isAgeVerified, handleLogin, handleLogout }} />} />
+        <Route path="/" element={<HomePage props={{ showLogin, setShowLogin, isLoggedIn, isAgeVerified, handleLogin, handleLogout, user, wishlist, setWishlist }} />} />
 
-        <Route path="/products/brands/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user }}  />} />
+        <Route path="/products/brands/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, wishlist, setWishlist, handleLogout, user }}  />} />
 
-        <Route path="/products/categories/:categoryId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user }}  />} />
+        <Route path="/products/categories/:categoryId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user, wishlist, setWishlist}}  />} />
 
-        <Route path="/products/products/:heading" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user }}  />} />
+        <Route path="/products/products/:heading" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, handleLogout, user, wishlist, setWishlist }}  />} />
 
-        <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  setShowLogin, handleLogout, user, ordersHistory, setOrdersHistory }} />} />
+        <Route path="/cartpage" element={<CartPage  props={{  isLoggedIn,  setShowLogin, handleLogout, user, ordersHistory, setOrdersHistory, wishlist, setWishlist, }} />} />
 
-        <Route path="/wishlist" element={<WishListPage  props={{ isLoggedIn,  setShowLogin, handleLogout, user }} />} />
+        <Route path="/wishlist" element={<WishListPage  props={{ isLoggedIn,  setShowLogin, handleLogout, wishlist, setWishlist, user }} />} />
 
-        <Route path="/account" element={<AccountPage  props={{ isLoggedIn,  setShowLogin, handleLogout }} />} >
+        <Route path="/account" element={<AccountPage  props={{ isLoggedIn,  setShowLogin, handleLogout, wishlist, setWishlist, }} />} >
           <Route path="orders-history" element={<OrderHistory user={user} props={{ordersHistory, setOrdersHistory, submitReview, setSumitReview}} />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile" element={<ProfilePage user={user} />} />
+          <Route path="track-order" element={<TrackOrder user={user} />} />
         </Route>
 
-        <Route path="/product/:productId" element={<ProductDetails  props={{ isLoggedIn,  setShowLogin, handleLogout, user,submitReview, setSumitReview }} />} />
-
+        <Route path="/product/:productId" element={<ProductDetailPage  props={{ isLoggedIn,  setShowLogin, handleLogout, user,submitReview, setSumitReview,wishlist, setWishlist, }} />} />
 
       </Routes> 
     </Router>
