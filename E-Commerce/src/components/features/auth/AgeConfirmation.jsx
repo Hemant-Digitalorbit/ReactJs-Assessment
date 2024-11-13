@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../../../assets/styles/AgeVerification.css'
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
 
-function AgeConfirmation({ setIsAgeVerified }) {
-
+function AgeConfirmation({ setIsAgeVerified, handleLogout }) {
 
   const navigate = useNavigate()
-
+  
   const handleVerifyAge = (age) => {
     if (age) {
       setIsAgeVerified(true);
@@ -16,6 +15,7 @@ function AgeConfirmation({ setIsAgeVerified }) {
       toast.error("Access restricted to users 21 and over.");
     }
   };
+  
 
   return (
     <div className="ageVerificationCont">
