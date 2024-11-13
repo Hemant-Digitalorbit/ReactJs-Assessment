@@ -11,7 +11,7 @@ const CartItem = () => {
   return (
     <>
       {
-        cart.length > 0  ? (
+        cart?.length > 0  ? (
           <div className='cart-items-section'>
             <div className='cart-items'>
               {   
@@ -35,7 +35,7 @@ const CartItem = () => {
                         </div>
                     </div>
                   </div>
-                ))
+                ))  
               }
             </div>
           </div>

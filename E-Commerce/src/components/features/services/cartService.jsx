@@ -20,17 +20,17 @@ const CartProvider = ({ children, user }) => {
         }
     }, [user]);
 
-    const addProdToCart = (product) => {
+    const addProdToCart = (product, quantity) => {
         setCart((prev) => {
             const prodAlready = prev.find((item) => item.id === product.id);
             let newCart;
             if (prodAlready) {
                 newCart = prev.map((item) =>
-                    item.id === product.id ? {date: Date.now(), ...item, quantity: item.quantity + 1 } : item
+                    item.id === product.id ? {date: Date.now(), ...item, quantity: item.quantity + quantity } : item
                 );
                 toast.error('Product Already in Cart');
             } else {
-                newCart = [...prev, { ...product, quantity: 1,  cartCreaterName: user.name}];
+                newCart = [...prev, { ...product, quantity: 1,  cartCreaterName: user?.name}];
                 toast.success('Product Added Successfully...');
             }
             localStorage.setItem(`cart_${user.id}`, JSON.stringify(newCart));
@@ -41,7 +41,7 @@ const CartProvider = ({ children, user }) => {
     // Cart functionalities
     const increseQnt = (itemId) => {
         const updatedCart = cart.map(item => 
-            item.id === itemId ? {date: Date.now(), ...item, quantity: item.quantity + 1, cartCreaterName: user.name } : item
+            item.id === itemId ? {date: Date.now(), ...item, quantity: item.quantity + 1, cartCreaterName: user?.name } : item
         );
         setCart(updatedCart);
         localStorage.setItem(`cart_${user.id}`, JSON.stringify(updatedCart));
@@ -49,7 +49,7 @@ const CartProvider = ({ children, user }) => {
 
     const decreaseQnt = (itemId) => {
         const updatedCart = cart.map(item => 
-            item.id === itemId && item.quantity > 1 ? {date: Date.now(), ...item, quantity: item.quantity - 1, cartCreaterName: user.name } : item
+            item.id === itemId && item.quantity > 1 ? {date: Date.now(), ...item, quantity: item.quantity - 1, cartCreaterName: user?.name } : item
         );
         setCart(updatedCart);
         localStorage.setItem(`cart_${user.id}`, JSON.stringify(updatedCart));

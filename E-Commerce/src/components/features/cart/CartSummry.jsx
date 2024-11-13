@@ -14,7 +14,7 @@ const CartSummry = ({props}) => {
           return item;
         });
         setOrdersHistory([...ordersHistory, ...newOrd])
-        localStorage.setItem(`orderHistory_${user.id}`, JSON.stringify([...ordersHistory, ...newOrd]));
+        localStorage.setItem(`orders${user.id}`, JSON.stringify([...ordersHistory, ...newOrd]));
         navigate('/account/orders-history')
     }
     const subtotal = Array.isArray(cart) ? cart.reduce((total, item) => total + item.price * item.quantity, 0) : 0;
@@ -25,7 +25,7 @@ const CartSummry = ({props}) => {
     return (
         <>
             {
-                cart.length > 0 && (
+                cart?.length > 0 && (
                     <div className='summary-container'>
                         <div className='summary-section'>
                             <h2>Order Summary</h2>
