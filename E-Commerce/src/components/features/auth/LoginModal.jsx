@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import '../../../assets/styles/Login.css'
+import {useCart} from '../services/cartService';
 
+function LoginModal({ closeModel, handleLogin, props }) {
 
-function LoginModal({ closeModel, handleLogin }) {
+    let {setWishlist, setOrdersHistory, setUser} = props;
+    
+    const {setCart} = useCart();
     const [isRegister, setIsRegister] = useState(true); 
     const [form, setForm] = useState({ name: '', email: '', password: '' });
 
@@ -44,12 +48,20 @@ function LoginModal({ closeModel, handleLogin }) {
         const loginStoredUser = JSON.parse(localStorage.getItem('user'))
         if (loginStoredUser && loginStoredUser.email === form.email && loginStoredUser.password === form.password){
             toast.success("Welcome back" + " " + loginStoredUser.name)
+            setUser(loginStoredUser);
+            setCart([...(loginStoredUser.cart || [])]);
+            setWishlist([...(loginStoredUser.wishlist || [])]);
+            setOrdersHistory([...(loginStoredUser.orders || [])]);
             closeModel()
             return loginStoredUser;
         }else {
             const userExists = handleLogin(form.email, form.password);
             if(userExists) {
                 toast.success("Welcome back" + " " + userExists.name)
+                setUser(userExists);
+                setCart([...(userExists.cart || [])]);
+                setWishlist([...(userExists.wishlist || [])]);
+                setOrdersHistory([...(userExists.orders || [])]);
                 closeModel()
             }else {
                 toast.error("Invalid Credentials")
