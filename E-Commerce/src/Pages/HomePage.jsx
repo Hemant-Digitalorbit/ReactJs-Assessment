@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import banner from '../assets/images/Frame 114.png';
 import { categories, products, orders, reviews, brands } from "../Data/data";
 import { FaUser } from "react-icons/fa";
@@ -10,12 +10,20 @@ import PopularProductsSection from "../components/sections/PopularProductsSectio
 import BrandsSection from "../components/sections/BrandsSection";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import { useNavigate } from "react-router";
 
 
 function HomePage({props}) {
 
-  let { showLogin, setShowLogin, isLoggedIn, handleLogin, handleLogout, user,  wishlist, setWishlist } = props;
+  let { isAgeVerified, showLogin, setShowLogin, isLoggedIn, handleLogin, handleLogout, user,  wishlist, setWishlist, setOrdersHistory, setUser } = props;
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAgeVerified) {
+      navigate("/age-verify");
+    }
+  }, [isAgeVerified, navigate]);
 
   return (
     <>
@@ -48,6 +56,7 @@ function HomePage({props}) {
           <LoginModal 
             closeModel={() => setShowLogin(false)} 
             handleLogin={handleLogin}
+            props={{setWishlist, setOrdersHistory, setUser}}
           />
         )
       }
