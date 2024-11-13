@@ -8,13 +8,13 @@ const FilterSection = ({props}) => {
     let {filters, handleFilterSelect, selectedFilters} = props;
 
     return (
-        <section>
+        <>
             {
                 filters.map((filter) => (
                     <Disclosure key={filter.id}>
                         <h3>
                             <DisclosureButton className='DisclosureButton'>
-                                <span className='label-name'>{filter.name}</span>
+                                <p className='label-name'>{filter.name}</p>
                                 {
                                 filter.options &&
                                 <>
@@ -39,15 +39,15 @@ const FilterSection = ({props}) => {
                                             <label>{option.label}</label>
                                         </button>
                                         
-                                        ))
+                                        ))  
                                     }
                                     </div>
                                 </DisclosurePanel>
-                            }
+                        }
                         </Disclosure>
                     ))
             }
-        </section>
+        </>
     )
 }
 

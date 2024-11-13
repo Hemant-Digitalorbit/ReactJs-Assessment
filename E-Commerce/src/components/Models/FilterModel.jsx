@@ -1,19 +1,49 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import React from 'react'
+import '../../assets/styles/FilterPage.css'
+import React, { useEffect } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import { MdTune } from 'react-icons/md';
 import { RiCloseLargeLine } from "react-icons/ri";
+import { products } from '../../Data/data';
 
 
 const FilterModel = ({props}) => {
 
-    let {closeModal, openModal, filters, handleApplyFilters, selectedFilters, handleFilterSelect, appliedFilters, isModalOpen, setAppliedFilters} = props;
+    let {closeModal, openModal, filters, handleApplyFilters, selectedFilters, handleFilterSelect, appliedFilters,setSelectedFilters,setAppliedFilters,setFilterProducts,originalProducts, isModalOpen } = props;
 
-    
+    const removeOnlyOneFilter = (filterKey, value) => {
+        setSelectedFilters((prev) => {
+          const updatedFilters = { ...prev };
+          updatedFilters[filterKey] = updatedFilters[filterKey].filter((v) => v !== value) || [];
+          if (updatedFilters[filterKey].length === 0) {
+            delete updatedFilters[filterKey];
+          }
+          return updatedFilters;
+        });
+        setAppliedFilters((prev) => {
+          const updatedFilters = { ...prev };
+          updatedFilters[filterKey] = updatedFilters[filterKey].filter((v) => v !== value) || [];
+          if (updatedFilters[filterKey].length === 0) {
+            delete updatedFilters[filterKey];
+          }
+          return updatedFilters;    
+        });
+
+        if (Object.keys(appliedFilters).length === 1 && appliedFilters[filterKey].length === 1) {
+            setFilterProducts(originalProducts);
+        } else {
+            handleApplyFilters();
+        }
+    };
+
+    useEffect(() => {
+        document.body.style.overflow = isModalOpen ? 'hidden' : 'auto';
+    }, [isModalOpen]);
+
     return (
         <>
             <div className='mobile-flt-cnt'>
-                <button onClick={openModal}>Filter <MdTune style={{ width: '20px', height: '20px' }} /> </button>
+                <button onClick={openModal}>Filter<MdTune style={{ width: '20px', height: '20px' }} /> </button>
                 <div className='applied-filters'>
                     {Object.keys(appliedFilters).map((filterKey) => (
                         <div className='option' key={filterKey}>
@@ -21,10 +51,7 @@ const FilterModel = ({props}) => {
                                 {appliedFilters[filterKey].map((value) => (
                                   <div className='filters-list'>
                                     <li key={value}>{value}</li>
-                                    <RiCloseLargeLine onClick={() => setAppliedFilters((prev) => 
-                                      {const newFilt = {...prev}; newFilt[filterKey] = newFilt[filterKey].filter((v) => v !== value);
-                                      return newFilt;
-                                      })} 
+                                    <RiCloseLargeLine onClick={() => removeOnlyOneFilter(filterKey, value)} 
                                     />
                                   </div>
                                 ))}
@@ -37,24 +64,21 @@ const FilterModel = ({props}) => {
                         <div className='mobile-filter'>   
                             <div className='mobile-filter-btns'>
                                 <button onClick={openModal}>Filter<MdTune style={{ width: '20px', height: '20px' }} /></button>
-                                <button onClick={closeModal}><RiCloseLargeLine /></button>
+                                <button onClick={closeModal} style={{color: 'red'}}><RiCloseLargeLine /></button>
                             </div>
                             <div className='mobile-filter-container'>
                                 {
                                     filters.map((filter) => (
                                         <Disclosure key={filter.id}>
                                             <h3>
-                                                <DisclosureButton className='DisclosureButton'>
-                                                    <span className='label-name'>{filter.name}</span>
-                                                    {
-                                                    filter.options &&
-                                                    <>
-                                                        <span>
+                                                <DisclosureButton className='DisclosureButton'> 
+                                                    <div className='filter-cnt-sec' style={{display:'flex', alignItems: 'center', justifyContent: 'space-between'}}> 
+                                                        <p className='label-name'>{filter.name}</p>
+                                                        {filter.options && (
                                                             <IoIosArrowDown className='IoIosArrowDown' />
-                                                        </span>
-                                                    </>
-                                                    }
-                                                </DisclosureButton>
+                                                        )}
+                                                    </div> 
+                                                </DisclosureButton> 
                                             </h3>
                                             {/* options are availablw then use */}
                                             {
@@ -79,7 +103,10 @@ const FilterModel = ({props}) => {
                                     ))
                                 }
                             </div>
-                            <button onClick={() => {handleApplyFilters(); closeModal()}} className='applybtn'>Apply Filter</button>
+                            <button className='applybtn' onClick={() => {handleApplyFilters(); closeModal()}}
+                                style={{backgroundColor: 'red', color: '#f0f0f0', marginTop: '80px', padding: '8px 10px' }}>
+                                Apply Filter
+                            </button>
                         </div>
                     ) 
                 }
