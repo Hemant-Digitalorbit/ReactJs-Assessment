@@ -28,13 +28,12 @@ function App() {
   const [submitReview, setSumitReview] = useState([])
   const [wishlist, setWishlist] = useState([])
 
+
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
       setIsLoggedIn(true)
-      const savedOrders = JSON.parse(localStorage.getItem(`orderHistory_${user?.id}`)) || []
-      setOrdersHistory(savedOrders)
     }
   }, []);
 
@@ -53,6 +52,9 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("user");
+    setUser([])
+    setOrdersHistory([])
+    setWishlist([]) 
   };
 
   return (
@@ -61,9 +63,9 @@ function App() {
       <Toaster />
       <Routes>
 
-        <Route path="/age-verify" element={<AgeConfirmation setIsAgeVerified={setIsAgeVerified} />} />
+        <Route path="/age-verify" element={<AgeConfirmation handleLogout={handleLogout} setIsAgeVerified={setIsAgeVerified} />} />
 
-        <Route path="/" element={<HomePage props={{ showLogin, setShowLogin, isLoggedIn, isAgeVerified, handleLogin, handleLogout, user, wishlist, setWishlist }} />} />
+        <Route path="/" element={<HomePage props={{ showLogin, setShowLogin, isLoggedIn, isAgeVerified, handleLogin, handleLogout, user, wishlist, setWishlist, setOrdersHistory, setUser }} />} />
 
         <Route path="/products/brands/:brandId" element={<FilterPage  props={{ isLoggedIn,  isAgeVerified, wishlist, setWishlist, handleLogout, user }}  />} />
 
