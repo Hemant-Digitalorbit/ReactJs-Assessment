@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Header/Header'
 import Footer from '../../Footer/Footer'
 import '../../../assets/styles/AccountPage.css'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { AiOutlineMenu } from "react-icons/ai";
 import { RiCloseLargeLine } from "react-icons/ri";
 
@@ -13,9 +13,18 @@ const AccountPage = ({props}) => {
     const [active, setActive] = useState('orders-history');
     const [openMenu, setOpenMenu] = useState(false)
 
+    const navigate = useNavigate()
+
     const handleClick =(click) => {
         setActive(click)
     }
+
+    useEffect(() => {
+        if (isLoggedIn) {
+          navigate(active);
+          setActive(active)
+        }
+    }, [isLoggedIn, navigate]);
 
     return (
         <>

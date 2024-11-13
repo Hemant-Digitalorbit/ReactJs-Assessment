@@ -7,7 +7,7 @@ import {toast} from 'react-hot-toast'
 
 const OrderHistory = ({props, user}) => {
   
-  let {ordersHistory, submitReview, setSumitReview} = props;
+  let {ordersHistory, setOrdersHistory, submitReview, setSumitReview} = props;
   const [showModel, setShowModel] = useState(false);
   const [modelProduct, setModelProduct] = useState('')
 
@@ -17,9 +17,12 @@ const OrderHistory = ({props, user}) => {
   const [review, setReview]= useState('')
 
   useEffect(() => {
+    const storedOrders = JSON.parse(localStorage.getItem(`orders${user.id}`)) || [];
+    setOrdersHistory(storedOrders);
+
     const prodRev = JSON.parse(localStorage.getItem('productreviews')) || []
     setSumitReview(prodRev)
-  }, [])
+  }, [user.id])
 
 
   const handleSubmitReview = (e) => {
