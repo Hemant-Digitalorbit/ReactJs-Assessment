@@ -10,21 +10,14 @@ const WishListPage = ({props}) => {
     let {setShowLogin, isLoggedIn, handleLogout, wishlist, setWishlist, user} = props;
 
     useEffect(()=> {
-        if (user) {
-            const savedProdWishList = JSON.parse(localStorage.getItem(`wishlist${user.id}`))
-            setWishlist(savedProdWishList)
-        } else {
-            setWishlist([])
-            localStorage.removeItem(`wishlist${user?.id}`);
-        }
-    }, [user])
+        const savedProdWishList = JSON.parse(localStorage.getItem(`wishlist${user.id}`))
+        setWishlist(savedProdWishList)
+    }, [])
 
     const deleteWishItem = (itemId) => {
-        if (user) {
-            const deleteProd =  wishlist.filter(item =>  item.id !== itemId) 
-            setWishlist(deleteProd)
-            localStorage.setItem(`wishlist${user.id}`, JSON.stringify(deleteProd))
-        }
+        const deleteProd =  wishlist.filter(item =>  item.id !== itemId) 
+        setWishlist(deleteProd)
+        localStorage.setItem(`wishlist${user.id}`, JSON.stringify(deleteProd)) 
     }
 
     return (
