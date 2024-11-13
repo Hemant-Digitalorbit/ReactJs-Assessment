@@ -48,17 +48,17 @@
 .filter-page .sorting-section .sorting-buttons button {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    gap: 6px;
     color: #3B3B3BAB;
     background-color: #fff;
     border: 1px solid #555555;
     border-radius: 6px;
-    padding: 6px 10px;
+    padding: 8px 12px;
     font-family: 'Quicksand';
     font-size: 16px;
     font-weight: 500;
-    line-height: 20px;
-    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .filter-page .sorting-section .sorting-buttons button span {
@@ -129,6 +129,10 @@
     display: none;
 }
 
+.mobile-sort-cnt {
+    display: none;
+}
+
 .filter-main-section .filter-aside h3 {
     margin: 10px 0;
     font-size: 16px;
@@ -152,6 +156,10 @@
 
 .filter-aside input[type="checkbox"] {
     margin-right: 10px;
+}
+
+.DisclosureButton {
+    transform: none;
 }
 
 label {
@@ -317,11 +325,6 @@ label {
     transition: transform 0.3s ease;
 }
   
-.prod-card-pr button:hover {
-    transform: scale(1.1);
-    background-color: #f6a261;
-    color: #fff;
-}
   
 .bottom-border {
     border: 1px solid #f6a261;
@@ -329,6 +332,8 @@ label {
     margin: auto;
     margin: 50px auto;
 }
+
+
 
 /* Pagination */
 .pagination {
@@ -384,6 +389,7 @@ label {
   
 
 @media (max-width: 768px) {
+
     .filter-page h2 {
         font-size: 24px;
     }
@@ -434,17 +440,20 @@ label {
         align-items: center;
         justify-content: space-between;
         margin: 0px 20px;
+        gap: 20px;
     }
    
     .mobile-container .mobile-flt-cnt {
         display: flex;
         flex-direction: column;
-        align-items: center;    
+        align-items: flex-start; 
     }
 
     .mobile-flt-cnt .option {
         display: flex;
+        flex-wrap: wrap;
     }
+    
     
     .option ul {
         list-style: none;
@@ -455,7 +464,7 @@ label {
 
     .mobile-flt-cnt .option .filters-list {
         background-color: #f6a261;
-        border-radius: 5px;
+        border-radius: 2px;
         display: flex;
         align-items: center;
         padding: 0px 4px;
@@ -463,10 +472,12 @@ label {
 
     .mobile-flt-cnt .option li {
         text-align: center;
-        padding: 8px;
+        padding: 4px;
+        font-size: 10px;
     }
 
     .mobile-sort-cnt {
+        display: block;
         position: relative;
     }
 
@@ -484,6 +495,10 @@ label {
     .mobile-sort-cnt button.active {
         background-color: #FFFDEC;
         padding: 10px 20px;
+    }
+
+    .soting-sect-head {
+        font-size: 12px;
     }
 
     .mobile-container .mobile-flt-cnt button, .mobile-sort-cnt button {
@@ -508,16 +523,6 @@ label {
         z-index: 10;
     }
 
-    .sort-down-sct .clear-all-btn {
-        background-color: #EA3D3233;
-        border: 1px solid #EA3D32;
-        color: #EA3D32;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
     .sort-down-sct ul {
         list-style-type: none;
         padding: 0;
@@ -533,8 +538,8 @@ label {
 
     /* filter */
     .mobile-filter{
-        width: 320px;
-        height: auto;
+        width: 280px;
+        max-height: 400px;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -544,21 +549,43 @@ label {
         border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
+        overflow-y: auto;  
     }   
 
     .mobile-filter .mobile-filter-btns {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     .mobile-filter .mobile-filter-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-start;
+        justify-content: space-between;
         gap: 20px;
+        background-color: #FFFDEC;
+    }
+
+    .filter-cnt-sec {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .IoIosArrowDown {
+        margin-left: 8px;
+    }
+
+    .mobile-filter-container h3 {
+        border-bottom: 1px solid #3B3B3BAB;
+        padding: 4px 0px;
+
+    }
+
+    .mobile-filter-container p {
+        font-size: 16px;
     }
 
     .mobile-filter-container button {
@@ -576,9 +603,10 @@ label {
 
     .mobile-filter-container .DisclosurePanel .filter-button {
         background-color: #D9D9D9;
+        font-size: 14px;
     }
 
-    .applybtn {
+    .mobile-filter .applybtn {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%); 
@@ -589,6 +617,11 @@ label {
         border-radius: 5px;
         color: #f0f0f0;
     }
+
+    .no-scroll {
+        overflow: hidden;
+      }
+      
 }
 
 

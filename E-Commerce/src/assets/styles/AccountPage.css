@@ -407,12 +407,12 @@
     }
 
     .rating-model {
-        width: 100%;
+        width: 70%;
         padding: 15px;
     }
 
     .rating-model h4 {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .rates-star .star,
