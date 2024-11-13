@@ -3,11 +3,13 @@ import '../../assets/styles/Header.css'
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { FaUser, FaHeart } from "react-icons/fa";
 import { RiLoginBoxFill } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {useCart} from '../../components/features/services/cartService'
 
 
 function Header({ setShowLogin, isLoggedIn, handleLogout, user, wishlist, setWishlist }) {
+
+  const navigate = useNavigate()
 
   useEffect(()=>  {
     if (user){ 
@@ -45,14 +47,14 @@ function Header({ setShowLogin, isLoggedIn, handleLogout, user, wishlist, setWis
 
                 <Link to={'/wishlist'} className='wishlist'><FaHeart /><span>{wishlist?.length}</span></Link>
                 <Link to={'/cartpage'}><button className='cart-btn'><FaShoppingCart width={40}/>
-                  <span>{cart.length}</span>
+                  <span>{cart?.length}</span>
                 </button></Link>
                 <Link to={'/account'} className='wishlist'><FaUser /></Link>
                 {
                   !isLoggedIn ? (
                     <button onClick={() => setShowLogin(true)} className='signBtn'><FaUser />Login</button>
                   ) : (
-                    <button onClick={handleLogout} className='signBtn'><RiLoginBoxFill />Logout</button>
+                    <button onClick={() => {handleLogout(); navigate('/age-verify')}} className='signBtn'><RiLoginBoxFill />Logout</button>
                   )
                 }
             </div>
