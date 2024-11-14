@@ -1,6 +1,8 @@
 import React from 'react'
+import { useUser } from '../services/userService'
 
-const ProfilePage = ({user}) => {
+const ProfilePage = () => {
+  const {user} = useUser()
 
   return (
     <section className='user-info-container'>

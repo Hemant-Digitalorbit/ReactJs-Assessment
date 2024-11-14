@@ -38,7 +38,7 @@ const BestsellersSection = ({products, orders, heading }) => {
         </div>  
         </div>
 
-      <div className='bottom-border'></div>
+        <div className='btm-brd'></div>
     </section>
 
   );

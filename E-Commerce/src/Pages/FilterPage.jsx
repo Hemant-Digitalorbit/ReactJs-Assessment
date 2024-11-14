@@ -12,9 +12,13 @@
   import Footer from '../components/Footer/Footer';
   import FilterModel from '../components/Models/FilterModel';
   import FilterSortingModel from '../components/Models/FilterSortingModel';
+import { useUser } from '../components/features/services/userService';
+import { useWishlist } from '../components/features/services/wishlistService';
 
-  const FilterPage = ({ props }) => {
-    const { setShowLogin, isLoggedIn, handleLogout, user, wishlist, setWishlist } = props;
+  const FilterPage = () => {
+    
+    const {setShowLogin, isLoggedIn, user, handleLogout} = useUser();
+    const { wishlist, setWishlist } = useWishlist();
     const location = useLocation();
     const { brandId, categoryId } = useParams();
     const bestSellers = location.state?.bestSellers || []; 
@@ -40,7 +44,7 @@
     const handleApplyFilters = () => {
       setAppliedFilters(selectedFilters);
     };
-    console.log(filterProducts)
+    
     // Pagination
     const [currentPage, setCurrentPage] = useState(1);
     const itemAtPage = 12;
@@ -53,8 +57,10 @@
       let prodList = products;
       if (brandId) prodList = prodList.filter(p => p.brand.toLowerCase() === brandId.toLowerCase());
       if (categoryId) prodList = prodList.filter(p => p.category.toLowerCase() === categoryId.toLowerCase());
-      if (bestSellers.length) prodList = bestSellers;
-      if (popularProducts.length) prodList = popularProducts;
+      else {
+        if (bestSellers.length) {prodList = bestSellers}
+        if (popularProducts.length) {prodList = popularProducts}
+      }
   
       setOriginalProducts(prodList);
       setFilterProducts(prodList);
@@ -101,6 +107,7 @@
           setCurrentPage(1);
           return { ...prev, [filterType]: [] };
         }
+        
         const newFilters = { ...prev, [filterType]: updatedSelected };
         const filteredProducts = originalProducts.filter((product) =>
           Object.entries(newFilters).every(([filter, options]) =>
@@ -152,7 +159,7 @@
                 {/* for mobile */}
                 <div className='mobile-section'>
                   <div className='mobile-container'>
-                      <FilterModel props={{closeModal, openModal, handleApplyFilters, filters, selectedFilters, setSelectedFilters, handleFilterSelect, handleClearAll, appliedFilters, isModalOpen, setFilterProducts, originalProducts, setAppliedFilters}} />
+                      <FilterModel props={{closeModal, openModal, handleApplyFilters, filters, selectedFilters, setSelectedFilters, handleFilterSelect, handleClearAll, appliedFilters, isModalOpen, setFilterProducts, originalProducts, showDown, setShowDown, selectedSortBy, setAppliedFilters}} />
                       <FilterSortingModel props={{setShowDown, selectedSortBy, setSelectedSortBy, setAppliedFilters, handleClearAll, showDown, setFilterProducts, filterProducts, handleSortByChanges}} />
                   </div>
                 </div>

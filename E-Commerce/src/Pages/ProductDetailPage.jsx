@@ -10,15 +10,18 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { CiStar } from 'react-icons/ci';
 import { useEffect, useState } from 'react';
 import { useCart } from '../components/features/services/cartService';
-import toast from 'react-hot-toast';
+import { useUser } from '../components/features/services/userService';
+import { useWishlist } from '../components/features/services/wishlistService';
+import { useOrdersHistory } from '../components/features/services/orderHistoryService';
 
 
-function ProductDetailPage({props}) {
+function ProductDetailPage() {
 
-
-    const [storeQnty, setStoreQnty] = useState(1)
+    const {user, setShowLogin, isLoggedIn, handleLogout} = useUser();
     const {addProdToCart} = useCart();
-    let {setShowLogin, isLoggedIn, handleLogout, user, submitReview, setSumitReview, wishlist, setWishlist} = props;
+    const {wishlist, setWishlist, addProdToWishList} = useWishlist()
+    const [storeQnty, setStoreQnty] = useState(1)
+    const {submitReview, setSumitReview} = useOrdersHistory();
     const {productId} = useParams();
 
     const product = Array.isArray(products) ? products.find((prod) =>
@@ -92,7 +95,7 @@ function ProductDetailPage({props}) {
                                 </div>
                                 <div className='prod-desc'>
                                     <Disclosure> 
-                                        <DisclosureButton className='DisclosureButton' >Ratings and Reviews <span><IoIosArrowDown /></span></DisclosureButton>
+                                        <DisclosureButton className='DisclosureButton' >Ratings and Reviews<span><IoIosArrowDown /></span></DisclosureButton>
                                         <DisclosurePanel className='DisclosurePanel'>
 
                                             {
@@ -106,8 +109,8 @@ function ProductDetailPage({props}) {
                                                                     <span key={ind}>
                                                                         {
                                                                             ind < rev.rating 
-                                                                            ? <FaStar size={20} className='star' color='#f6a261' /> 
-                                                                            : <CiStar size={25} className='star' color='#f6a261' />
+                                                                            ? <FaStar size={20} className='star' color='rgba(80, 111, 34, 1)' /> 
+                                                                            : <CiStar size={25} className='star' color='rgba(80, 111, 34, 1)' />
                                                                         }  
                                                                     </span>
                                                                 ))}
@@ -133,15 +136,3 @@ function ProductDetailPage({props}) {
 }
 
 export default ProductDetailPage;
-
-function addProdToWishList (product){
-    const savedProdWishList = JSON.parse(localStorage.getItem('wishlist')) || [];
-    const prodAlready = Array.isArray(savedProdWishList) ? savedProdWishList.find((item) => item.id === product.id) : null
-    if(prodAlready){
-      toast.error("Product Already in WishList")
-      return;
-    } 
-    const newWishList = [...savedProdWishList, product];
-    localStorage.setItem('wishlist', JSON.stringify(newWishList));
-    toast.success('Product Added To WishList...')
-}

@@ -1,13 +1,16 @@
 import React from 'react'
 import { useCart } from '../services/cartService'
 import { useNavigate } from 'react-router';
+import { useUser } from '../services/userService';
+import { useOrdersHistory } from '../services/orderHistoryService';
 
-const CartSummry = ({props}) => {
+const CartSummry = () => {
 
-    let {ordersHistory, setOrdersHistory, user} = props;
+    const {user} = useUser();
+    const { cart } = useCart();
+    const {ordersHistory, setOrdersHistory} = useOrdersHistory();
 
     const navigate = useNavigate()
-    const { cart } = useCart();
 
     const checkoutCart = () => {
         let newOrd = [...cart].map(item=>{item.Date = new Date().toLocaleDateString();

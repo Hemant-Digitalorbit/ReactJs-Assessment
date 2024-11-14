@@ -18,7 +18,7 @@ const CategoriesSection = ({categories, heading}) => {
         </div>
       </div>
 
-      <div className='bottom-border'></div>
+      <div className='btm-brd'></div>
       
     </section>
 

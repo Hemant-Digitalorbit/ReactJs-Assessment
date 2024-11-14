@@ -4,11 +4,15 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import CartSummry from '../components/features/cart/CartSummry';
 import CartItem from '../components/features/cart/CartItem';
+import { useUser } from '../components/features/services/userService';
+import { useWishlist } from '../components/features/services/wishlistService';
+import { useOrdersHistory } from '../components/features/services/orderHistoryService';
 
-const CartPage = ({props}) => {
+const CartPage = () => {
 
-  let {setShowLogin, isLoggedIn, handleLogout, ordersHistory, setOrdersHistory, user, wishlist, setWishlist } = props;
-
+  const {user, isLoggedIn,  setShowLogin, handleLogout} = useUser();
+  const { wishlist, setWishlist} = useWishlist();
+  const {ordersHistory, setOrdersHistory } = useOrdersHistory();
 
   return (
     <>
@@ -22,7 +26,7 @@ const CartPage = ({props}) => {
                 {/* Cart Product */}
                 <CartItem />
                 {/* Cart Summary */}
-                <CartSummry props={{ordersHistory, setOrdersHistory, user }} />  
+                <CartSummry />  
               </div>
             )
           }

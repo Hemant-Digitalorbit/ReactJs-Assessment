@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import WishListProdCard from '../components/features/wishlist/WishListItem'
+import React from 'react'
+import WishListItem from '../components/features/wishlist/WishListItem'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
 import '../assets/styles/WishList.css'
+import { useUser } from '../components/features/services/userService'
+import { useWishlist } from '../components/features/services/wishlistService'
 
 
-const WishListPage = ({props}) => {
+const WishListPage = () => {
 
-    let {setShowLogin, isLoggedIn, handleLogout, wishlist, setWishlist, user} = props;
-
-    useEffect(()=> {
-        const savedProdWishList = JSON.parse(localStorage.getItem(`wishlist${user.id}`))
-        setWishlist(savedProdWishList)
-    }, [])
-
-    const deleteWishItem = (itemId) => {
-        const deleteProd =  wishlist.filter(item =>  item.id !== itemId) 
-        setWishlist(deleteProd)
-        localStorage.setItem(`wishlist${user.id}`, JSON.stringify(deleteProd)) 
-    }
-
+    const {user, isLoggedIn,  setShowLogin, handleLogout} = useUser();
+    const { wishlist, setWishlist} = useWishlist();
+ 
     return (
         <>
             <Header setShowLogin={() => setShowLogin(true)} user={user} wishlist={wishlist} setWishlist={setWishlist} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
@@ -29,7 +21,7 @@ const WishListPage = ({props}) => {
                     <div className='wishlist-card'>
                         {
                             isLoggedIn && wishlist?.map((product, index) => (
-                                <WishListProdCard key={index} props={{product, deleteWishItem}}  />
+                                <WishListItem key={index} product={product}  />
                             ))
                         }
                     </div>

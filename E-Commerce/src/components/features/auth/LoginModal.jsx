@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import '../../../assets/styles/Login.css'
 import {useCart} from '../services/cartService';
+import { useUser } from '../services/userService';
+import { useWishlist } from '../services/wishlistService';
+import { useOrdersHistory } from '../services/orderHistoryService';
 
-function LoginModal({ closeModel, handleLogin, props }) {
+function LoginModal({ closeModel }) {
 
-    let {setWishlist, setOrdersHistory, setUser} = props;
-    
+    const {setUser, handleLogin} = useUser();
     const {setCart} = useCart();
+    const {setOrdersHistory} = useOrdersHistory();
+    const {setWishlist} = useWishlist();
+
     const [isRegister, setIsRegister] = useState(true); 
     const [form, setForm] = useState({ name: '', email: '', password: '' });
 

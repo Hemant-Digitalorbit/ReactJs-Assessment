@@ -7,8 +7,7 @@ const FilterSortingModel = ({props}) => {
 
   return (
     <div className='mobile-sort-cnt'>
-        <button onClick={() => setShowDown(prev => !prev)} className={`soting-sect-head ${showDown ? 'active' : ''}`} 
-            style={{fontSize: selectedSortBy ? '14px' : ''}}>
+        <button onClick={() => setShowDown(prev => !prev)} className={`soting-sect-head ${showDown ? 'active' : ''}`}>
                 {selectedSortBy || 'Sort By'}
                 <IoIosArrowDown
                     className={`down-arrow${showDown ? 'show' : ''}`} 
@@ -51,7 +50,7 @@ const FilterSortingModel = ({props}) => {
         )}
         {selectedSortBy && (
             <button className='clear-all-btn' onClick={handleClearAll} 
-            style={{backgroundColor: '##EA3D3233', color: '#EA3D32', border: '1px solid #EA3D32', borderRadius: '6px', fontSize: '14px', padding: '4px'}}>
+            style={{backgroundColor: '##EA3D3233', color: '#EA3D32', border: '1px solid #EA3D32', borderRadius: '4px', fontSize: '12px', padding: '2px'}}>
             Clear All
             </button>
         )}

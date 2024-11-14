@@ -4,13 +4,13 @@ import { Button } from '@headlessui/react'
 import '../../../assets/styles/WishList.css'
 import { useCart } from '../services/cartService'
 import { Link } from 'react-router-dom'
+import { useWishlist } from '../services/wishlistService'
 
 
-const WishListItem = ({props}) => {  
+const WishListItem = ({product}) => {  
   
-  const { addProdToCart } = useCart()
-
-  let {product, deleteWishItem} = props;
+  const { addProdToCart } = useCart();
+  const {deleteWishItem} = useWishlist();
   
   return (
     <>

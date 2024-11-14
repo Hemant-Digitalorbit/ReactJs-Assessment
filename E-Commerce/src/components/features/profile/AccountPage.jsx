@@ -5,12 +5,15 @@ import '../../../assets/styles/AccountPage.css'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { AiOutlineMenu } from "react-icons/ai";
 import { RiCloseLargeLine } from "react-icons/ri";
+import { useUser } from '../services/userService'
+import { useWishlist } from '../services/wishlistService'
 
 
-const AccountPage = ({props}) => {
+const AccountPage = () => {
 
-    let {setShowLogin, isLoggedIn, handleLogout,wishlist, setWishlist,} = props;
-    const [active, setActive] = useState('orders-history');
+    const {wishlist, setWishlist} = useWishlist();
+    const {isLoggedIn,  setShowLogin, handleLogout} = useUser()
+    const [active, setActive] = useState('profile');
     const [openMenu, setOpenMenu] = useState(false)
 
     const navigate = useNavigate()

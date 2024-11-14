@@ -34,9 +34,8 @@ const PopularProductsSection = ({products, reviews, heading}) => {
             ) : (null)
           }
         </div> 
-        </div>
-
-      <div className='bottom-border'></div>
+      </div>
+      <div className='btm-brd'></div>
     </section>
 
   );  

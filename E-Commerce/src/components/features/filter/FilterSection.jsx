@@ -29,11 +29,11 @@ const FilterSection = ({props}) => {
                         {
                             filter.options && 
                                 <DisclosurePanel className='DisclosurePanel'>
-                                    <div className='button-grid'>
+                                    <div className='btn-grid'>
                                     {
                                         filter.options.map((option) => (
                                         <button key={option.value} id={`filter-${filter.id}-${option.value}`} 
-                                            className={`filter-button ${selectedFilters[filter.id]?.includes(option.value) ? 'selected' : ''}`} 
+                                            className={`fltbtn ${selectedFilters[filter.id]?.includes(option.value) ? 'selected' : ''}`} 
                                             style={{backgroundColor: selectedFilters[filter.id]?.includes(option.value) ? 'f8ad5d' : ''}}
                                             onClick={() => handleFilterSelect(filter.id, option.value)}>
                                             <label>{option.label}</label>

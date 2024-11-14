@@ -10,7 +10,6 @@ const BrandsSection = ({brands, heading}) => {
       <div className="brands">
         <div className='heading-content'>
           <h2>{heading}</h2>
-          <p>View All</p>
         </div>
         <div className='brands-card'>
           {
@@ -24,7 +23,7 @@ const BrandsSection = ({brands, heading}) => {
         </div>
       </div>
 
-      <div className='bottom-border'></div>
+      <div className='btm-brd'></div>
     </section>
 
   )

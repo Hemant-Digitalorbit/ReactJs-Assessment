@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { useUser } from './userService';
 
 const CartContext = createContext();
 
@@ -7,16 +8,17 @@ const useCart = () => {
     return useContext(CartContext);
 };
 
-const CartProvider = ({ children, user }) => {  
-    const [cart, setCart] = useState([]);
+const CartProvider = ({ children }) => { 
 
+    const { user } = useUser(); 
+    const [cart, setCart] = useState([]);
     useEffect(() => {
         if (user) {
             const savedCart = localStorage.getItem(`cart_${user.id}`);
             setCart(savedCart ? JSON.parse(savedCart) : []);
         }else {
             setCart([]);
-            localStorage.removeItem(`cart_${user?.id}`);
+            localStorage.removeItem(`cart_${user.id}`);
         }
     }, [user]);
 

@@ -11,11 +11,15 @@ import BrandsSection from "../components/sections/BrandsSection";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { useUser } from "../components/features/services/userService";
+import { useWishlist } from "../components/features/services/wishlistService";
 
 
-function HomePage({props}) {
+function HomePage() {
 
-  let { isAgeVerified, showLogin, setShowLogin, isLoggedIn, handleLogin, handleLogout, user,  wishlist, setWishlist, setOrdersHistory, setUser } = props;
+  const {user, isAgeVerified, showLogin, setShowLogin, isLoggedIn, handleLogout} = useUser();
+  const {wishlist, setWishlist} = useWishlist();
 
   const navigate = useNavigate();
 
@@ -32,6 +36,17 @@ function HomePage({props}) {
       <div className="homeContent">
         <img src={banner} alt="banner" />
       </div>
+
+      <div className="mobileContent">
+        <svg width="390" height="557" viewBox="0 0 390 557" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="390" height="557" fill="#FCB84E"/>
+        </svg>
+        <div className="mobileContent-heading">
+          <h4>20% off on first purchase</h4>
+          <Link to={'/products/products/:heading'}><button>Order Now</button></Link>
+        </div>
+      </div>
+
 
       {/* if login then show products */}
       {
@@ -53,11 +68,7 @@ function HomePage({props}) {
       {/* to Show Login or Register form */}
       {
         showLogin && (
-          <LoginModal 
-            closeModel={() => setShowLogin(false)} 
-            handleLogin={handleLogin}
-            props={{setWishlist, setOrdersHistory, setUser}}
-          />
+          <LoginModal closeModel={() => setShowLogin(false)} />
         )
       }
 

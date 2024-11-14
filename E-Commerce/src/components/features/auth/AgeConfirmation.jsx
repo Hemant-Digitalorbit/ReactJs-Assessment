@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import '../../../assets/styles/AgeVerification.css'
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
+import { useUser } from "../services/userService";
 
-function AgeConfirmation({ setIsAgeVerified, handleLogout }) {
-
+function AgeConfirmation() {
+  
+  const {setIsAgeVerified} = useUser();
   const navigate = useNavigate()
   
   const handleVerifyAge = (age) => {

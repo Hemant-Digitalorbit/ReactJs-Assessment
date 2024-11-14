@@ -1,30 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { RiCloseLargeFill } from "react-icons/ri";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import {toast} from 'react-hot-toast'
+import { useUser } from '../services/userService';
+import { useOrdersHistory } from '../services/orderHistoryService';
 
-const OrderHistory = ({props, user}) => {
-  
-  let {ordersHistory, setOrdersHistory, submitReview, setSumitReview} = props;
+const OrderHistory = () => {
+  const {user} = useUser()
+  const {ordersHistory, submitReview, setSumitReview} = useOrdersHistory();
+
   const [showModel, setShowModel] = useState(false);
   const [modelProduct, setModelProduct] = useState('')
-
-
   const [rating, setRating] = useState('')
   const [hover, setHover] = useState('')
   const [review, setReview]= useState('')
 
-  useEffect(() => {
-    const storedOrders = JSON.parse(localStorage.getItem(`orders${user.id}`)) || [];
-    setOrdersHistory(storedOrders);
-
-    const prodRev = JSON.parse(localStorage.getItem('productreviews')) || []
-    setSumitReview(prodRev)
-  }, [user.id])
-
-
+  
   const handleSubmitReview = (e) => {
     e.preventDefault();
     const addReview = {productId: modelProduct.id, reviewerName: user.name, rating, review}
@@ -78,8 +71,8 @@ const OrderHistory = ({props, user}) => {
                       <input type='radio' value={curretntRating} onClick={() => setRating(curretntRating)}  />
                       {
                         curretntRating <= (hover || rating) 
-                          ? <FaStar className='star' color='#f6a261' onMouseEnter={() => setHover(curretntRating)} onMouseLeave={() => setHover(null)}/> 
-                          : <CiStar className='filled-star' color='#f6a261' onMouseEnter={() => setHover(curretntRating)} onMouseLeave={() => setHover(null)} /> 
+                          ? <FaStar className='star' color='rgba(80, 111, 34, 1)' onMouseEnter={() => setHover(curretntRating)} onMouseLeave={() => setHover(null)}/> 
+                          : <CiStar className='filled-star' color='rgba(80, 111, 34, 1)' onMouseEnter={() => setHover(curretntRating)} onMouseLeave={() => setHover(null)} /> 
                       }
                   </label>
                 )
