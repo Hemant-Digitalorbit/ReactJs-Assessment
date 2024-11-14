@@ -100,7 +100,6 @@
 
 .prod-card-pr .price {
   font-size: 18px;
-  font-weight: 600;
   color: #506F22;
   font-family: 'League Spartan';
 }
@@ -120,7 +119,7 @@
 }
 
 .prod-card .prod-card-pr .price{
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .prod-card-pr button:hover {
@@ -217,7 +216,9 @@
       justify-content: space-between;
   }
 
-
+  .prod-card .prod-card-pr .price {
+    font-size: 16px;
+  } 
 
   .products-card img {
     max-height: 200px;

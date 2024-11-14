@@ -1,3 +1,8 @@
+
+section h2 {
+    color: green;
+}
+
 .main-order-container {
     max-width: 1000px;
     margin: auto;
@@ -409,6 +414,10 @@
     .rating-model {
         width: 70%;
         padding: 15px;
+    }
+
+    .rating-model textarea {
+        width: 90%;
     }
 
     .rating-model h4 {
