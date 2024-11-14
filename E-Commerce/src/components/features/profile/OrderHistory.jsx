@@ -32,6 +32,7 @@ const OrderHistory = () => {
 
   return (
     <section>
+      <h2>Order History</h2>
       <div className='main-order-container'>
       {
         ordersHistory.map((product) => (

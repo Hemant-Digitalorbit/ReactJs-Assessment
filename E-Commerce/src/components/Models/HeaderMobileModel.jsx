@@ -16,7 +16,7 @@ const HeaderMobileModel = () => {
         { title: 'Category', options: ['Electronics', 'Fashion', 'FootWear'], links: ['/products/categories/Electronics', '/products/categories/Fashion', '/products/categories/FootWear'] },
         { title: 'Brand', options: ['Apple', 'Medico', 'Samsung'], links: ['/products/brands/Apple', '/products/brands/Medico', '/products/brands/Samsung'] },
         { title: 'Account', options: ['Profile', 'Track My Order', 'Order History', 'Contact Us', 'FAQs'], 
-            links: ['/account/profile', '/account/track-order', '/account/orders-history', '/account/contact', '/account/faqs'] 
+            links: ['/account/profile', '/account/tracking-order', '/account/orders-history', '/account/contact', '/account/faqs'] 
         }
     ];    
     const lists = [

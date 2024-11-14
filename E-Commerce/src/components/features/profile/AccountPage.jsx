@@ -20,12 +20,13 @@ const AccountPage = () => {
 
     const handleClick =(click) => {
         setActive(click)
+        navigate(click)
     }
 
     useEffect(() => {
         if (isLoggedIn) {
-          navigate(active);
           setActive(active)
+          navigate(active)
         }
     }, [isLoggedIn, navigate]);
 

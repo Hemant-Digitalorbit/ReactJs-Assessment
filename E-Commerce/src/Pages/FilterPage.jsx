@@ -58,12 +58,16 @@ import { useWishlist } from '../components/features/services/wishlistService';
       if (brandId) prodList = prodList.filter(p => p.brand.toLowerCase() === brandId.toLowerCase());
       if (categoryId) prodList = prodList.filter(p => p.category.toLowerCase() === categoryId.toLowerCase());
       else {
-        if (bestSellers.length) {prodList = bestSellers}
-        if (popularProducts.length) {prodList = popularProducts}
+        if (bestSellers.length) {
+          prodList = bestSellers;
+        }
+        if (popularProducts.length) {
+          prodList = popularProducts;
+        }
       }
   
-      setOriginalProducts(prodList);
       setFilterProducts(prodList);
+      setOriginalProducts(prodList);
       setHeading(brandId || categoryId || bestSellers.length ? brandId || categoryId || 'Best Sellers' : 'Popular');
     }, [brandId, categoryId, bestSellers, popularProducts]);
 
