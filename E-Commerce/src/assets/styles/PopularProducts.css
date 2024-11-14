@@ -13,12 +13,12 @@
 }
 
 .product-container .heading-content h2 {
-  color: #f6a261;
+  color: #506F22;
   font-size: 28px;
 }
 
 .product-container .heading-content .view-all {
-  color: #f6a261;
+  color: #EA3D32;
   font-size: 16px;
   text-decoration: underline;
   border: none;
@@ -40,44 +40,43 @@
 
 .products-card .prod-card {
   flex: 0 0 auto;
-  width: 180px;
-  height: 280px;
+  width: 200px;
+  height: 360px;
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
   transition: transform 0.3s ease;
   position: relative;
   margin: 20px 10px;
-  border: 1px solid #f6a261;
   padding: 10px;
 }
 
-.products-card .prod-card:hover{
-  transform: scale(1.1);
-}
 
 .products-card .prod-card img {
-  height: 100%;
+  height: 240px;
   object-fit: cover;
   width: 100%; 
   max-width: 100%; 
   overflow: hidden;
   display: block;
+  border: 1px solid #00000029;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.09);
 }
 
 .products-card .prod-card .rating {
   position: absolute;
-  top: 4px;
-  right: 4px;
+  top: 14px;
+  right: 14px;
   display: flex;
   gap: 4px;
-  background-color: #f6a261;
+  background-color: #506F22;
   padding: 4px 8px;
   border-radius: 4px;
   color: #fff;
 }
 
-.products-card .prod-card p {
+.products-card .prod-card .brand {
   font-size: 16px;
   color: gray;
   padding: 6px 0;
@@ -99,17 +98,17 @@
   justify-content: space-between;
 }
 
-.prod-card-pr p {
-  font-size: 16px;
-  color: #f6a261;
-  line-height: 22px;
+.prod-card-pr .price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #506F22;
   font-family: 'League Spartan';
 }
 
 .prod-card-pr button {
-  border: 1px solid #f6a261;
+  border: 1px solid #EA3D32;
   border-radius: 4px;
-  color: hsl(26, 89%, 67%);
+  color: #EA3D32;
   background-color: #fff;
   font-weight: 600;
   font-size: 16px;
@@ -120,14 +119,18 @@
   transition: transform 0.3s ease;
 }
 
+.prod-card .prod-card-pr .price{
+  font-size: 10px;
+}
+
 .prod-card-pr button:hover {
   transform: scale(1.1);
-  background-color: #f6a261;
+  background-color: #EA3D32;
   color: #fff;
 }
 
-.bottom-border {
-  border: 1px solid #f6a261;
+.btm-brd {
+  border: 1px solid rgba(0, 0, 0, 0.24);
   max-width: 1100px;
   margin: auto;
   margin: 50px auto;
@@ -151,25 +154,26 @@
 
   .product-container .products-card {
     margin: auto;
-    gap: 10px;
+    gap: 5px;
   }
 
   .products-card .prod-card {
-    flex: 0 0 auto; 
+    max-width: 165px;
     height: auto;
-    gap: 10px;
+    gap: 5px;
   }
 
   .products-card .prod-card h4 {
     font-size: 16px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
   }
 
   .products-card img {
-    height: 100%;
+    max-height: 200px;
     object-fit: cover;
     width: 100%;
-    max-width: 100%;
-    display: block;
   }
 
 }
@@ -182,40 +186,43 @@
   }
 
   .product-container .heading-content h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .product-container .heading-content p {
-    font-size: 10px; 
+    font-size: 8px; 
   }
 
   .product-container .products-card {
     margin: auto;
-    gap: 0px;
+    gap: 5px;
   }
 
   .products-card .prod-card {
-    flex: 0 0 auto; 
-    width: 120px;
+    max-width: 165px;
     height: auto;
-    gap: 8px;
+    gap: 5px;
   }
 
   .products-card .prod-card h4 {
-    font-size: 12px;
+    font-size: 14px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
   }
 
-  .prod-card .prod-card-pr p{
-      font-size: 12px;
+  .prod-card .prod-card-pr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
   }
-  
+
+
 
   .products-card img {
-    height: 100%;
+    max-height: 200px;
     object-fit: cover;
     width: 100%;
-    max-width: 100%;
-    display: block;
   }
 
 

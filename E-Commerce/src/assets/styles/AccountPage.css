@@ -17,7 +17,7 @@
 
 .menu-toggle {
     display: none;
-    background-color: #f6a261;
+    background-color: rgba(80, 111, 34, 1);
     color: #fff;
     padding: 10px 16px;
     border: none;
@@ -80,7 +80,7 @@
 .order-headcnt p {
     font-size: 18px;
     font-weight: 700;
-    color: #f6a261;
+    color: rgba(80, 111, 34, 1);
 }
 
 .order-hist-content span {
@@ -98,7 +98,7 @@
 
 .order-hist-content .order-price {
     font-size: 20px;
-    color: #f6a261;
+    color: rgba(80, 111, 34, 1);
     font-weight: 600;
 }
 
@@ -232,7 +232,7 @@
     align-items: center;
     justify-content: space-around;
     max-width: 100%;
-    background-color: #fdcba6;
+    background-color: rgba(80, 111, 34, 1);
     border-radius: 5px;
     padding: 50px 0px;
 }

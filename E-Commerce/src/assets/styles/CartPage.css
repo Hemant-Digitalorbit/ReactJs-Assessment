@@ -110,10 +110,10 @@ section h1 {
 }
 
 .cart-content p {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 24px;
     line-height: 30px;
-    color: #f6a261;
+    color: rgba(58, 90, 64, 1);
 }
 
 .cart-content .cart-quntity-func {

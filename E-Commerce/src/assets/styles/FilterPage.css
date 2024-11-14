@@ -9,11 +9,11 @@
     font-weight: 600;
     font-family: 'Quicksand';
     padding: 40px 0;
-    color: #f6a261;
+    color: rgba(59, 59, 59, 1);
 }
 
 .filter-page .filter-container {
-    border-bottom: 1px solid #f6a261;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.09);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -140,7 +140,7 @@
     cursor: pointer;
 }
 
-.filter-aside .filter-button {
+.filter-aside .fltbtn {
     background: none;
     border: none;
     display: flex;
@@ -166,7 +166,7 @@ label {
     cursor: pointer;
 }
 
-.button-grid {
+.btn-grid {
     margin-bottom: 5px;
 }
 
@@ -177,7 +177,7 @@ label {
   display: flex;
 }
 
-.DisclosurePanel .filter-button {
+.btn-grid .fltbtn {
     background-color: #f0f0f0;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -187,18 +187,18 @@ label {
     cursor: pointer;
 }
 
-.DisclosurePanel .button-grid {
+.DisclosurePanel .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     gap: 10px;
 }
 
-.button-grid label {
+.btn-grid label {
     margin: auto;
 }
 
-.DisclosurePanel .selected {
-    background-color: #f8ad5d;
+.btn-grid .selected {
+    background-color: rgba(250, 145, 8, 0.5);
     color: #ffffff;
 }
 
@@ -207,7 +207,7 @@ label {
     width: 20%;
     height: 200px;
     height: auto;
-    border: 1px solid #f6a261;
+    border: 2px solid rgba(0, 0, 0, 0.09);
     border-top: none;
     border-left: none;
     padding-right: 20px;
@@ -254,37 +254,51 @@ label {
     height: 320px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding-bottom: 20px;
     transition: transform 0.3s ease;
     position: relative;
-    border: 1px solid #f6a261;
     padding: 10px;
+    gap: 10px;
 }
   
 .filter-page-card .prod-card img {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
-    max-width: 100%; 
+    width: 100%; 
     overflow: hidden;
-    display: block;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.09);
 }
   
 .filter-page-card .prod-card .rating {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 14px;
+    right: 14px;
     display: flex;
     gap: 4px;
-    background-color: #f6a261;
+    background-color: rgba(80, 111, 34, 1);
     padding: 4px 8px;
     border-radius: 4px;
     color: #fff;
 }
-  
-.filter-page-card .prod-card p {
-    font-size: 16px;
+
+.filter-page-card .prod-card .brand {
+    font-size: 14px;
     color: gray;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.filter-page-card .prod-card .price {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(80, 111, 34, 1);
     padding: 6px 0;
     display: flex;
     align-items: center;
@@ -295,7 +309,7 @@ label {
     font-size: 18px;
     overflow: hidden;
     padding-bottom: 10px;
-    text-overflow: ellipsis;    
+    text-overflow: ellipsis;  
 }
   
 .prod-card-pr {
@@ -306,15 +320,15 @@ label {
   
 .prod-card-pr p {
     font-size: 16px;
-    color: #f6a261;
+    color: rgba(80, 111, 34, 1);
     line-height: 22px;
     font-family: 'League Spartan';
 }
   
 .prod-card-pr button {
-    border: 1px solid #f6a261;
+    border: 1px solid #EA3D32;
     border-radius: 4px;
-    color: hsl(26, 89%, 67%);
+    color: #EA3D32;
     background-color: #fff;
     font-weight: 600;
     font-size: 16px;
@@ -334,7 +348,6 @@ label {
 }
 
 
-
 /* Pagination */
 .pagination {
     display: flex;
@@ -348,8 +361,8 @@ label {
     width: 100px;
     height: 30px;
     cursor: pointer;
-    border: 1px solid #f6a261;
-    background-color: #f6a261;
+    border: 1px solid rgba(80, 111, 34, 1);
+    background-color: rgba(80, 111, 34, 1);
     color: #fff;
     font-size: 16px;
     border-radius: 4px;
@@ -357,7 +370,7 @@ label {
   
 .pagination span {
     margin: 0 10px;
-    border: 1px solid coral;
+    border: 1px solid rgba(80, 111, 34, 1);
     padding: 4px 8px;
     border-radius: 4px;
 }
@@ -404,7 +417,7 @@ label {
         gap: 10px;
         width: 100%;
     }
-
+   
     .filter-main-section {
         flex-direction: column;
     }
@@ -420,6 +433,13 @@ label {
         margin: 0;
     }
 
+    .filter-main-section .prod-card h4 {
+        font-size: 14px;
+        overflow: hidden;
+        padding-bottom: 10px;
+        text-overflow: ellipsis;
+    }
+
     .filter-page-card .prod-card {
         width: 100%;
         height: auto;
@@ -430,11 +450,10 @@ label {
         padding-bottom: 10px;
     }
 
-    .DisclosurePanel .selected {
+    .button-grid .selected {
         background-color: #f8ad5d;
         color: #ffffff;
     }
-
     .mobile-container {
         display: flex;
         align-items: center;
@@ -445,13 +464,17 @@ label {
    
     .mobile-container .mobile-flt-cnt {
         display: flex;
+    }
+
+    .mobile-flt-cnt .applied-filters {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start; 
+
     }
 
     .mobile-flt-cnt .option {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
     
     
@@ -460,14 +483,17 @@ label {
         display: flex;
         padding: 10px 0px;
         gap: 8px;
+        flex-wrap: wrap;
+        margin: 0;
     }
 
-    .mobile-flt-cnt .option .filters-list {
+    .option .filters-list {
         background-color: #f6a261;
         border-radius: 2px;
         display: flex;
         align-items: center;
         padding: 0px 4px;
+        box-sizing: border-box;
     }
 
     .mobile-flt-cnt .option li {
@@ -477,7 +503,9 @@ label {
     }
 
     .mobile-sort-cnt {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
     }
 
@@ -568,10 +596,14 @@ label {
         background-color: #FFFDEC;
     }
 
-    .filter-cnt-sec {
+    .filter-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+        width: 260px;
     }
 
     .IoIosArrowDown {
@@ -595,16 +627,30 @@ label {
         border-bottom: 1px solid;
     }
 
-    .mobile-filter-container .DisclosurePanel {
-        display: flex;
-        align-self: self-start;
-        justify-content: flex-start;
+    .button-grid {
+        display: none;
     }
 
-    .mobile-filter-container .DisclosurePanel .filter-button {
+    .button-grid.show {
+        max-height: auto;
+        overflow: hidden;
+        display: flex;
+        align-self: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 20px 10px;
+        gap: 10px;
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+    }
+    
+
+    .mobile-filter-container .button-grid .filter-button {
         background-color: #D9D9D9;
         font-size: 14px;
+        padding: 6px 10px;
+        border-radius: 4px;
     }
+
 
     .mobile-filter .applybtn {
         top: 50%;
