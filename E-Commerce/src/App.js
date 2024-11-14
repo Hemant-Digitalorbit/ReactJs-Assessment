@@ -11,6 +11,7 @@ import AccountPage from "./components/features/profile/AccountPage";
 import OrderHistory from "./components/features/profile/OrderHistory";
 import TrackOrder from "./components/features/profile/TrackOrder";
 import ProfilePage from "./components/features/profile/ProfilePage";
+import ContactPage from "./pages/ContactPage";
 
  
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="orders-history" element={<OrderHistory />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="track-order" element={<TrackOrder />} />
+          <Route path="contact" element={<ContactPage />} />
         </Route>
 
         <Route path="/product/:productId" element={<ProductDetailPage  />} />
