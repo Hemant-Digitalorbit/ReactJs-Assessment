@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io';
 import { useNavigate } from 'react-router';
-import { useCart } from '../features/services/cartService';
-import { useUser } from '../features/services/userService';
-import { useWishlist } from '../features/services/wishlistService';
+import { useCart } from '../context/cartService';
+import { useWishlist } from '../context/wishlistService';
+import { useUser } from '../context/userService';
 
 
 const HeaderMobileModel = () => {
-    const {isLoggedIn, handleLogout, setShowLogin} = useUser();
+    const {user, handleLogout, setShowLogin} = useUser();
     const {cart} = useCart();
     const {wishlist} = useWishlist();
     const [openPanel, setOpenPanel] = useState(null);
@@ -26,6 +26,11 @@ const HeaderMobileModel = () => {
     const handleToggle = (index) => {
         setOpenPanel(prev => (prev === index ? null : index));
     };
+
+    const handleOptionClick = (link) => {
+        navigate(link);
+        setOpenPanel(null);
+    };
       
     return (
         <>
@@ -42,7 +47,7 @@ const HeaderMobileModel = () => {
                             <div className={`disclosurePanel ${openPanel === index ? 'show' : 'hidden'}`}>
                                 <ul>
                                 {a.options.map((option, index) => (
-                                    <li key={index} onClick={()=> navigate(a.links[index])}>{option}</li>
+                                    <li key={index} onClick={()=> {handleOptionClick(a.links[index])}}>{option}</li>
                                 ))}
                                 </ul>
                             </div>
@@ -50,14 +55,14 @@ const HeaderMobileModel = () => {
                     </div>
                 ))}
                 {lists.map((x, index) => (
-                <button key={index} onClick={()=> navigate(x.link)} className="disclosureButton" style={{ borderBottom: '0.5px solid rgba(59, 59, 59, 0.25)' }}>
+                <button key={index} onClick={()=> handleOptionClick(x.link)} className="disclosureButton" style={{ borderBottom: '0.5px solid rgba(59, 59, 59, 0.25)' }}>
                     <p>{x.title}</p>
                     <span>{x.count}</span>
                 </button>
                 ))}
             </div>
             {
-                isLoggedIn ? (
+                user ? (
                     <button className='logoutbtn' onClick={() => {handleLogout(); navigate('/age-verify')}} >Logout</button>
                 ) : (
                     <button className='logoutbtn' onClick={() => setShowLogin(true)} >Login</button>

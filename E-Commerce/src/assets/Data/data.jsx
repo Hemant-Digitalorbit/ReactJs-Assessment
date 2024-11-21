@@ -1,34 +1,3 @@
-export let customer = [
-    {
-      "id": 1,
-      "name" : "Jane Doe",
-      "email": "jane.doe@example.com",
-      "phoneNumber": "9234567594",
-      "password": "1234@Asdf"
-    },
-    {
-      "id": 2,
-      "name" : "John Smith",
-      "email": "john.smith@example.com",
-      "phoneNumber": "8578864598",
-      "password": "1234@Asdf"
-    },
-    {
-      "id": 3,
-      "name" : "Susan Brown",
-      "email": "susan.brown@example.com",
-      "phoneNumber": "9444564598",
-      "password": "1234@Asdf"
-    },
-    {
-      "id": 4,
-      "name" : "Kim Moojin",
-      "email": "kim.moojin@example.com",
-      "phoneNumber": "7837876789",
-      "password": "1234@Asdf"
-    }
-];
-
 export let brands = [ 
     {
       "id": 1,
@@ -321,7 +290,7 @@ export let products = [
     description: "Perfect for workouts and casual outings.",
     image: ["https://4.imimg.com/data4/RU/VC/MY-11853389/men-s-jackets.jpg"],
     price: 89.99,
-    publish: true,
+    publish: true,  
     status: '',
     DeliveredDate: "",
     reviews: "", 

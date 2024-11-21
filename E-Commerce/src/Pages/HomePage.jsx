@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import banner from '../assets/images/Frame 114.png';
-import { categories, products, orders, reviews, brands } from "../Data/data";
-import { FaUser } from "react-icons/fa";
+import { orders, reviews } from "../assets/Data/data";
 import '../assets/styles/HomePage.css';
 import LoginModal from "../components/features/auth/LoginModal";
 import BestsellersSection from "../components/sections/BestsellersSection";
@@ -12,14 +11,15 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { useUser } from "../components/features/services/userService";
-import { useWishlist } from "../components/features/services/wishlistService";
+import { useUser } from "../components/context/userService";
+import { useProduct } from "../components/context/productService";
+import LandingPage from "./LandingPage";
 
 
 function HomePage() {
 
-  const {user, isAgeVerified, showLogin, setShowLogin, isLoggedIn, handleLogout} = useUser();
-  const {wishlist, setWishlist} = useWishlist();
+  const {user, isAgeVerified, showLogin, setShowLogin} = useUser();
+  const {products, categories, brands} = useProduct();
 
   const navigate = useNavigate();
 
@@ -31,49 +31,38 @@ function HomePage() {
 
   return (
     <>
-      <Header setShowLogin={() => setShowLogin(true)} user={user} wishlist={wishlist} setWishlist={setWishlist} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
-      {/* Bannner Image */}
-      <div className="homeContent">
-        <img src={banner} alt="banner" />
-      </div>
-
-      <div className="mobileContent">
-        <svg width="390" height="557" viewBox="0 0 390 557" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="390" height="557" fill="#FCB84E"/>
-        </svg>
-        <div className="mobileContent-heading">
-          <h4>20% off on first purchase</h4>
-          <Link to={'/products/products/:heading'}><button>Order Now</button></Link>
-        </div>
-      </div>
-
-
-      {/* if login then show products */}
-      {
-        isLoggedIn ? (
+      <Header />
+      { user ? (
           <>
+            {/* Bannner Image for window */}
+            <div className="homeContent">
+              <img src={banner} alt="banner" />
+            </div>
+            {/* Banner for mobile */}
+            <div className="mobileContent">
+              <svg width="390" height="557" viewBox="0 0 390 557" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="390" height="557" fill="#FCB84E"/>
+              </svg>
+              <div className="mobileContent-heading">
+                <h4>20% off on first purchase</h4>
+                <Link to={'/products/products/:heading'}><button>Order Now</button></Link>
+              </div>
+            </div>
             <CategoriesSection heading="Categories" categories={categories} />
             <BestsellersSection heading="Best Sellers" products={products} orders={orders} />
-            <PopularProductsSection heading="Popular" products={products} reviews={reviews} />
+            <PopularProductsSection heading="Popular" products={products} reviews={reviews}/>
             <BrandsSection heading="Brands" brands={brands} />
           </>
         ) : (
-          <div className="login-prompt">
-            <h2>Please login to see the products.</h2>
-            <button onClick={() => setShowLogin(true)}><FaUser /> Login</button>
-          </div>
+          <LandingPage />
         )
       }
-
-      {/* to Show Login or Register form */}
       {
         showLogin && (
           <LoginModal closeModel={() => setShowLogin(false)} />
         )
       }
-
-      {/* Footer */}
-      <Footer />
+    <Footer />
     </>
   );
 }

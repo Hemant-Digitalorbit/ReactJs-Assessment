@@ -176,17 +176,28 @@ header {
     .mobile-nav {
         background-color: rgba(255, 253, 236, 1);
         display: flex;
+        flex-direction: column;
+    }
+    
+    .mobile-nav .logoutbtn {
+        padding: 10px 20px;
+        margin: 20px 20px;
+        background-color: #EA3D32;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px;
     }
 
     .mobile-nav-head {
         display: flex;
         flex-direction: column;
         padding: 20px;
-        gap: 10px;
-        transition:  0.5s ease-in-out;
+        gap: 20px;
     }
+    
 
-    .mobile-nav-head .DisclosureButton {
+    .mobile-nav-head .disclosureButton {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -196,12 +207,12 @@ header {
         font-weight: 500;
         font-size: 16px;
     }
-
-    .mobile-nav-head .DisclosureButton .IoIosArrowDown {
+    
+    .mobile-nav-head .disclosureButton .IoIosArrowDown {
         color: rgba(122, 100, 66, 1);
     }
 
-    .mobile-nav-head .DisclosurePanel ul {
+    .mobile-nav-head .disclosurePanel ul {
         list-style: none;
         display: flex;
         flex-direction: column;
@@ -211,12 +222,24 @@ header {
         gap: 10px;
     }
 
+    .mobile-nav-head .disclosurePanel.hidden {
+        display: none;
+    }
+
+    .mobile-nav-head .disclosureButton.show {
+        display: block;
+    }
+
+    .mobile-nav-head .IoIosArrowDown.rotate {
+        transform: rotate(180deg);
+    }
+
     .mobile-nav-head .DisclosurePanel ul li {
         font-size: 14px;
         color: rgba(59, 59, 59, 0.67);
         
     }
-    
+
     .mob-srch-div {
         padding: 20px 0;
         transition:  0.5s ease-in-out;
@@ -258,11 +281,13 @@ header {
     }
 
     .mobile-search-icon {
-        background-color: transparent;
-        border: none;
+        display: flex;
+        padding: 18px;
         font-size: 24px;
         color: #EA3D32;
         cursor: pointer;
+        background-color: transparent;
+        border: none;
     }
 
 }

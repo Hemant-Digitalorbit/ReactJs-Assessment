@@ -11,7 +11,7 @@ const ContactPage = () => {
                     <div className="icon-circle" />
                     <h3>Head Office</h3>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <p>Lorem ipsum dolor sit amet, <br></br>consectetur adipiscing elit</p>
             </div>
 
             <div className="contact-item">

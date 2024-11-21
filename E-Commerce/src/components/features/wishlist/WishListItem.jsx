@@ -2,16 +2,16 @@ import React from 'react'
 import { FaStar, FaTrash } from 'react-icons/fa'
 import { Button } from '@headlessui/react'
 import '../../../assets/styles/WishList.css'
-import { useCart } from '../services/cartService'
+import { useCart } from '../../context/cartService'
 import { Link } from 'react-router-dom'
-import { useWishlist } from '../services/wishlistService'
+import { useWishlist } from '../../context/wishlistService'
 
 
 const WishListItem = ({product}) => {  
   
   const { addProdToCart } = useCart();
   const {deleteWishItem} = useWishlist();
-  
+
   return (
     <>
         <div key={product.id} className='Wish-card'>

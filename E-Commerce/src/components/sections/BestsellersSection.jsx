@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
 
 
-const BestsellersSection = ({products, orders, heading }) => {
+const BestsellersSection = ({heading, products, orders }) => {
 
   const navigate = useNavigate()
 

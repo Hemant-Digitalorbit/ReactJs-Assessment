@@ -1,7 +1,6 @@
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import { useParams } from 'react-router';
-import { products } from'../Data/data';
 import '../assets/styles/ProductDetails.css';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { FaStar, FaRegTrashAlt, FaRegHeart} from 'react-icons/fa';
@@ -9,30 +8,42 @@ import { FiPlus } from "react-icons/fi";
 import { IoIosArrowDown } from 'react-icons/io'
 import { CiStar } from 'react-icons/ci';
 import { useEffect, useState } from 'react';
-import { useCart } from '../components/features/services/cartService';
-import { useUser } from '../components/features/services/userService';
-import { useWishlist } from '../components/features/services/wishlistService';
-import { useOrdersHistory } from '../components/features/services/orderHistoryService';
+import { useCart } from '../components/context/cartService';
+import { useWishlist } from '../components/context/wishlistService';
+import { useOrdersHistory } from '../components/context/orderHistoryService';
+import { useUser } from '../components/context/userService';
+import { useProduct } from '../components/context/productService';
+import { firestore } from '../components/Firebase/Firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 function ProductDetailPage() {
 
-    const {user, setShowLogin, isLoggedIn, handleLogout} = useUser();
+    const {user} = useUser();
     const {addProdToCart} = useCart();
-    const {wishlist, setWishlist, addProdToWishList} = useWishlist()
+    const {addProdToWishList} = useWishlist()
     const [storeQnty, setStoreQnty] = useState(1)
     const {submitReview, setSumitReview} = useOrdersHistory();
+    const {products} = useProduct();
     const {productId} = useParams();
 
     const product = Array.isArray(products) ? products.find((prod) =>
-        prod.name.toLocaleLowerCase() === productId.toLocaleLowerCase()) : '';
-
+        prod.name.toLocaleLowerCase() === productId.toLocaleLowerCase()) : null;
+    
     useEffect(() => {
-        if(user){
-            const existingReviews = JSON.parse(localStorage.getItem('productreviews')) || [];
-            setSumitReview(existingReviews.filter(rev => (rev.productId === product.id)));
-        }   
-    }, [user, product.id])  
+        const fetchReviews = async () => {
+            try {
+                const reviewColl = collection(firestore, 'reviews')
+                const reviewsnap = await getDocs(reviewColl)
+                const reviews = reviewsnap.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+                const productReviews = reviews.filter((rev) => rev.productId === product.id);
+                setSumitReview(productReviews);
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+            }
+        }
+        fetchReviews();
+    }, [product])
 
     function incrementQuantity(e) {
         const step = Number(e.target.getAttribute("data-qnt")) || 1;
@@ -47,34 +58,34 @@ function ProductDetailPage() {
       
     return (
         <>  
-            <Header setShowLogin={() => setShowLogin(true)} user={user} wishlist={wishlist} setWishlist={setWishlist} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+            <Header />
             
             <section>
                 {
-                    isLoggedIn && (
+                    user && (
                         <div className='main-product-container'>
                             <div className='image-container'>
                                 <div className='thumbnail-images'>
-                                    <img src={product.image} />
-                                    <img src={product.image} />
-                                    <img src={product.image} />
+                                    <img src={product?.image} />
+                                    <img src={product?.image} />
+                                    <img src={product?.image} />
                                 </div>
                                 <div className='main-image-container'>
-                                    <img src={product.image} alt={product.name} />
+                                    <img src={product?.image} alt={product?.name} />
                                 </div>
                             </div>
                             <div className='main-product-content'>
                                 <div className='product-highligh-sec'>
-                                    <p>{product.brand}</p>
-                                    <h6><FaStar />{product.ratings}</h6>
+                                    <p>{product?.brand}</p>
+                                    <h6><FaStar />{product?.ratings}</h6>
                                 </div>
-                                <h3>{product.name}</h3>
-                                <p className='prod-price'>$ {product.price}</p>
+                                <h3>{product?.name}</h3>
+                                <p className='prod-price'>$ {product?.price}</p>
                                 {/* if weight in product then otherwise no */}
                                 {
-                                    product.weight && (
-                                        <div className='product-weight'>
-                                            <p>{product.weight}</p>
+                                    product?.weight && (
+                                        <div className='product?-weight'>
+                                            <p>{product?.weight}</p>
                                         </div>
                                     )
                                 }
@@ -90,7 +101,7 @@ function ProductDetailPage() {
                                 <div className='prod-desc'>
                                     <Disclosure>  
                                         <DisclosureButton className='DisclosureButton' >Description <span><IoIosArrowDown /></span></DisclosureButton>
-                                        <DisclosurePanel className='DisclosurePanel'>{product.description}</DisclosurePanel>
+                                        <DisclosurePanel className='DisclosurePanel'>{product?.description}</DisclosurePanel>
                                     </Disclosure>
                                 </div>
                                 <div className='prod-desc'>
@@ -107,7 +118,7 @@ function ProductDetailPage() {
                                                             <p>
                                                                 {[...Array(5)].map((a, ind) => (
                                                                     <span key={ind}>
-                                                                        {
+                                                                        {   
                                                                             ind < rev.rating 
                                                                             ? <FaStar size={20} className='star' color='rgba(80, 111, 34, 1)' /> 
                                                                             : <CiStar size={25} className='star' color='rgba(80, 111, 34, 1)' />

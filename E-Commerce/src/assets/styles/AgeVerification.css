@@ -3,7 +3,7 @@
 }
 
 .ageVerificationCont{
-    background-color: rgb(247, 242, 194);
+    background-color: rgba(255, 253, 236, 1);
     width: 100%;
     margin: 0px;
     height: 100vh;
@@ -11,6 +11,7 @@
     display: flex;  
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .ageVerImg {
@@ -56,4 +57,34 @@
 
 .ageVerBox button:hover {
     transform: scale(1.1);
+}
+
+.topImg {
+    width: 400px;
+    height: 300px;
+    top: 0;
+    right: 0;
+    opacity: 0.6;
+    position: absolute;
+}
+
+.bottomImg {
+    width: 400px;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+}
+
+@media (max-width: 768px) {
+    .topImg {
+        width: 200px;
+        height: 150px; 
+    }
+    
+    .bottomImg {
+        width: 200px;
+        height: 150px;
+    }
 }

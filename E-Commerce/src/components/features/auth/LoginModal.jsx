@@ -1,78 +1,45 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import '../../../assets/styles/Login.css'
-import {useCart} from '../services/cartService';
-import { useUser } from '../services/userService';
-import { useWishlist } from '../services/wishlistService';
-import { useOrdersHistory } from '../services/orderHistoryService';
+import { useUser } from '../../context/userService';
+import { FcGoogle } from "react-icons/fc";
+
 
 function LoginModal({ closeModel }) {
-
-    const {setUser, handleLogin} = useUser();
-    const {setCart} = useCart();
-    const {setOrdersHistory} = useOrdersHistory();
-    const {setWishlist} = useWishlist();
+    const {signUp, signIn, signInWithGoogle} = useUser();
 
     const [isRegister, setIsRegister] = useState(true); 
-    const [form, setForm] = useState({ name: '', email: '', password: '' });
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
 
-    const handleInputChange = (e) => {
-        setForm({...form, [e.target.name] : e.target.value
-        })
-    };
-
-    const handleRegisterSubmit = (e) => {
+    const handleRegisterSubmit = async (e) => {
         e.preventDefault();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-        if (!emailRegex.test(form.email)) {
+        if (!emailRegex.test(email)) {
             toast.error("Please enter a valid email");
             return;
         }
-
-        if (!passRegex.test(form.password)) {
+        if (!passRegex.test(password)) {
             toast.error("Password must be at least 8 characters, with uppercase, lowercase, and special characters");
             return;
         }
-
-        if(form.name && form.email && form.password){
-            const newUser = { name: form.name, email: form.email, password: form.password };
-            localStorage.setItem('user', JSON.stringify(newUser));
-            setForm({name: '', email: '', password: ''})
-            toast.success('Registration successful!')
-            setIsRegister(false)
-        }else {
-            toast.error("Please fill out all fields.")
-        }
+        signUp(name, email, password);
+        closeModel();
     };
 
-    const handleLoginSubmit = (e) => {
+    const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        
-        const loginStoredUser = JSON.parse(localStorage.getItem('user'))
-        if (loginStoredUser && loginStoredUser.email === form.email && loginStoredUser.password === form.password){
-            toast.success("Welcome back" + " " + loginStoredUser.name)
-            setUser(loginStoredUser);
-            setCart([...(loginStoredUser.cart || [])]);
-            setWishlist([...(loginStoredUser.wishlist || [])]);
-            setOrdersHistory([...(loginStoredUser.orders || [])]);
-            closeModel()
-            return loginStoredUser;
-        }else {
-            const userExists = handleLogin(form.email, form.password);
-            if(userExists) {
-                toast.success("Welcome back" + " " + userExists.name)
-                setUser(userExists);
-                setCart([...(userExists.cart || [])]);
-                setWishlist([...(userExists.wishlist || [])]);
-                setOrdersHistory([...(userExists.orders || [])]);
-                closeModel()
-            }else {
-                toast.error("Invalid Credentials")
-            }
-        }
+        await signIn( email, password);
+        closeModel();
     };
+
+    const handleLoginWithGoogle = async () => {
+        await signInWithGoogle();
+        closeModel();
+    }
 
     return (
         <div className="loginContainer">
@@ -84,16 +51,23 @@ function LoginModal({ closeModel }) {
                             isRegister && (
                                 <>
                                     <label>Name:</label>
-                                    <input type="text" name='name' value={form.name} onChange={handleInputChange} required />
+                                    <input type="text" name='name' value={name} onChange={(e) => setName(e.target.value)} required />
                                 </>
                             )
                         }
                         <label>Email:</label>
-                        <input type="email" name='email' value={form.email} onChange={handleInputChange} required />
+                        <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
                         <label>Password:</label>
-                        <input type="password" name='password' value={form.password} onChange={handleInputChange} required />
+                        <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
 
-                        <button>{isRegister ? "Sign Up" : "Login"}</button>
+                        <button className='signbtn'>{isRegister ? "Sign Up" : "Login"}</button>
+
+                        <div style={{ display: 'flex', alignItems: 'center', margin: '20px 0', width: '100%' }}>
+                            <div style={{ flex: 1, height: '1px', backgroundColor: 'gray' }}></div>
+                            <span style={{ padding: '0 10px', color: 'gray', fontWeight: 'bold' }}>OR</span>
+                            <div style={{ flex: 1, height: '1px', backgroundColor: 'gray' }}></div>
+                        </div>
+                        <button onClick={handleLoginWithGoogle} className='googlebtn'><FcGoogle /></button>
                     </div>
                     <div className="switchBtn">
                         <p>

@@ -1,62 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
+import "../../../assets/styles/AccountPage.css";
 import { RiCloseLargeFill } from "react-icons/ri";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import {toast} from 'react-hot-toast'
-import { useUser } from '../services/userService';
-import { useOrdersHistory } from '../services/orderHistoryService';
+import { useOrdersHistory } from '../../context/orderHistoryService';
+import { useProduct } from '../../context/productService';
 
 const OrderHistory = () => {
-  const {user} = useUser()
-  const {ordersHistory, submitReview, setSumitReview} = useOrdersHistory();
-
-  const [showModel, setShowModel] = useState(false);
-  const [modelProduct, setModelProduct] = useState('')
-  const [rating, setRating] = useState('')
-  const [hover, setHover] = useState('')
-  const [review, setReview]= useState('')
-
-  
-  const handleSubmitReview = (e) => {
-    e.preventDefault();
-    const addReview = {productId: modelProduct.id, reviewerName: user.name, rating, review}
-    const updtReviews = [...submitReview, addReview];
-    setSumitReview(updtReviews)
-    localStorage.setItem('productreviews', JSON.stringify(updtReviews))
-    setReview('')
-    setRating(0)
-    setShowModel(false) 
-    toast.success("Review submitted successfully!")
-  }
+  const {ordersHistory, handleSubmitReview, setModelProduct, setShowModel, showModel, modelProduct, 
+    setRating, setReview, rating, review, hover, setHover} = useOrdersHistory();
+  const { products } = useProduct()
 
   return (
     <section>
       <h2>Order History</h2>
       <div className='main-order-container'>
       {
-        ordersHistory.map((product) => (
-          <div key={product.id} className='order-history'>
-            <div className='order-hist-img'>
-                <Link to={`/product/${product.name}`}>
-                    <img src={product.image} alt={product.name} />
-                </Link>
-            </div>
-            <div className='order-hist-content'>
-              <div className='order-headcnt'>
-                <p>Delivered</p>
-                <p>{product.Date}</p>
+        ordersHistory.map((product) => {
+          const orderProd = products.find((prod) => prod.id === product.id);
+          if(!orderProd) return null;
+          return (
+            <div key={product.id} className='order-history'>
+              <div className='order-hist-img'>
+                  <Link to={`/product/${orderProd.name}`}>
+                      <img src={orderProd.image} alt={orderProd.name} />
+                  </Link> 
               </div>
-              <span><p>{product.brand}</p><p>{product.weight}</p></span>
-              <h4>{product.name}</h4>
-              <p className='order-price'>$ {product.price}</p>
-              <div className='order-hst-btns'>
-                <button onClick={() => {setShowModel(true); setModelProduct(product); }} className='order-rate'>Rate</button>
-                <button className='order-record'>Reorder</button>
+              <div className='order-hist-content'>
+                <div className='order-headcnt'>
+                  <p>Delivered</p>  
+                  <p>{product?.date}</p>
+                </div>
+                <span><p>{orderProd.brand}</p><p>{orderProd.weight}</p></span>
+                <h4>{orderProd.name}</h4>
+                <p className='order-price'>$ {orderProd.price}</p>
+                <div className='order-hst-btns'>
+                  <button onClick={() => {setShowModel(true); setModelProduct(orderProd); setRating(''); setReview(''); setHover('');}} 
+                    className='order-rate'>
+                    Rate
+                  </button>
+                  <button className='order-record'>Reorder</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))
+          )
+        })
       }
     </div>
       {/* Review Send Model */}

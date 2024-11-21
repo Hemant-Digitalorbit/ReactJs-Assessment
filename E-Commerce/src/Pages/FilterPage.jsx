@@ -2,9 +2,8 @@
   import "../assets/styles/FilterPage.css";
   import { MdTune } from "react-icons/md";
   import { useLocation, useParams } from 'react-router';
-  import {products} from '../Data/data'
   import toast from 'react-hot-toast';
-  import { filters } from '../Data/filterdata';
+  import { filters } from '../assets/Data/filterdata';
   import FilterSection from '../components/features/filter/FilterSection';
   import SortingSection from '../components/features/filter/SortingSection';
   import ProductCard from '../components/ProductCard/ProductCard';
@@ -12,13 +11,13 @@
   import Footer from '../components/Footer/Footer';
   import FilterModel from '../components/Models/FilterModel';
   import FilterSortingModel from '../components/Models/FilterSortingModel';
-import { useUser } from '../components/features/services/userService';
-import { useWishlist } from '../components/features/services/wishlistService';
+  import { useUser } from '../components/context/userService';
+  import { useProduct } from '../components/context/productService';
 
   const FilterPage = () => {
     
-    const {setShowLogin, isLoggedIn, user, handleLogout} = useUser();
-    const { wishlist, setWishlist } = useWishlist();
+    const { user} = useUser();
+    const { products } = useProduct();
     const location = useLocation();
     const { brandId, categoryId } = useParams();
     const bestSellers = location.state?.bestSellers || []; 
@@ -65,7 +64,6 @@ import { useWishlist } from '../components/features/services/wishlistService';
           prodList = popularProducts;
         }
       }
-  
       setFilterProducts(prodList);
       setOriginalProducts(prodList);
       setHeading(brandId || categoryId || bestSellers.length ? brandId || categoryId || 'Best Sellers' : 'Popular');
@@ -142,11 +140,11 @@ import { useWishlist } from '../components/features/services/wishlistService';
 
     return (
       <>
-        <Header setShowLogin={() => setShowLogin(true)} user={user} wishlist={wishlist} setWishlist={setWishlist} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+      <Header />
 
         <section>
           {
-            isLoggedIn && 
+            user && 
             (
               <div className='filter-page'>
                 <h2>{heading}</h2>

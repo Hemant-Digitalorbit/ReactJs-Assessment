@@ -1,11 +1,11 @@
 import React from 'react'
 import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa'
-import { useCart } from '../../components/features/services/cartService'
+import { useCart } from '../context/cartService'
 import { Link } from 'react-router-dom';
-import { useWishlist } from '../features/services/wishlistService';
+import { useWishlist } from '../context/wishlistService';
 
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, quantity}) => {
 
   const { addProdToCart } = useCart();
   const {addProdToWishList} = useWishlist();
@@ -22,7 +22,7 @@ const ProductCard = ({product}) => {
             <div className='prod-card-pr'>
                 <p className='price'>${product.price}</p>
                 <button onClick={() => addProdToWishList(product)}><FaHeart /></button>
-                <button onClick={() => addProdToCart(product)}><FaShoppingCart /></button>
+                <button onClick={() => addProdToCart(product, quantity)}><FaShoppingCart /></button>
             </div>  
         </div>
         

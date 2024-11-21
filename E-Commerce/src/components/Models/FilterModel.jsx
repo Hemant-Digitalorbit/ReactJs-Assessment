@@ -1,10 +1,8 @@
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import '../../assets/styles/FilterPage.css'
 import React, { useEffect, useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import { MdTune } from 'react-icons/md';
 import { RiCloseLargeLine } from "react-icons/ri";
-import { products } from '../../Data/data';
 
 
 const FilterModel = ({props}) => {
