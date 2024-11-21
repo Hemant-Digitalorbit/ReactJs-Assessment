@@ -42,16 +42,18 @@ const CartProvider = ({ children }) => {
         setCart((prev) => {
             const prodAlready = prev.find((item) => item.id === product.id);
             let newCart;
+            const newQaunt = Number(quantity) || 1;
             if (prodAlready) {
                 newCart = prev.map((item) =>
-                    item.id === product.id ? { ...item, quantity: item.quantity + (Number(quantity)) } : item
+                    item.id === product.id ? { ...item, quantity: item.quantity + newQaunt} : item
                 );
-                toast.success('Product Quantity Added!');
-            } else {
-                newCart = [...prev, { ...product, quantity: 1}];
+                firestoreCart(newCart)
+                toast.error('Product Already in Cart');
+            } else {    
+                newCart = [...prev, { ...product, quantity: newQaunt}];
+                firestoreCart(newCart)
                 toast.success('Product Added Successfully...');
             }
-            firestoreCart(newCart)
             return newCart;
         });
     };
