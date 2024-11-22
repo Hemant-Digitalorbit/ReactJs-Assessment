@@ -15,7 +15,6 @@ import ContactPage from "./pages/ContactPage";
 
 function App() {
 
-
   return (
     <Router>
       <Toaster />
