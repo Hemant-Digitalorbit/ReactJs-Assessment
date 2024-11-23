@@ -14,6 +14,7 @@ const CartProvider = ({ children }) => {
 
     const { user } = useUser(); 
     const [cart, setCart] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     
 
@@ -71,7 +72,7 @@ const CartProvider = ({ children }) => {
         const updatedCart = cart.map(item => 
             item.id === itemId && item.quantity > 1 ? {...item, quantity: item.quantity - 1 } : item
         );
-        setCart(updatedCart);
+        setCart(updatedCart);   
         firestoreCart(updatedCart)};
 
     const deleteItem = (itemId) => {

@@ -20,7 +20,7 @@ function HomePage() {
 
   const {user, isAgeVerified, showLogin, setShowLogin} = useUser();
   const {products, categories, brands} = useProduct();
-
+  const {loading} = useProduct()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,29 +34,39 @@ function HomePage() {
   return (
     <>
       <Header />
-      { user ? (
-          <>
-            {/* Bannner Image for window */}
-            <div className="homeContent">
-              <img src={banner} alt="banner" />
-            </div>
-            {/* Banner for mobile */}
-            <div className="mobileContent">
-              <svg width="390" height="557" viewBox="0 0 390 557" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="390" height="557" fill="#FCB84E"/>
-              </svg>
-              <div className="mobileContent-heading">
-                <h4>20% off on first purchase</h4>
-                <Link to={'/products/products/:heading'}><button>Order Now</button></Link>
-              </div>
-            </div>
-            <CategoriesSection heading="Categories" categories={categories} />
-            <BestsellersSection heading="Best Sellers" products={products} orders={orders} />
-            <PopularProductsSection heading="Popular" products={products} reviews={reviews}/>
-            <BrandsSection heading="Brands" brands={brands} />
-          </>
+      {
+        loading ? (
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+          </div>
         ) : (
-          <LandingPage />
+          <>
+            { user ? (
+                <>
+                  {/* Bannner Image for window */}
+                  <div className="homeContent">
+                    <img src={banner} alt="banner" />
+                  </div>
+                  {/* Banner for mobile */}
+                  <div className="mobileContent">
+                    <svg width="390" height="557" viewBox="0 0 390 557" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="390" height="557" fill="#FCB84E"/>
+                    </svg>
+                    <div className="mobileContent-heading">
+                      <h4>20% off on first purchase</h4>
+                      <Link to={'/products/products/:heading'}><button>Order Now</button></Link>
+                    </div>
+                  </div>
+                  <CategoriesSection heading="Categories" categories={categories} />
+                  <BestsellersSection heading="Best Sellers" products={products} orders={orders} />
+                  <PopularProductsSection heading="Popular" products={products} reviews={reviews}/>
+                  <BrandsSection heading="Brands" brands={brands} />
+                </>
+              ) : (
+                <LandingPage />
+              )
+            }
+          </>
         )
       }
       {

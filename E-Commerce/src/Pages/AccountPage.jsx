@@ -8,10 +8,12 @@ import TrackOrder from '../components/features/profile/TrackOrder';
 import OrderHistory from '../components/features/profile/OrderHistory';
 import ContactPage from './ContactPage';
 import { useLocation } from 'react-router';
+import { useProduct } from '../components/context/productService';
 
 const AccountPage = () => {
     const {user} = useUser();
     const location = useLocation();
+    const {loading} = useProduct();
 
     const [viewProfile, setViewProfile] = useState(false);
     const [viewOrdersHistory, setViewOrdersHistory] = useState(false);
@@ -51,17 +53,27 @@ const AccountPage = () => {
     return (
         <>
             <Header/>
-            <section>
-                {user && (
+            {
+                loading ? (
+                    <div className="loading-spinner">
+                        <div className="spinner"></div>
+                    </div>
+                ) : (
                     <>
-                        <AccountPageHeading  props={{activeFunction, viewProfile, setViewProfile, viewOrdersHistory, setViewOrdersHistory, viewTrackOrders, setViewTrackOrders,viewContact, setViewContact, viewFnqs, setViewFnqs }}/>
-                        { viewProfile && ( <ProfilePage /> ) }
-                        { viewTrackOrders && ( <TrackOrder /> ) }
-                        { viewOrdersHistory && ( <OrderHistory /> ) }
-                        { viewContact && ( <ContactPage /> ) }
+                        <section>
+                            {user && (
+                                <>
+                                    <AccountPageHeading  props={{activeFunction, viewProfile, setViewProfile, viewOrdersHistory, setViewOrdersHistory, viewTrackOrders, setViewTrackOrders,viewContact, setViewContact, viewFnqs, setViewFnqs }}/>
+                                    { viewProfile && ( <ProfilePage /> ) }
+                                    { viewTrackOrders && ( <TrackOrder /> ) }
+                                    { viewOrdersHistory && ( <OrderHistory /> ) }
+                                    { viewContact && ( <ContactPage /> ) }
+                                </>
+                            )}
+                        </section>
                     </>
-                )}
-            </section>
+                )
+            }
             <Footer />
         </>
     )

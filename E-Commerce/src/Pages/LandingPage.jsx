@@ -10,18 +10,18 @@ const LandingPage = () => {
 
     return (
         <div id="home">
-            <div class="background-illustration">
+            <div className="background-illustration">
                 <img src="https://www.figma.com/file/GAdqJWTqeoOJ4kR0N4T91D/image/09393b4856483b2e33f8c83648b77908d09d7335" alt="background illustration" />
             </div>
-            <div class="home-div">
-                <div class="home-container">
-                    <div class="home-content">
+            <div className="home-div">
+                <div className="home-container">
+                    <div className="home-content">
                         <h1>Welcome to the <br></br><span>Candyland</span></h1>
-                        <div class="data-container">
-                            <button onClick={() => setShowLogin(true)} class="get-started">Get Started</button>
+                        <div className="data-container">
+                            <button onClick={() => setShowLogin(true)} className="get-started">Get Started</button>
                         </div>
                     </div>
-                    <div class="illustration">
+                    <div className="illustration">
                         <img src={landingImage} alt="Scooter delivery illustration" />
                     </div>
                 </div>

@@ -14,10 +14,12 @@ const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchAllData = async () => {
             try {
+                setLoading(true);
                 const prodDocRef = collection(firestore, "products");
                 const prodDocs = await getDocs(prodDocRef);
                 const prodList = prodDocs.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
@@ -36,6 +38,7 @@ const ProductProvider = ({ children }) => {
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
+            setLoading(false);
         };
     
         fetchAllData();
@@ -44,7 +47,7 @@ const ProductProvider = ({ children }) => {
 
     
     return (
-        <ProductContext.Provider value={{products, brands, categories}}>
+        <ProductContext.Provider value={{products, brands, categories, loading}}>
             {children}
         </ProductContext.Provider>
     );

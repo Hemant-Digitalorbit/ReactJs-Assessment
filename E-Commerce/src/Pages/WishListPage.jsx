@@ -12,30 +12,37 @@ const WishListPage = () => {
 
     const {user} = useUser();
     const { wishlist} = useWishlist();
-    const { products } = useProduct();
+    const { products, loading } = useProduct();
  
     return (
         <>
             <Header />
-            <section>
-                <h2>WishList</h2>
-                <div className='card-section'>
-                    <div className='wishlist-card'>
-                        {
-                            (user && Array.isArray(wishlist)) && wishlist.map((product, index) => {
-                                const wishProd = products.find((prod) => prod.id === product.id);
-                                if (!wishProd) return null;
-                                return (
-                                    <WishListItem key={index} product={wishProd}  />
-                                )
-                            })
-                        }
+            {
+                loading ? (
+                    <div className="loading-spinner">
+                        <div className="spinner"></div>
                     </div>
-
-                    
-                </div>
-
-            </section>
+                ) : (
+                    <>
+                        <section>
+                            <h2>WishList</h2>
+                            <div className='card-section'>
+                                <div className='wishlist-card'>
+                                    {
+                                        (user && Array.isArray(wishlist)) && wishlist.map((product, index) => {
+                                            const wishProd = products.find((prod) => prod.id === product.id);
+                                            if (!wishProd) return null;
+                                            return (
+                                                <WishListItem key={index} product={wishProd}  />
+                                            )
+                                        })
+                                    }
+                                </div> 
+                            </div>
+                        </section>
+                    </>
+                )
+            }
         {/* Footer */}
         <Footer />
         </>

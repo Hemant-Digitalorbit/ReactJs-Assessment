@@ -17,7 +17,7 @@
   const FilterPage = () => {
     
     const { user} = useUser();
-    const { products } = useProduct();
+    const { products, loading } = useProduct();
     const location = useLocation();
     const { brandId, categoryId } = useParams();
     const bestSellers = location.state?.bestSellers || []; 
@@ -141,60 +141,67 @@
     return (
       <>
       <Header />
-
-        <section>
-          {
-            user && 
-            (
-              <div className='filter-page'>
-                <h2>{heading}</h2>
-      
-                <div className='filter-container' >
-                  <div className='filter-section'>
-                    <p>Filter By <MdTune style={{ width: '20px', height: '20px' }} /></p>
+      {
+        loading ? (
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+          </div>
+        ) : (
+          <>
+            <section>
+              {
+                user && 
+                (
+                  <div className='filter-page'>
+                    <h2>{heading}</h2>
+                    <div className='filter-container' >
+                      <div className='filter-section'>
+                        <p>Filter By <MdTune style={{ width: '20px', height: '20px' }} /></p>
+                      </div>
+                      <div className='sorting-section'>
+                        <p>Sort By:</p>
+                        <SortingSection props={{ selectOptions, sortingDirection, handleSortByChanges, handleClearAll }} />
+                      </div>
+                    </div>
+                    {/* for mobile */}
+                    <div className='mobile-section'>
+                      <div className='mobile-container'>
+                          <FilterModel props={{closeModal, openModal, handleApplyFilters, filters, selectedFilters, setSelectedFilters, handleFilterSelect, handleClearAll, appliedFilters, isModalOpen, setFilterProducts, originalProducts, showDown, setShowDown, selectedSortBy, setAppliedFilters}} />
+                          <FilterSortingModel props={{setShowDown, selectedSortBy, setSelectedSortBy, setAppliedFilters, handleClearAll, showDown, setFilterProducts, filterProducts, handleSortByChanges}} />
+                      </div>
+                    </div>
+          
+                    <div className='filter-main-section'>
+                      <aside className='filter-aside'>
+                        <FilterSection props={{ filters, selectedFilters, handleFilterSelect }} />
+                        <div className='border-line'></div>
+                      </aside>
+                      <div className='filter-page-card'>
+                        {
+                          currentProd.map((product) => (
+                              <ProductCard key={product.id} product={product} user={user} />
+                            ))
+                        }
+                      </div>
+                    </div>
+          
+                    <div className='pagination'>
+                      <button onClick={() => setCurrentPage(prev => (prev > 1 ? prev - 1 : 1))} disabled={currentPage === 1}>
+                        Previous
+                      </button>
+                      <p>Page <span>{currentPage}</span> of <span>{totalPages}</span></p>
+                      <button onClick={() => setCurrentPage(prev => (prev < totalPages ? prev + 1 : totalPages))} disabled={currentPage === totalPages}>
+                        Next
+                      </button>
+                    </div>
                   </div>
-                  <div className='sorting-section'>
-                    <p>Sort By:</p>
-                    <SortingSection props={{ selectOptions, sortingDirection, handleSortByChanges, handleClearAll }} />
-                  </div>
-                </div>
-                {/* for mobile */}
-                <div className='mobile-section'>
-                  <div className='mobile-container'>
-                      <FilterModel props={{closeModal, openModal, handleApplyFilters, filters, selectedFilters, setSelectedFilters, handleFilterSelect, handleClearAll, appliedFilters, isModalOpen, setFilterProducts, originalProducts, showDown, setShowDown, selectedSortBy, setAppliedFilters}} />
-                      <FilterSortingModel props={{setShowDown, selectedSortBy, setSelectedSortBy, setAppliedFilters, handleClearAll, showDown, setFilterProducts, filterProducts, handleSortByChanges}} />
-                  </div>
-                </div>
-      
-                <div className='filter-main-section'>
-                  <aside className='filter-aside'>
-                    <FilterSection props={{ filters, selectedFilters, handleFilterSelect }} />
-                    <div className='border-line'></div>
-                  </aside>
-                  <div className='filter-page-card'>
-                    {
-                      currentProd.map((product) => (
-                          <ProductCard key={product.id} product={product} user={user} />
-                        ))
-                    }
-                  </div>
-                </div>
-      
-                <div className='pagination'>
-                  <button onClick={() => setCurrentPage(prev => (prev > 1 ? prev - 1 : 1))} disabled={currentPage === 1}>
-                    Previous
-                  </button>
-                  <p>Page <span>{currentPage}</span> of <span>{totalPages}</span></p>
-                  <button onClick={() => setCurrentPage(prev => (prev < totalPages ? prev + 1 : totalPages))} disabled={currentPage === totalPages}>
-                    Next
-                  </button>
-                </div>
-              </div>
-            )
-          }
-        </section>
-
-        <Footer />
+                )
+              }
+            </section>
+          </>
+        )
+      }
+      <Footer />
       </>
     );
   };

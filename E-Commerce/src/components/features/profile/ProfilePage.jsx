@@ -17,7 +17,6 @@ const ProfilePage = () => {
               <h6>{user.email}</h6>
             </div>
         </div>  
-        <button>Edit</button>  
     </section>
   )
 }
