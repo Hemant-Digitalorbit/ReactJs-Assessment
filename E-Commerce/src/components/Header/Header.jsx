@@ -61,7 +61,9 @@ function Header() {
                   <FaSearch className='search-icon' />
                   <input value={search} onChange={handleSearch} type='text' placeholder='Search....' />
               </form>
-              {searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />}
+              {
+                user && (searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />)
+              }
             </div>
 
             <div className='headBtn'> 
@@ -108,7 +110,9 @@ function Header() {
               <form className='mobile-search-bar'>
                   <FaSearch className='search-icon' />
                   <input type='text' value={search} onChange={handleSearch} placeholder='Search....' />
-                  {searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />}
+                  {
+                    user && (searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />)
+                  }
               </form>
             </div>
         }
