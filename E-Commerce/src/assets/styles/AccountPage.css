@@ -227,6 +227,7 @@ section h2 {
     background-color: rgba(80, 111, 34, 1);
     border-radius: 5px;
     padding: 50px 0px;
+    color: #fff;
 }
 
 .user-details {
@@ -317,6 +318,15 @@ section h2 {
 
     .vert-line {
         display: none;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user-details {
+        padding: 20px;
     }
 
     .order-hist-img {
