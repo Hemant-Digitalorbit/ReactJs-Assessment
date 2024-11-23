@@ -12,7 +12,7 @@ function AgeConfirmation() {
   
   const handleVerifyAge = (age) => {
     if (age) {
-      setIsAgeVerified(true);
+      sessionStorage.setItem("isAgeVerified", "true");
       navigate('/')
     } else {
       toast.error("Access restricted to users 21 and over.");
