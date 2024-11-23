@@ -24,8 +24,10 @@ function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAgeVerified) {
-      navigate("/age-verify");
+    const ageVerifiedSession = sessionStorage.getItem("isAgeVerified");
+    if (!isAgeVerified && !ageVerifiedSession) {
+      navigate("/age-verify");  
+      sessionStorage.setItem("isAgeVerified", "true");
     }
   }, [isAgeVerified, navigate]);
 

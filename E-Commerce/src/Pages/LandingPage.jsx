@@ -18,10 +18,6 @@ const LandingPage = () => {
                     <div class="home-content">
                         <h1>Welcome to the <br></br><span>Candyland</span></h1>
                         <div class="data-container">
-                            <div class="input-container">
-                                <FaLocationDot className='location-logo'/>
-                                <input type="text" placeholder="Enter you delivery address"  />
-                            </div>
                             <button onClick={() => setShowLogin(true)} class="get-started">Get Started</button>
                         </div>
                     </div>
