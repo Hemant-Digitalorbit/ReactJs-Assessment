@@ -11,17 +11,43 @@ import { AiOutlineClose } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";  
 import HeaderMobileModel from '../Models/HeaderMobileModel';
 import { useUser } from '../context/userService';
+import { useProduct } from '../context/productService';
+import SearchResultModel from '../Models/SearchResultModel';
 
 
 function Header() {
   
-
   const {user, setShowLogin, handleLogout} = useUser();
   const navigate = useNavigate();
   const {cart} = useCart();
-
+  const {products} = useProduct();
   const [showSearchForm, setShowSearchForm] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+
+  const [search, setSearch] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
+
+  const handleNavigation = (path) => {
+    if (!user) {
+      setShowLogin(true);
+    } else {
+      navigate(path);
+    }
+  };
+
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearch(query)
+    if(query.trim() !== '') {
+      const result = products.filter((product) => 
+        product.name.toLowerCase().includes(query) || 
+        product.category.toLowerCase().includes(query) ||
+        product.brand.toLowerCase().includes(query));
+      setSearchResult(result)
+    }else {
+      setSearchResult([])
+    }
+  }
 
   return (
     <header>
@@ -30,21 +56,22 @@ function Header() {
                 <img src={logo} />
             </Link>
 
-            <div>
+            <div className='search-funct'>
               <form className='search-bar'>
                   <FaSearch className='search-icon' />
-                  <input type='text' placeholder='Search....' />
+                  <input value={search} onChange={handleSearch} type='text' placeholder='Search....' />
               </form>
+              {searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />}
             </div>
 
-            <div className='headBtn'>
-                
-                <Link to={'/products/products/:heading'} ><button className='shopbtn'>Shop</button></Link>
-                <Link to={'/wishlist'} className='wishlist'>Wishlist</Link>
-                <Link to={'/account'} className='wishlist'>Account</Link>
-                <Link to={'/cartpage'} style={{textDecoration: 'none'}}><button className='cart-btn'><p>My Cart</p><FaShoppingCart width={40}/>
+            <div className='headBtn'> 
+                <button onClick={() => handleNavigation('/products/products/:heading')} className='shopbtn'>Shop</button>
+                <button onClick={() => handleNavigation('/wishlist')} className='wishlist'>Wishlist</button>
+                <button onClick={() => handleNavigation('/account')} className='wishlist'>Account</button>
+                <button onClick={() => handleNavigation('/cartpage')} className='cart-btn'>
+                  <p>My Cart</p><FaShoppingCart width={40}/>
                   <span>{cart?.length}</span>
-                </button></Link>
+                </button>
                 {
                   !user ? (
                     <button onClick={() => setShowLogin(true)} className='signBtn'><FaUser />Login</button>
@@ -80,7 +107,8 @@ function Header() {
             <div className='mob-srch-div'>
               <form className='mobile-search-bar'>
                   <FaSearch className='search-icon' />
-                  <input type='text' placeholder='Search....' />
+                  <input type='text' value={search} onChange={handleSearch} placeholder='Search....' />
+                  {searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />}
               </form>
             </div>
         }
@@ -89,4 +117,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Header;
