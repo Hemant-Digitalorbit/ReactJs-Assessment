@@ -3,6 +3,8 @@
     import {doc, getDoc, setDoc} from 'firebase/firestore'
     import toast from 'react-hot-toast';
     import { firebaseAuth, firestore } from '../Firebase/Firebase';
+    import cookies from 'js-cookie';
+
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -20,7 +22,13 @@
 
         useEffect(() => {
             const unlogged  = onAuthStateChanged(firebaseAuth, (user) => {
-                setUser(user)
+                if (user) {
+                    setUser(user)
+                    cookies.set('user', JSON.stringify({uid: user.uid, email: user.email, displayName: user.displayName}), {expires: 7})
+                }else {
+                    setUser(null)
+                    cookies.remove('user')
+                }
             })
             return () => unlogged();
         }, [])
@@ -35,6 +43,7 @@
                     user : {uid: user.uid, name: user?.displayName, email: user.email, createdAt: new Date().toISOString()}
                 })
                 setUser(user);
+                cookies.set('user', JSON.stringify({uid: user.uid, email: user.email, displayName: user.displayName}), {expires: 7})
                 toast.success(`Successfully Registered`);
             } catch {
                 toast.error('Registration Failed');
@@ -56,6 +65,7 @@
                             displayName: userData.user.name,
                         });
                         }
+                    cookies.set('user', JSON.stringify({uid: user.uid, email: user.email, displayName: user.displayName}), {expires: 7})
                     toast.success(`Welcome back, ${user.displayName}!`);
                 }else {
                     toast.error("User Doesn't Exist. Please Register First");
@@ -81,6 +91,7 @@
                 })
             }    
             setUser(user);
+            cookies.set('user', JSON.stringify({uid: user.uid, email: user.email, displayName: user.displayName}), {expires: 7})
             toast.success(`Welcome back, ${user?.displayName}!`);
         }
 
@@ -89,6 +100,8 @@
         const handleLogout = () => {
             signOut(firebaseAuth);
             setUser(null)
+            cookies.remove('user')
+            toast.success('Logged out successfully');
         };  
         
 
