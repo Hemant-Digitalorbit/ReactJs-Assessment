@@ -110,10 +110,10 @@ function Header() {
               <form className='mobile-search-bar'>
                   <FaSearch className='search-icon' />
                   <input type='text' value={search} onChange={handleSearch} placeholder='Search....' />
-                  {
-                    user && (searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />)
-                  }
               </form>
+              {
+                user && (searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />)
+              }
             </div>
         }
       
