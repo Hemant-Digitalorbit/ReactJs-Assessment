@@ -6,8 +6,8 @@ const SearchResultModel = ({searchResult}) => {
         <div className='search-result'>
             {
                 searchResult.map(item => (
-                    <Link to={`/product/${item.name}`} style={{textDecoration: 'none'}}>
-                        <div key={item.id} className='result-div'>
+                    <Link key={item.id} to={`/product/${item.name}`} style={{textDecoration: 'none'}}>
+                        <div className='result-div'>
                             <img src={item.image} alt={item.name} />
                             <p>{item.name}</p>
                         </div>  
