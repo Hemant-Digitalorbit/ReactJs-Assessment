@@ -21,6 +21,8 @@ const OrdersHistoryProvider = ({children}) => {
     const [rating, setRating] = useState('')
     const [review, setReview]= useState('')
     const [hover, setHover] = useState('')
+    const [previewImage, setPreviewImage] = useState([])
+    const [uploadedFile, setUploadedFile] = useState([])
 
 
     useEffect(() => {
@@ -49,16 +51,40 @@ const OrdersHistoryProvider = ({children}) => {
         await setDoc(doc(firestore, 'orders', user.uid), { orders: orderItem });
     };
 
+    const handleImageUpload = (e) => {
+        const files = Array.from(e.target.files);
+        setUploadedFile(prevFil => [...prevFil, ...files]);
+        const previewUrls = files.map(file => URL.createObjectURL(file));
+        setPreviewImage(prevImgs => [...prevImgs, ...previewUrls]);
+    };
+
     const handleSubmitReview = async (e) => {
         e.preventDefault();
-        const addReview = { productId: modelProduct.id, userId: user.uid, reviewerName: user?.displayName, rating, review}
-        const reviewsColl = collection(firestore, "reviews");
-        await addDoc(reviewsColl, addReview);
-        toast.success("Review submitted successfully!")
-        setShowModel(false) 
-        setReview('')
-        setRating('')
-        setHover('')
+        try {
+            let imageData = [];
+            if (uploadedFile.length > 0) {
+                imageData = await Promise.all(uploadedFile.map(file => {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = (error) => reject(error);
+                        reader.readAsDataURL(file);
+                    });
+                }));
+            }
+            const addReview = { productId: modelProduct.id, userId: user.uid, reviewerName: user?.displayName, rating, review, imageData}
+            const reviewsColl = collection(firestore, "reviews");
+            await addDoc(reviewsColl, addReview);
+            toast.success("Review submitted successfully!")
+            setShowModel(false) 
+            setReview('')
+            setRating('')
+            setHover('')
+            setUploadedFile([]);
+            setPreviewImage([]);
+        } catch (error) {
+            toast.error('Failed to submit review.');
+        }
     }
 
     const checkoutCart = () => {
@@ -69,7 +95,8 @@ const OrdersHistoryProvider = ({children}) => {
 
     return (
         <OrdersHistoryContext.Provider value={{ordersHistory, setOrdersHistory, submitReview, setSumitReview, handleSubmitReview,
-            showModel, setShowModel, modelProduct, setModelProduct, rating, setRating, review, setReview, checkoutCart, hover, setHover}}>
+            showModel, setShowModel, modelProduct, setModelProduct, rating, setRating, review, setReview, checkoutCart, hover, 
+            setHover, handleImageUpload, previewImage}}>
             {children}
         </OrdersHistoryContext.Provider>
     )

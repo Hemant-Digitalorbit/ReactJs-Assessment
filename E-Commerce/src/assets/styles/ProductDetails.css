@@ -233,7 +233,7 @@ section {
   padding-bottom: 20px;
 }
 
-.review-container img {
+.review-container .reviewerImg {
   width:  40px;
   height: 40px;
   border-radius: 50%;
@@ -243,11 +243,31 @@ section {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex-wrap: wrap;
 }
 
 .review-cnt p {
   display: flex;
   align-items: center;
+}
+
+.revImg  {
+  width: 70px;
+  height: 70px;
+  margin: 10px 0px;
+}
+
+.revImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.revImg-container { 
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @media (max-width: 1024px) {
@@ -291,6 +311,11 @@ section {
 
     .DisclosurePanel {
       width: 100%;
+    }
+    .revImg  {
+      width: 50px;
+      height: 50px;
+      margin: 10px 0px;
     }
 }
 

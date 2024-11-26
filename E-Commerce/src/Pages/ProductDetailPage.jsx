@@ -15,6 +15,7 @@ import { useUser } from '../components/context/userService';
 import { useProduct } from '../components/context/productService';
 import { firestore } from '../components/Firebase/Firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import ViewReviewImage from '../components/Models/ViewReviewImage';
 
 
 function ProductDetailPage() {
@@ -26,6 +27,8 @@ function ProductDetailPage() {
     const {submitReview, setSumitReview} = useOrdersHistory();
     const {products, loading} = useProduct();
     const {productId} = useParams();
+    const [showImage, setShowImage] =useState(false)
+    const [reviewImage, setReviewImage] = useState(null); 
 
     const product = Array.isArray(products) ? products.find((prod) =>
         prod.name.toLocaleLowerCase() === productId.toLocaleLowerCase()) : null;
@@ -118,7 +121,7 @@ function ProductDetailPage() {
                                                         {
                                                             submitReview.map((rev) => (
                                                                 <div key={rev.id} className='review-container'>
-                                                                    <img src='https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg' alt={submitReview.name} />
+                                                                    <img className='reviewerImg' src='https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg' alt={submitReview.name} />
                                                                     <div className='review-cnt'>
                                                                         <h4>{rev?.reviewerName}</h4>
                                                                         <p>
@@ -133,7 +136,27 @@ function ProductDetailPage() {
                                                                             ))}
                                                                         </p>
                                                                         <p>{rev.review}</p>
-                                                                    </div>
+                                                                        {
+                                                                            rev.imageData && (
+                                                                                <div className='revImg-container'>
+                                                                                    {Array.isArray(rev.imageData) 
+                                                                                        ? rev.imageData.length > 0 
+                                                                                            ? rev.imageData.map((image, index) => (
+                                                                                                <div key={index} onClick={() => { setShowImage(true); setReviewImage(image); }} className='revImg'>
+                                                                                                    <img src={image} alt={`Uploaded Review Image ${index + 1}`} />
+                                                                                                </div>
+                                                                                            )) 
+                                                                                            : null 
+                                                                                        : (
+                                                                                            <div onClick={() => { setShowImage(true); setReviewImage(rev.imageData); }} className='revImg'>
+                                                                                                <img src={rev.imageData} alt="Uploaded Review Image" />
+                                                                                            </div>
+                                                                                        )
+                                                                                    }
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                    </div>  
                                                                 </div>
                                                             ))
                                                         }
@@ -146,10 +169,12 @@ function ProductDetailPage() {
                                 )
                             }                       
                         </section>
+                        {showImage && <ViewReviewImage reviewImage={reviewImage} setShowImage={setShowImage} />}
                     </>
                 )
             }
             <Footer />
+
         </>
     )
 }

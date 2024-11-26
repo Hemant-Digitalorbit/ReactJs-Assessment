@@ -207,6 +207,80 @@ section h2 {
     font-size: 24px;
 }
 
+label .reviewImage {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.reviewImage input {
+    display: none;
+}
+
+.viewRevImg {
+    background-color: #fff;
+    width: 600px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 1000; 
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
+.image-preview {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.image-preview img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover; 
+}
+
+.ViewImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.ViewImg img {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.closeViewImg {
+    display: flex;
+    justify-content: end;
+}
+
+.closeViewImg button {
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: #EA3D32;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+}
+
 /* Profile Page Styling */
 .user-info-container {
     max-width: 1200px;
@@ -287,6 +361,16 @@ section h2 {
     .rating-model {
         width: 80%;
     }
+
+    .viewRevImg {
+        width: 500px;
+        height: 400px;
+    }
+
+    .ViewImg {
+        width: 400px;
+        height: 250px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -353,6 +437,30 @@ section h2 {
 
     .rating-model {
         width: 90%;
+    }
+
+    .image-preview {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    
+    .image-preview img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover; 
+    }
+
+    .viewRevImg {
+        width: 400px;
+        height: 350px;
+    }
+
+    .ViewImg {
+        width: 350px;
+        height: 250px;
     }
 }
 
@@ -437,6 +545,16 @@ section h2 {
         top: 5px;
         right: -30px;
         font-size: 20px;
+    }
+
+    .viewRevImg {
+        width: 250px;
+        height: 300px;
+    }
+
+    .ViewImg {
+        width: 250px;
+        height: 200px;
     }
 }
 

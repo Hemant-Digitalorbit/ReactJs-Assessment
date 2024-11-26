@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../../assets/styles/AccountPage.css";
 import { RiCloseLargeFill } from "react-icons/ri";
-import { FaStar } from "react-icons/fa";
+import { FaCloudUploadAlt, FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { useOrdersHistory } from '../../context/orderHistoryService';
@@ -9,7 +9,7 @@ import { useProduct } from '../../context/productService';
 
 const OrderHistory = () => {
   const {ordersHistory, handleSubmitReview, setModelProduct, setShowModel, showModel, modelProduct, 
-    setRating, setReview, rating, review, hover, setHover} = useOrdersHistory();
+    setRating, setReview, rating, review, hover, setHover, handleImageUpload, previewImage} = useOrdersHistory();
   const { products } = useProduct()
 
   return (
@@ -68,9 +68,21 @@ const OrderHistory = () => {
                 )
               })}
             </div>
-            <textarea type='text' placeholder='Please write the product review here' 
-            value={review} 
-            onChange={(e) => setReview(e.target.value)}/>
+            <textarea type='text' placeholder='Please write the product review here' value={review} onChange={(e) => setReview(e.target.value)}/>
+            <label>
+              <div className='reviewImage'>
+                <span><FaCloudUploadAlt /></span>
+                <p>Upload Images</p>
+                <input onChange={handleImageUpload} className='reviewUplImg' type='file' placeholder='upload image' />
+              </div>
+            </label>
+            {previewImage && (
+                <div className="image-preview">
+                  {previewImage.map((image, index) => (
+                    <img key={index} src={image} alt={`Uploaded Preview ${index + 1}`} style={{ maxWidth: '100%', marginTop: '10px' }} />
+                  ))}                
+                </div>
+            )}
             <button onClick={handleSubmitReview}>Submit</button>
             <button onClick={() => setShowModel(false)} className='close-model' >
               <RiCloseLargeFill />
