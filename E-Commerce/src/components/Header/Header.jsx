@@ -62,7 +62,7 @@ function Header() {
                   <input value={search} onChange={handleSearch} type='text' placeholder='Search....' />
               </form>
               {
-                user && (searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />)
+                user && <SearchResultModel searchQuery={search} searchResult={searchResult} />
               }
             </div>
 
@@ -112,7 +112,7 @@ function Header() {
                   <input type='text' value={search} onChange={handleSearch} placeholder='Search....' />
               </form>
               {
-                user && (searchResult.length > 0 && <SearchResultModel searchResult={searchResult} />)
+                user && <SearchResultModel searchQuery={search} searchResult={searchResult} />
               }
             </div>
         }

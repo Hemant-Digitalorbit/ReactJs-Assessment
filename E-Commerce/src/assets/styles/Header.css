@@ -82,6 +82,15 @@ header {
     gap: 20px;
 }
 
+.no-results {
+    padding: 10px;
+    color: #EA3D32;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
 .result-div img {
     width: 30px;
     height: 30px;
@@ -370,6 +379,16 @@ header {
         background-size: cover;
         border-radius: 50%; 
     }
+
+    .no-results.show {
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+        color: #EA3D32;
+        border-radius: 4px;
+        margin-top: 0px;
+    }
+    
 
 }
 
