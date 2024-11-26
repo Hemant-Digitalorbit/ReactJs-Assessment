@@ -14,6 +14,7 @@ const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [review, setReview] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -31,10 +32,15 @@ const ProductProvider = ({ children }) => {
                 const categoryDocRef = collection(firestore, "categories");
                 const categoryDocs = await getDocs(categoryDocRef);
                 const categoryList = categoryDocs.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+
+                const revDocRef = collection(firestore, "reviews");
+                const revDocs = await getDocs(revDocRef);
+                const revList = revDocs.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     
                 setProducts(prodList);
                 setBrands(brandList);
                 setCategories(categoryList);
+                setReview(revList)
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -47,7 +53,7 @@ const ProductProvider = ({ children }) => {
 
     
     return (
-        <ProductContext.Provider value={{products, brands, categories, loading}}>
+        <ProductContext.Provider value={{products, brands, categories, review, loading}}>
             {children}
         </ProductContext.Provider>
     );

@@ -5,7 +5,7 @@ import { useOrdersHistory } from '../../context/orderHistoryService';
 
 const CartSummry = () => {
 
-    const { cart } = useCart();
+    const { cart, setCart } = useCart();
     const {checkoutCart} = useOrdersHistory();
 
     const navigate = useNavigate()

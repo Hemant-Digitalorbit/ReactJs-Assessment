@@ -13,7 +13,7 @@ const useOrdersHistory = () => {
 
 const OrdersHistoryProvider = ({children}) => {
     const {user} = useUser();
-    const {cart} = useCart();
+    const {cart,setCart} = useCart();
     const [ordersHistory, setOrdersHistory] =  useState([]);
     const [submitReview, setSumitReview] = useState([]);
     const [showModel, setShowModel] = useState(false);
@@ -87,10 +87,18 @@ const OrdersHistoryProvider = ({children}) => {
         }
     }
 
-    const checkoutCart = () => {
-        let newOrd = cart.map(item  => ({...item, userId: user.uid, date: new Date().toLocaleDateString()}));
-        setOrdersHistory([...ordersHistory, ...newOrd])
-        saveOrdersToFirestore([...ordersHistory, ...newOrd])
+    const checkoutCart = async () => {
+        try {
+            let newOrd = cart.map(item  => ({...item, userId: user.uid, date: new Date().toLocaleDateString()}));
+            setOrdersHistory([...ordersHistory, ...newOrd])
+            saveOrdersToFirestore([...ordersHistory, ...newOrd])
+            const cartRef = doc(firestore, 'carts', user.uid);
+            await setDoc(cartRef, { cart: [] });
+            setCart([]);
+            toast.success("Order placed successfully!");
+        } catch (error) {
+            toast.error("Failed to complete checkout. Please try again.");
+        }
     }
 
     return (

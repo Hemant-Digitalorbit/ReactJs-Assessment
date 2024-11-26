@@ -13,10 +13,7 @@ const useCart = () => {
 const CartProvider = ({ children }) => { 
 
     const { user } = useUser(); 
-    const [cart, setCart] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-    
+    const [cart, setCart] = useState([]);  
 
     useEffect(() => {
         const savedCart = async () => {
