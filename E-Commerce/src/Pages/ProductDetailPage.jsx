@@ -7,7 +7,7 @@ import { FaStar, FaRegTrashAlt, FaRegHeart} from 'react-icons/fa';
 import { FiPlus } from "react-icons/fi";
 import { IoIosArrowDown } from 'react-icons/io'
 import { CiStar } from 'react-icons/ci';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useCart } from '../components/context/cartService';
 import { useWishlist } from '../components/context/wishlistService';
 import { useOrdersHistory } from '../components/context/orderHistoryService';
@@ -29,6 +29,8 @@ function ProductDetailPage() {
     const {productId} = useParams();
     const [showImage, setShowImage] =useState(false)
     const [reviewImage, setReviewImage] = useState(null); 
+    const [zoomImageCordinate, setZoomImageCordinate] = useState({ x: 0, y: 0 });
+    const [zoomImage, setZoomImage] = useState(false);
 
     const product = Array.isArray(products) ? products.find((prod) =>
         prod.name.toLocaleLowerCase() === productId.toLocaleLowerCase()) : null;
@@ -58,6 +60,20 @@ function ProductDetailPage() {
         const newQuantity = Math.max(1, storeQnty - step);
         setStoreQnty(newQuantity);
     }
+
+    // Zoom in Image 
+    const handleZoomImage = useCallback((e) => {
+        setZoomImage(true);
+        const { left, top, width, height } = e.target.getBoundingClientRect();
+        const x = (e.clientX - left) / width;
+        const y = (e.clientY - top) / height;
+        setZoomImageCordinate({ x, y });
+    }, []);
+
+    // Zoom out Image
+    const handleLeaveZoomImage = () => {
+        setZoomImage(false);
+    };
       
     return (
         <>  
@@ -80,7 +96,17 @@ function ProductDetailPage() {
                                                 <img src={product?.image} />
                                             </div>
                                             <div className='main-image-container'>
-                                                <img src={product?.image} alt={product?.name} />
+                                                <img onMouseMove={handleZoomImage} onMouseLeave={handleLeaveZoomImage} 
+                                                src={product?.image} alt={product?.name} />
+                                                {/* Zoom Image */}
+                                                {zoomImage && (
+                                                    <div className='zoom-image-container'>
+                                                        <div className='zoom-image'
+                                                            style={{backgroundImage: `url(${product.image})`, 
+                                                            backgroundPosition: `${zoomImageCordinate.x * 100}% ${zoomImageCordinate.y * 100}%`}}>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                         <div className='main-product-content'>
@@ -169,7 +195,7 @@ function ProductDetailPage() {
                                 )
                             }                       
                         </section>
-                        {showImage && <ViewReviewImage reviewImage={reviewImage} setShowImage={setShowImage} />}
+                        {showImage && <ViewReviewImage reviewImage={reviewImage} showImage={showImage} setShowImage={setShowImage} />}
                     </>
                 )
             }
