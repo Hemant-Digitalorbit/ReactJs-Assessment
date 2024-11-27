@@ -251,10 +251,10 @@ label .reviewImage {
     align-items: center;
     justify-content: center;
     margin: 20px 0px;
-    width: 500px;
-    height: 300px;
+    width: 600px;
+    height: 350px;
     margin: auto;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .ViewImg img {
@@ -286,6 +286,12 @@ label .reviewImage {
     max-width: 1200px;
     margin: auto;
     margin-bottom: 100px;
+}
+
+.user-info-cnt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .user-info-head {

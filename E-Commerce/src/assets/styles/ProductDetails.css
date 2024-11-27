@@ -37,6 +37,7 @@ section {
     width: 4rem;
     height: 4rem;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .main-image-container {
@@ -46,6 +47,7 @@ section {
     width: 17rem;
     height: 20rem;
     border-radius: 10px;
+    position: relative;
 }
 
 .main-image-container img {
@@ -53,6 +55,33 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.zoom-image-container {
+  position: absolute;
+  display: flex;
+  min-height: 400px;
+  min-width: 500px;
+  padding: 4px;
+  right: -500px;
+  top: 0;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.zoom-image {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  min-width: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+  background-size: 250%;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  transition: background-position 0.2s ease, background-size 0.2s ease;
 }
 
 /* product details */
@@ -309,6 +338,19 @@ section {
       width: 100%;
     }
 
+    .zoom-image-container {
+      min-height: 300px;
+      min-width: 300px;
+      right: 0px;
+      top: 320px;
+      padding: 4px;
+    }
+
+    .zoom-image {
+      min-height: 300px;
+      min-width: 300px;
+    }
+
     .DisclosurePanel {
       width: 100%;
     }
@@ -335,6 +377,18 @@ section {
     .main-image-container {
       width: 100%;
       height: 15rem;
+    }
+
+    .zoom-image-container {
+      min-height: 250px; 
+      min-width: 250px;
+      top: 240px; 
+      padding: 2px; 
+    }
+  
+    .zoom-image {
+      min-height: 250px;
+      min-width: 250px;
     }
 
     .quantity-btns {
