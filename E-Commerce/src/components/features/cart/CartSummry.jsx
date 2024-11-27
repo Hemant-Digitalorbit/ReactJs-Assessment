@@ -1,19 +1,25 @@
 import React from 'react'
 import { useCart } from '../../context/cartService';
-import { useNavigate } from 'react-router';
-import { useOrdersHistory } from '../../context/orderHistoryService';
+import { useUser } from '../../context/userService';
+import AddressModel from '../../Models/AddressModel';
 
 const CartSummry = () => {
 
-    const { cart, setCart } = useCart();
-    const {checkoutCart} = useOrdersHistory();
-
-    const navigate = useNavigate()
-
+    const { cart } = useCart();
+    const {openAddModel, setOpenAddModel} = useUser();
     const subtotal = Array.isArray(cart) ? cart.reduce((total, item) => total + item.price * item.quantity, 0) : 0;
     const deliveryFee = 50;
     const discount = subtotal * 0.1;
-    const total = subtotal + discount + deliveryFee
+    const total = subtotal + discount + deliveryFee;
+
+    const handleOpenForm = () => {
+        setOpenAddModel(true);
+        console.log(openAddModel)
+    };
+
+    const handleModalClose = () => {
+        setOpenAddModel(false);
+    };
 
     return (
         <>
@@ -41,10 +47,13 @@ const CartSummry = () => {
                             <p>Total</p>
                             <p>{total.toFixed(2)}</p>
                         </div>
-                        <button onClick={() => {checkoutCart(); navigate('/account/orders-history')}}>Checkout</button>
+                        <button onClick={handleOpenForm}>Checkout</button>
                     </div>
                 )
             }
+            {openAddModel && (
+                <AddressModel isOpen={openAddModel} onClose={handleModalClose} />
+            )}
         </>
   )
 }

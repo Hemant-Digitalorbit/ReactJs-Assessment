@@ -1,6 +1,6 @@
     import React, { createContext, useContext, useEffect, useState } from 'react';
     import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
-    import {doc, getDoc, setDoc} from 'firebase/firestore'
+    import {arrayUnion, doc, getDoc, setDoc, updateDoc} from 'firebase/firestore'
     import toast from 'react-hot-toast';
     import { firebaseAuth, firestore } from '../Firebase/Firebase';
     import cookies from 'js-cookie';
@@ -19,12 +19,16 @@
         const [showLogin, setShowLogin] = useState(false);
         const [isAgeVerified, setIsAgeVerified] = useState(false);
         const [loading, setLoading] = useState(false);
+        const [openAddModel, setOpenAddModel] = useState(false);
+        const [addresses, setAddresses] = useState([]);
+
 
         useEffect(() => {
-            const unlogged  = onAuthStateChanged(firebaseAuth, (user) => {
+            const unlogged  = onAuthStateChanged(firebaseAuth, async(user) => {
                 if (user) {
                     setUser(user)
                     cookies.set('user', JSON.stringify({uid: user.uid, email: user.email, displayName: user.displayName}), {expires: 7})
+                    await fetchAddresses(user.uid)
                 }else {
                     setUser(null)
                     cookies.remove('user')
@@ -33,7 +37,7 @@
             return () => unlogged();
         }, [])
 
-        const signUp = async (name, email, password) => {
+        const signUp = async ( email, password) => {
             try {
                 setLoading(true);
                 setShowLogin(false);
@@ -95,16 +99,54 @@
             toast.success(`Welcome back, ${user?.displayName}!`);
         }
 
-        
         // Handle logout functionality
         const handleLogout = () => {
             signOut(firebaseAuth);
             setUser(null)
             cookies.remove('user')
             toast.success('Logged out successfully');
-        };  
-        
+        };
 
+        const fetchAddresses = async (userId) => {
+            try {
+                const userDocRef = doc(firestore, 'users', userId);
+                const userDoc = await getDoc(userDocRef);
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
+                    setAddresses(userData?.user?.addresses || []);
+                }
+            } catch (error) {
+                console.error('Error fetching addresses:', error);
+                toast.error('Failed to load addresses.');
+            }
+        };
+        
+        const handleSaveOrEditAddress = async (address) => {
+            try {
+                const addDocRef = doc(firestore, 'users', user.uid);
+                const addrDoc = await getDoc(addDocRef);
+                if (addrDoc.exists()) {
+                    const userData = addrDoc.data();
+                    const currentAddresses = userData?.user?.addresses || [];
+                    let updatedAddresses;
+                    if (addresses) {
+                        updatedAddresses = currentAddresses.map((addr) => addr.id === address.id ? address : addr);
+                        toast.success('Address updated successfully!');
+                    } else {
+                        const addressWithId = { ...address, id: user.uid };
+                        updatedAddresses = [...currentAddresses, addressWithId];
+                        toast.success('Address saved successfully!');
+                    }
+                    await updateDoc(addDocRef, { 'user.addresses': updatedAddresses });
+                    setAddresses(updatedAddresses);
+                    setOpenAddModel(false);
+                } 
+            } catch (error) {
+                console.error('Error saving or updating address:', error);
+                toast.error('Failed to save or update address. Please try again.');
+            }
+        };
+        
         return (
             <UserContext.Provider 
                 value={{user, 
@@ -117,6 +159,11 @@
                     setShowLogin, 
                     isAgeVerified, 
                     setIsAgeVerified,
+                    handleSaveOrEditAddress,
+                    addresses,
+                    setAddresses,
+                    openAddModel,
+                    setOpenAddModel,
                     loading}}>
                 {children}
             </UserContext.Provider>
