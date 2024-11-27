@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import banner from '../assets/images/Frame 114.png';
-import { orders, reviews } from "../assets/Data/data";
+import { orders } from "../assets/Data/data";
 import '../assets/styles/HomePage.css';
 import LoginModal from "../components/features/auth/LoginModal";
 import BestsellersSection from "../components/sections/BestsellersSection";
@@ -19,7 +19,7 @@ import LandingPage from "./LandingPage";
 function HomePage() {
 
   const {user, isAgeVerified, showLogin, setShowLogin} = useUser();
-  const {products, categories, brands} = useProduct();
+  const {products, categories, brands, review} = useProduct();
   const {loading} = useProduct()
   const navigate = useNavigate();
 
@@ -59,7 +59,7 @@ function HomePage() {
                   </div>
                   <CategoriesSection heading="Categories" categories={categories} />
                   <BestsellersSection heading="Best Sellers" products={products} orders={orders} />
-                  <PopularProductsSection heading="Popular" products={products} reviews={reviews}/>
+                  <PopularProductsSection heading="Popular" products={products} review={review}/>
                   <BrandsSection heading="Brands" brands={brands} />
                 </>
               ) : (

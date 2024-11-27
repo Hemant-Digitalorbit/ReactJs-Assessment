@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
 
 
-const PopularProductsSection = ({products, reviews, heading}) => {
+const PopularProductsSection = ({products, review, heading}) => {
 
   const navigate = useNavigate()
 
   const popularProducts = products.map((product) => {
-    const ratings = reviews.filter((review) => review.product_id === (product.id));
+    const ratings = review.filter((review) => review.product_id === (product.id));
     const avgRating = ratings.reduce((acc, rating) => acc + rating.rating, 0) / ratings.length;
     return { ...product, avgRating };
   }).sort((a, b) => b.avgRating - a.avgRating)
