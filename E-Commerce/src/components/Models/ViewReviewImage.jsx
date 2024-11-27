@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RiCloseLargeFill } from 'react-icons/ri'
 
 const ViewReviewImage = ({setShowImage, reviewImage}) => {
+
+
     return (
         <div className='viewRevImg'>
             <div className='closeViewImg'>
